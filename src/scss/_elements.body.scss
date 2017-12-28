@@ -1,0 +1,11 @@
+body {
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	font-family: $font-main;
+	font-weight: 300;
+	color: $color-brown;
+	font-size: 16px;
+	max-width: $width-max;
+	margin: 0 auto;
+	line-height: $line-height;
+}

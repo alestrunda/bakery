@@ -1,0 +1,13 @@
+.box-orange {
+    color: #fff;
+    background-color: fade-out($color-orange, 0.1);
+    padding: 50px 40px 55px;
+
+    @include break(md) {
+        padding: 30px 25px 35px;
+    }
+
+    @include break(sm) {
+        padding: 30px 15px;
+    }
+}

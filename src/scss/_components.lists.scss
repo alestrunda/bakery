@@ -1,0 +1,61 @@
+.list-tabs {
+    margin-bottom: 20px;
+    font-weight: normal;
+    font-size: 22px;
+
+    @include break(md) {
+        font-size: 18px;
+    }
+}
+
+.list-tabs__item {
+    border: 3px solid transparent;
+    transition: all 0.3s ease-out;
+
+    &:not(:last-of-type) {
+        position: relative;
+
+        &::after {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            border-bottom: 2px dashed $color-yellow;
+            content: '';
+            transition: all 0.3s ease-out;
+        }
+    }
+
+    &.active {
+        border-color: $color-red;
+    }
+
+    &.active,
+    &.before-active {
+        &::after {
+            opacity: 0;
+        }
+    }
+}
+
+.list-tabs__link {
+    display: block;
+    width: 100%;
+    padding: 15px 18px;
+    text-decoration: none;
+    transition: all 0.2s ease-out;
+    text-align: left;
+
+    &:focus {
+        outline: none;
+    }
+
+    &:focus,
+    &:hover {
+        color: $color-red;
+    }
+
+    @include break(md) {
+        padding: 10px 15px;
+    }
+}

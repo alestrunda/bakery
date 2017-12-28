@@ -1,0 +1,111 @@
+$breakpoint_types: map-keys($breakpoints-grid);
+
+.grid {
+    display: flex;
+    flex-flow: row wrap;
+    @if map-has-key($grid_sizes, 'default') {
+        margin-left: #{- map-get($grid_sizes, 'default') + 'px'};
+    }
+    @else {
+        @warn "No default grid size found.";
+    }
+}
+
+    .grid--center {
+        justify-content: center;
+    }
+
+    @each $key, $value in $grid_sizes {
+        @if $key != 'default' {
+            .grid--#{$key} {
+                margin-left: #{- $value + 'px'};
+
+                > .grid__item {
+                    padding-left: #{$value + 'px'};
+                }
+            }
+        }
+    }
+
+    @if $framework-grid-vertical-aligns {
+        .grid--items-bottom {
+            align-items: flex-end;
+        }
+
+        .grid--items-center {
+            align-items: center;
+        }
+
+        .grid--items-top {
+            align-items: flex-start;
+        }
+    }
+
+.grid__item {
+    flex: 0 0 auto;
+    width: 100%;
+    @if map-has-key($grid_sizes, 'default') {
+        padding-left: #{map-get($grid_sizes, 'default') + 'px'};
+    }
+    @else {
+        @warn "No default grid size found.";
+    }
+}
+
+    @if $framework-grid-vertical-aligns {
+        .grid__item--v-center {
+            align-self: center;
+        }
+    }
+
+    @if $framework-grid-break-spacing {
+        /* grid break spacing */
+        @for $i from 1 through length($breakpoint_types) {
+            $key: nth($breakpoint_types, $i);
+            @for $i from 1 through 10 {
+                .grid__item--break-#{$key}-#{$i * 5} {
+                    @include break($key) {
+                        padding-top: $i * 5px;
+                    }
+                }
+            }
+        }
+    }
+
+    @if $framework-grid-break-ordering {
+        /* grid break ordering */
+        @for $i from 1 through length($breakpoint_types) {
+            $key: nth($breakpoint_types, $i);
+            @for $i from 1 through 5 {
+                .grid__item--order-#{$key}-#{$i} {
+                    @include break($key) {
+                        order: $i;
+                    }
+                }
+            }
+        }
+    }
+
+
+/* generate grid spans */
+
+$key: nth($breakpoint_types, 1);
+@for $i from 1 through $grid_cols {
+    .grid__item--#{$key}-span-#{$i} {
+        flex: 0 0 auto;
+        width: #{$i / $grid_cols * 100 + '%'};
+    }
+}
+
+@for $i from 2 through length($breakpoint_types) {
+    $key: nth($breakpoint_types, $i);
+    $key_break: nth($breakpoint_types, $i - 1);
+    @for $i from 1 through $grid_cols {
+        .grid__item--#{$key}-span-#{$i} {
+            @include break-min($key_break) {
+                flex: 0 0 auto;
+                width: #{$i / $grid_cols * 100 + '%'};
+            }
+        }
+    }
+}

@@ -1,0 +1,24 @@
+.label-box {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 120px;
+    margin-left: -60px;
+    color: #fff;
+    @include z-index(label-box);
+    font-weight: bold;
+    font-size: 18px;
+    transform-origin: top center;
+    transform: rotate(-45deg);
+    text-align: center;
+    padding: 15px 0 10px;
+}
+
+.label-box--yellow {
+    background-color: $color-yellow-full;
+}
+
+.label-box-container {
+    position: relative;
+    overflow: hidden;
+}

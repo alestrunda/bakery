@@ -1,0 +1,44 @@
+.text-big {
+    font-size: 18px;
+}
+
+.text-bigger {
+    font-size: 17px;
+}
+
+.text-huge {
+    font-size: 21px;
+    font-weight: 400;
+}
+
+.text-italic {
+    font-style: italic;
+}
+
+.text-normal {
+    font-size: 16px;
+}
+
+.text-red {
+    color: $color-red;
+}
+
+.text-red-dark {
+    color: $color-red-dark;
+}
+
+.text-small {
+    font-size: 14px;
+}
+
+.text-tiny {
+    font-size: 11px;
+}
+
+.text-white {
+    color: $color-white;
+}
+
+.text-yellow {
+    color: $color-yellow;
+}

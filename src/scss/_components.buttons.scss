@@ -1,0 +1,41 @@
+.button {
+    display: inline-block;
+    font-weight: 700;
+    font-size: 25px;
+    font-family: $font-main;
+    padding: 14px 25px;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: all 0.3s ease-out;
+}
+
+.button--full {
+    display: block;
+    width: 100%;
+}
+
+.button--red {
+    color: $color-yellow;
+    border: 1px solid $color-red;
+
+    &:hover {
+        color: $color-yellow;
+        background-color: $color-red;
+    }
+}
+
+.button--small {
+    font-size: 20px;
+    padding: 12px 20px 13px;
+}
+
+.button--white {
+    color: #fff;
+    border: 1px solid #fff;
+
+    &:hover {
+        color: #fff;
+        background-color: $color-red;
+        border-color: $color-red;
+    }
+}

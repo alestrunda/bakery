@@ -1,0 +1,41 @@
+.link-clean {
+    text-decoration: none;
+}
+
+.link-hover-red {
+    transition: all 0.2s ease-out;
+
+    &:hover {
+        color: $color-red;
+    }
+}
+
+.link-hover-yellow {
+    transition: all 0.2s ease-out;
+
+    &:hover {
+        color: $color-yellow-full;
+    }
+}
+
+.link-read-more {
+    font-family: $font-main;
+    font-weight: bold;
+    text-decoration: none;
+    color: $color-brown-light;
+    transition: all 0.2s ease-out;
+
+    &:focus,
+    &:hover {
+        color: $color-red;
+    }
+}
+
+.link-read-more__icon {
+    margin-left: 3px;
+    transition: transform 0.2s ease-out;
+
+    .link-read-more:hover & {
+        transform: translateX(3px);
+    }
+}

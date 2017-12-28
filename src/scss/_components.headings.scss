@@ -1,0 +1,152 @@
+.heading-big {
+    font-size: 35px;
+    font-weight: normal;
+    margin-bottom: 40px;
+}
+
+.heading-decoration {
+    position: relative;
+    text-align: center;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+
+    &::after,
+    &::before {
+        position: absolute;
+        bottom: 0;
+        content: '';
+    }
+
+    &::after {
+        width: 70px;
+        height: 4px;
+        left: 50%;
+        transform: translate(-130px, 1px);
+        background-color: $color-red;
+
+        @include break(xs) {
+            left: 0;
+            transform: translate(0, 1px);
+        }
+    }
+
+    &::before {
+        width: 260px;
+        height: 2px;
+        left: 50%;
+        transform: translateX(-130px);
+        background-color: $color-silver;
+
+        @include break(xs) {
+            width: 100%;
+            left: 0;
+            transform: translateX(0);
+        }
+    }
+}
+
+.heading-highlight {
+    font-family: $font-alt;
+    display: inline-block;
+    font-size: 34px;
+    font-weight: bold;
+    font-style: italic;
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 25px 40px;
+    text-transform: none;
+
+    @include break(md) {
+        font-size: 28px;
+        padding: 20px 30px;
+    }
+
+    @include break(sm) {
+        font-size: 24px;
+        padding: 15px 25px;
+    }
+}
+
+.heading-highlight-red {
+    font-family: $font-alt;
+    display: inline-block;
+    font-weight: 300;
+    font-size: 30px;
+    color: #fff;
+    background-color: fade-out($color-red, 0.3);
+    padding: 10px 35px;
+    font-style: italic;
+
+    @include break(md) {
+        font-size: 26px;
+        padding: 8px 30px;
+    }
+
+    @include break(sm) {
+        font-size: 22px;
+        padding: 6px 25px;
+    }
+}
+
+.heading-huge {
+    font-size: 50px;
+    font-weight: normal;
+}
+
+.heading-mid {
+    font-size: 26px;
+    font-weight: normal;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+.heading-section {
+    font-family: $font-main;
+    color: $color-brown;
+    font-size: 26px;
+    text-transform: uppercase;
+}
+
+.heading-sub {
+    font-family: $font-alt;
+    text-align: center;
+    font-weight: 400;
+    font-size: 20px;
+    font-style: italic;
+    margin-bottom: 25px;
+    color: $color-brown-light;
+}
+
+.heading-underline {
+    position: relative;
+    text-align: center;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+
+    &::after {
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        width: 80px;
+        height: 3px;
+        background-color: $color-yellow;
+        transform: translateX(-50%);
+        content: '';
+    }
+}
+
+.heading-underline2 {
+    position: relative;
+    padding-bottom: 10px;
+
+    &::after {
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        width: 110px;
+        height: 1px;
+        transform: translateX(-50%);
+        background-color: #fff;
+        content: '';
+    }
+}

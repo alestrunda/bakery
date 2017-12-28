@@ -1,0 +1,52 @@
+.bg-dark {
+    background-color: $color-dark;
+}
+
+.bg-dark2 {
+    background-color: $color-dark2;
+}
+
+.bg-red {
+    background-color: $color-red;
+}
+
+.bg-promote {
+    position: relative;
+    background-image: url($images-dir + 'bg_promote.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center center;
+    color: $color-gray-light;
+    @include z-index(above);
+
+    &::after {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: fade-out(#000, 0.5);
+        content: '';
+        @include z-index(below);
+    }
+}
+
+.bg-testimonials {
+    position: relative;
+    background-image: url($images-dir + 'bg_testimonials.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center center;
+    @include z-index(above);
+
+    &::after {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: fade-out($color-yellow-full, 0.15);
+        content: '';
+        @include z-index(below);
+    }
+}

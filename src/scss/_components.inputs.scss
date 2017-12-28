@@ -1,0 +1,20 @@
+.input-text {
+    font-family: $font-alt;
+    display: block;
+    width: 100%;
+    font-size: 18px;
+    background-color: #fff;
+    margin-bottom: 25px;
+    padding: 15px 18px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.75) inset;
+    transition: all 0.3s ease-out;
+    color: $color-brown;
+
+    &:focus {
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0) inset;
+    }
+}
+
+.input-textarea {
+    height: 120px;
+}

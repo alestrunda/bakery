@@ -1,0 +1,32 @@
+.recipe-simple {
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 18px;
+
+    @include break(sm) {
+        font-size: 16px;
+    }
+}
+
+.recipe-simple__content {
+    width: 270px;
+    padding-right: 25px;
+    padding-top: 5px;
+
+    @include break(lg) {
+        width: 100%;
+        padding-right: 0;
+    }
+}
+
+.recipe-simple__img {
+    margin-bottom: 20px;
+}
+
+.recipe-simple__photo {
+    width: calc(100% - 270px);
+
+    @include break(lg) {
+        width: 100%;
+    }
+}

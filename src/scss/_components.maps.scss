@@ -1,0 +1,32 @@
+.map {
+    position: relative;
+    @include z-index(above);
+}
+
+.map__canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    @include z-index(below);
+
+    @include break(md) {
+
+    }
+}
+
+.map__inner {
+    @include break(md) {
+        position: relative;
+        height: 250px;
+    }
+}
+
+.map__over {
+    width: 420px;
+
+    @include break(md) {
+        width: 100%;
+    }
+}

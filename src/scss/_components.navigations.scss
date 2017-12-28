@@ -1,0 +1,154 @@
+.nav-button {
+    position: absolute;
+    top: 15px;
+    right: -5px;
+    font-size: 36px;
+    cursor: pointer;
+    display: none;
+    padding-left: 10px;
+    padding-right: 10px;
+    transition: all 0.2s ease-out;
+    @include z-index(nav-button);
+
+    &:hover {
+        color: $color-red;
+    }
+
+    @include break(lg) {
+        display: block;
+    }
+}
+
+.nav-container {
+    display: flex;
+
+    @include break(lg) {
+        display: block;
+        text-align: center;
+    }
+}
+
+.nav-container__img {
+    width: 260px;
+    margin: 0 auto;
+    order: 2;
+
+    @include break(xs) {
+        width: 200px;
+    }
+}
+
+.nav-container__left {
+    order: 1;
+    flex: 1;
+    text-align: right;
+    align-self: center;
+
+    @include break(lg) {
+        display: none;
+    }
+}
+
+.nav-container__right {
+    order: 3;
+    flex: 1;
+    align-self: center;
+
+    @include break(lg) {
+        display: none;
+    }
+}
+
+.nav-main {
+    display: inline-flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.nav-main__item {
+    &:not(:last-of-type) {
+        border-right: 1px solid fade-out($color-brown, 0.6);
+    }
+}
+
+.nav-main__link {
+    display: block;
+    padding: 12px 30px;
+    text-decoration: none;
+    transition: all 0.2s ease-out;
+
+    &:hover,
+    &:focus {
+        color: $color-red;
+    }
+}
+
+.nav-responsive {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    background-color: #fff;
+    opacity: 0;
+    visibility: hidden;
+    display: flex;
+    justify-content: space-around;
+    padding-top: 30px;
+    transition: all 0.3s ease-out;
+    border-top: 2px solid $color-red;
+    border-bottom: 2px solid $color-red;
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    text-transform: uppercase;
+
+    @include break(lg) {
+        &.active {
+            opacity: 1;
+            visibility: visible;
+        }
+    }
+
+    @include break(sm) {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+}
+
+.nav-responsive__item {
+    margin: 5px 0;
+
+    @include break(sm) {
+        position: relative;
+        width: 100%;
+
+        &::after {
+            position: absolute;
+            bottom: -1px;
+            left: 50%;
+            width: 60px;
+            height: 1px;
+            transform: translateX(-50%);
+            content: '';
+        }
+
+        &:not(:last-of-type)::after {
+            background-color: fade-out($color-brown, 0.6);
+        }
+    }
+}
+
+.nav-responsive__link {
+    display: block;
+    padding: 12px 10px;
+    text-decoration: none;
+    transition: all 0.2s ease-out;
+
+    &:hover,
+    &:focus {
+        color: $color-red;
+    }
+}

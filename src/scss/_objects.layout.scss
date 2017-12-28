@@ -1,0 +1,51 @@
+.container {
+    padding-left: 25px;
+    padding-right: 25px;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1200px;
+
+    @include break(md) {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+}
+
+.container--full {
+    max-width: none;
+}
+
+.container--md-clean {
+    @include break(md) {
+        padding-left: 0;
+        padding-right: 0;
+    }
+}
+
+.overflow-hidden {
+    overflow: hidden;
+}
+
+.section-content {
+    padding-top: 100px;
+    padding-bottom: 80px;
+
+    @include break(md) {
+        padding-top: 70px;
+        padding-bottom: 50px;
+    }
+
+    @include break(sm) {
+        padding-top: 50px;
+        padding-bottom: 30px;
+    }
+}
+
+.section-content--bottom-small {
+    padding-bottom: 30px;
+}
+
+.section-content--small {
+    padding-top: 50px;
+    padding-bottom: 30px;
+}

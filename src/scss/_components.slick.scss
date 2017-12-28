@@ -1,0 +1,166 @@
+.slick-anime {
+    opacity: 0;
+    transition-property: opacity, transform;
+    transition-duration: 0.4s;
+    transition-timing-function: ease-out;
+
+    .slick-active & {
+        opacity: 1;
+    }
+}
+
+.slick-anime--heading1 {
+    transform: translateY(25%);
+    transition-delay: 0.5s;
+
+    .slick-active & {
+        transform: translateY(0);
+    }
+}
+
+.slick-anime--heading2 {
+    transform: translateY(25%);
+    transition-delay: 1s;
+
+    .slick-active & {
+        transform: translateY(0);
+    }
+}
+
+.slick-arrows-1 {
+    .slick-next,
+    .slick-prev {
+        position: absolute;
+        width: 30px;
+        height: 30px;
+        text-align: center;
+        bottom: 20px;
+        right: 20px;
+        color: $color-red-dark;
+        transition: all 0.25s ease-out;
+
+        &:hover {
+            color: #fff;
+        }
+    }
+
+    .slick-prev {
+        transform: translateX(-100%);
+    }
+}
+
+.slick-dots li {
+    transition: all 0.2s ease-out;
+    cursor: pointer;
+}
+
+.slick-dots-dash .slick-dots {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    padding-left: 15px;
+    padding-right: 15px;
+
+    button {
+        display: block;
+        position: relative;
+        width: 45px;
+        height: 8px;
+        margin: 2px 4px;
+        color: transparent;
+        overflow: hidden;
+        line-height: 0;
+
+        &::after {
+            position: absolute;
+            top: 2px;
+            left: 0;
+            width: 100%;
+            bottom: 2px;
+            background-color: $color-darker;
+            content: '';
+            transition: all 0.2s ease-out;
+        }
+
+        &:focus {
+            outline: none;
+        }
+
+        &:hover::after {
+            background-color: $color-red;
+        }
+    }
+
+    li {
+        display: inline-block;
+
+        &.slick-active button::after {
+            background-color: $color-red;
+        }
+    }
+}
+
+.slick-dots-dot .slick-dots {
+    position: absolute;
+    bottom: 30px;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    padding-left: 15px;
+    padding-right: 15px;
+    @include z-index(slider-nav);
+
+    button {
+        position: relative;
+        display: block;
+        width: 17px;
+        height: 17px;
+        background-color: $color-brown;
+        border-radius: 50%;
+        margin: 2px 7px;
+        transition: all 0.2s ease-out;
+        color: transparent;
+        line-height: 0;
+
+        &::after {
+            position: absolute;
+            top: -3px;
+            left: -3px;
+            right: -3px;
+            bottom: -3px;
+            border: 2px solid #fff;
+            border-radius: 50%;
+            transition: all 0.2s ease-out;
+            content: '';
+        }
+
+        &:focus {
+            outline: none;
+        }
+
+        &:hover::after {
+            border-color: $color-red;
+        }
+    }
+
+    li {
+        display: inline-block;
+
+        &.slick-active button {
+            background-color: $color-red;
+        }
+    }
+}
+
+.slick-next,
+.slick-prev {
+    cursor: pointer;
+    font-size: 24px;
+    @include z-index(slider-nav);
+}
+
+.slick-slide:focus {
+    outline: none;
+}

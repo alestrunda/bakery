@@ -1,0 +1,22 @@
+.form-inline {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+
+.form-inline__input {
+    width: calc(100% - 200px);
+
+    @include break(sm) {
+        width: 100%;
+    }
+}
+
+.form-inline__submit {
+    width: 180px;
+
+    @include break(sm) {
+        width: 100%;
+    }
+}

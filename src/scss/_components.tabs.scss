@@ -1,0 +1,44 @@
+.tabs-left {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.tabs-left__arrow {
+    position: absolute;
+    left: -30px;
+    top: 0;
+    margin-top: -15px;
+    transform: translateY(-50%) scaleY(0.9);
+    border: 15px solid transparent;
+    border-right-color: $color-yellow;
+    transition: all 0.2s ease-out;
+
+    @include break(md) {
+        display: none;
+    }
+}
+
+.tabs-left__content {
+    position: relative;
+    border: 3px solid $color-yellow;
+    width: calc(100% - 340px);
+    padding: 15px 25px;
+    border-radius: 3px;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.35);
+
+    @include break(md) {
+        width: 100%;
+        padding: 10px 15px;
+    }
+}
+
+.tabs-left__list {
+    width: 310px;
+
+    @include break(md) {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+}
