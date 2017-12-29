@@ -17,8 +17,8 @@ const Recipes = ({data}) => (
 )
 
 export const query = graphql`
-  query MyFilesQuery {
-    allMarkdownRemark {
+  query RecipesQuery {
+    allMarkdownRemark(filter: {fileAbsolutePath: {regex: "/recipes/"}}) {
       edges {
         node {
           id
