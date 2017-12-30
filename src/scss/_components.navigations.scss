@@ -10,6 +10,7 @@
     transition: all 0.2s ease-out;
     @include z-index(nav-button);
 
+    &:focus,
     &:hover {
         color: $color-red;
     }

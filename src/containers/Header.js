@@ -3,6 +3,10 @@ import Link from 'gatsby-link'
 import classNames from 'classnames'
 import FontAwesome from 'react-fontawesome'
 
+import Button from '../components/Button'
+import Navigation from '../components/Navigation'
+import NavigationLogo from '../components/NavigationLogo'
+
 class Header extends React.Component {
   state = {
     menuOpened: false
@@ -12,71 +16,49 @@ class Header extends React.Component {
     this.setState({
       menuOpened: !this.state.menuOpened
     })
-    this.menuResponsive.classList.toggle('active')
   }
 
   render() {
+    const menuItemsLeft = [
+      {title: "Home", to: "#"},
+      {title: "About", to: "#"},
+      {title: "Menu", to: "#"},
+    ]
+    const menuItemsRight = [
+      {title: "Features", to: "#"},
+      {title: "Blog", to: "#"},
+      {title: "Contact", to: "#"},
+    ]
+
     return (
       <header className="page-header">
         <div className="container">
           <div className="page-header__content clearfix">
-            <div onClick={this.handleMenuOpenClick} className="nav-button">
+            <Button onClick={this.handleMenuOpenClick} className="nav-button">
               <FontAwesome name="reorder"></FontAwesome>
-            </div>
+            </Button>
             <nav className="nav-container">
-              <div className="nav-container__left">
-                <ul className="nav-main">
-                  <li className="nav-main__item">
-                    <Link className="nav-main__link" to="#">Home</Link>
-                  </li>
-                  <li className="nav-main__item">
-                    <Link className="nav-main__link" to="#">About</Link>
-                  </li>
-                  <li className="nav-main__item">
-                    <Link className="nav-main__link" to="#">Menu</Link>
-                  </li>
-                </ul>
-              </div>
-              <div className="nav-container__right">
-                <ul className="nav-main">
-                  <li className="nav-main__item">
-                    <Link className="nav-main__link" to="#">Features</Link>
-                  </li>
-                  <li className="nav-main__item">
-                    <Link className="nav-main__link" to="#">Blog</Link>
-                  </li>
-                  <li className="nav-main__item">
-                    <Link className="nav-main__link" to="#">Contact</Link>
-                  </li>
-                </ul>
-              </div>
-              <div className="nav-container__img img-logo__container">
-                <div className="img-logo__circle"></div>
-                <Link to="./"><img className="img-logo" src={require("../../assets/logo.png")} alt="Bakery" /></Link>
-              </div>
+              <Navigation
+                className="nav-main"
+                classNameContainer="nav-container__left"
+                items={menuItemsLeft}
+              />
+              <Navigation
+                className="nav-main"
+                classNameContainer="nav-container__right"
+                items={menuItemsRight}
+              />
+              <NavigationLogo className="nav-container__img" to="/" />
             </nav>
           </div>
         </div>
-        <ul className={classNames("nav-responsive", {"active": this.state.menuOpened})} ref={(element) => { this.menuResponsive = element; }}>
-          <li className="nav-responsive__item">
-            <Link className="nav-responsive__link" to="#">Home</Link>
-          </li>
-          <li className="nav-responsive__item">
-            <Link className="nav-responsive__link" to="#">About</Link>
-          </li>
-          <li className="nav-responsive__item">
-            <Link className="nav-responsive__link" to="#">Menu</Link>
-          </li>
-          <li className="nav-responsive__item">
-            <Link className="nav-responsive__link" to="#">Features</Link>
-          </li>
-          <li className="nav-responsive__item">
-            <Link className="nav-responsive__link" to="#">Blog</Link>
-          </li>
-          <li className="nav-responsive__item">
-            <Link className="nav-responsive__link" to="#">Contact</Link>
-          </li>
-        </ul>
+        <Navigation
+          active={this.state.menuOpened}
+          className="nav-responsive"
+          classNameContainer="nav"
+          items={menuItemsLeft.concat(menuItemsRight)}
+          ref={(element) => { this.menuResponsive = element; }}
+        />
       </header>
     )
   }

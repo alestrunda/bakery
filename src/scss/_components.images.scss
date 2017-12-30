@@ -9,7 +9,7 @@
     }
 }
 
-.img-logo {
+.img-nav-logo {
     position: absolute;
     top: 0;
     left: 50%;
@@ -17,7 +17,7 @@
     max-width: 100%;
 }
 
-.img-logo__circle {
+.img-nav-logo__circle {
     position: absolute;
     bottom: -43px;
     left: 50%;
@@ -42,7 +42,7 @@
     }
 }
 
-.img-logo__container {
+.img-nav-logo__container {
     position: relative;
     height: 90px;
     @include z-index(above);
