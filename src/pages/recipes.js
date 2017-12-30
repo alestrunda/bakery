@@ -6,8 +6,10 @@ const Recipes = ({data}) => (
     <h1 className="mb30">Recipes ({data.allMarkdownRemark.totalCount})</h1>
     {data.allMarkdownRemark.edges.map(({ node }, index) => {
       return (
-        <div>
-          <h3>{node.frontmatter.title}</h3>
+        <div className="article-preview">
+          <h3 className="mb10">
+            <Link to={node.frontmatter.path}>{node.frontmatter.title}</Link>
+          </h3>
           <div dangerouslySetInnerHTML={{ __html: node.excerpt }} />
         </div>
       )
