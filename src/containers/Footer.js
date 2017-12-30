@@ -1,4 +1,6 @@
 import React from 'react'
+import Link from 'gatsby-link'
+import FontAwesome from 'react-fontawesome'
 
 const Footer = (props) => {
   return(
