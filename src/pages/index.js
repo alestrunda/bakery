@@ -11,6 +11,7 @@ import PersonBox from '../components/PersonBox'
 import Recipe from '../components/Recipe'
 import SlickArrow from '../components/SlickArrow'
 import Tabs from '../containers/Tabs'
+import Testimonial from '../components/Testimonial'
 
 const mainSliderSettings = {
 	autoplay: true,
@@ -276,28 +277,14 @@ const IndexPage = ({data}) => {
 				<div className="container">
 					<Slider className="slick-arrows-1" {...testimonialsSliderSettings}>
 						<div className="slide">
-							<div className="testimonial">
-								<div className="testimonial__img">
-									<img className="image-round el-center" src={require("../../assets/testimonial.jpg")} alt="image" />
-								</div>
-								<div className="testimonial__content">
-									<p>
-										“Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500’s...
-									</p>                        
-								</div>
-							</div>
+							<Testimonial>
+								“Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500’s...
+							</Testimonial>
 						</div>
 						<div className="slide">
-							<div className="testimonial">
-								<div className="testimonial__img">
-									<img className="image-round el-center" src={require("../../assets/testimonial.jpg")} alt="image" />
-								</div>
-								<div className="testimonial__content">
-									<p>
-										“Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500’s...
-									</p>                        
-								</div>
-							</div>
+							<Testimonial>
+								“Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500’s...
+							</Testimonial>
 						</div>
 					</Slider>
 				</div>
