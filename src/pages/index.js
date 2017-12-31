@@ -52,7 +52,8 @@ const testimonialsSliderSettings = {
 }
 
 const IndexPage = ({data}) => {
-	const tabsRecipes = data.allMarkdownRemark.edges.map(({ node }, index) => {
+	console.log({data})
+	const tabsRecipes = data.recipes.edges.map(({ node }, index) => {
 		return (
 			<Pane key={node.id} title={node.frontmatter.title}>
 				<div className="tabs-component__tab">
@@ -66,6 +67,23 @@ const IndexPage = ({data}) => {
 					/>
 				</div>
 			</Pane>
+		)
+	})
+
+	const workers = data.people.edges.map(({ node }, index) => {
+		return (
+			<div className="grid__item grid__item--lg-span-4 grid__item--md-span-6">
+				<div className="person-box">
+					<div className="person-box__img">
+						<div className="person-box__border"></div>
+						<img className="img-responsive el-center" src={require("../../assets/worker1.jpg")} alt={node.frontmatter.name} />
+					</div>
+					<div className="person-box__content">
+						<p className="person-box__heading">{`${node.frontmatter.title} ${node.frontmatter.name}`}</p>
+						<p dangerouslySetInnerHTML={{ __html: node.html }} />
+					</div>
+				</div>
+			</div>
 		)
 	})
 
@@ -372,48 +390,7 @@ const IndexPage = ({data}) => {
 				<div className="container">
 					<h2 className="heading-decoration">OUR SPECIAL CHEF’S</h2>
 					<div className="grid grid--center">
-						<div className="grid__item grid__item--lg-span-4 grid__item--md-span-6">
-							<div className="person-box">
-								<div className="person-box__img">
-									<div className="person-box__border"></div>
-									<img className="img-responsive el-center" src={require("../../assets/worker1.jpg")} alt="chef" />
-								</div>
-								<div className="person-box__content">
-									<p className="person-box__heading">Chef. Michael</p>
-									<p>
-										Whether the flitting attendance of the one still and solitary jet had gradually worked upon Ahab.
-									</p>
-								</div>
-							</div>
-						</div>
-						<div className="grid__item grid__item--lg-span-4 grid__item--md-span-6">
-							<div className="person-box">
-								<div className="person-box__img">
-									<div className="person-box__border"></div>
-									<img className="img-responsive el-center" src={require("../../assets/worker2.jpg")} alt="chef" />
-								</div>
-								<div className="person-box__content">
-									<p className="person-box__heading">Chef. Michael</p>
-									<p>
-										Whether the flitting attendance of the one still and solitary jet had gradually worked upon Ahab.
-									</p>
-								</div>
-							</div>
-						</div>
-						<div className="grid__item grid__item--lg-span-4 grid__item--md-span-6">
-							<div className="person-box">
-								<div className="person-box__img">
-									<div className="person-box__border"></div>
-									<img className="img-responsive el-center" src={require("../../assets/worker1.jpg")} alt="chef" />
-								</div>
-								<div className="person-box__content">
-									<p className="person-box__heading">Chef. Michael</p>
-									<p>
-										Whether the flitting attendance of the one still and solitary jet had gradually worked upon Ahab.
-									</p>
-								</div>
-							</div>
-						</div>
+						{workers}
 					</div>
 				</div>
 			</section>
@@ -501,25 +478,41 @@ const IndexPage = ({data}) => {
 }
 
 export const query = graphql`
-  query RecipesLastFiveQuery {
-    allMarkdownRemark(
-		filter: {fileAbsolutePath: {regex: "/recipes/"}}
-		sort: {fields: [frontmatter___date], order: DESC}
-	) {
-      totalCount
-      edges {
-        node {
-		  id
-          frontmatter {
-			title
-			ingredients
-			timePrep
-			timeCook
-          }
-          html
-        }
-      }
-    }
+  query IndexPageQueries {
+    recipes: allMarkdownRemark(
+			filter: {fileAbsolutePath: {regex: "/recipes/"}}
+			sort: {fields: [frontmatter___date], order: DESC}
+		){
+			totalCount
+			edges {
+				node {
+					id
+					frontmatter {
+						title
+						ingredients
+						timePrep
+						timeCook
+					}
+					html
+				}
+			}
+		},
+	people: allMarkdownRemark(
+			filter: {fileAbsolutePath: {regex: "/people/"}}
+			sort: {fields: [frontmatter___name], order: ASC}
+		){
+			totalCount
+			edges {
+				node {
+					id
+					frontmatter {
+						name
+						title
+					}
+					html
+				}
+			}
+		}
   }
 `
 
