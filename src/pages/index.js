@@ -107,7 +107,6 @@ const IndexPage = ({data}) => {
 
 	return (
 		<div>
-			<SlickArrow text="dfg" />
 			<Slider className="slider-big slick-dots-dot" {...mainSliderSettings}>
 				<div className="slider-big__slide">
 					<picture>
