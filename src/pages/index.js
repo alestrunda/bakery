@@ -8,6 +8,7 @@ import Lightbox from 'react-images';
 
 import Pane from '../components/Pane'
 import PersonBox from '../components/PersonBox'
+import ProductPreview from '../components/ProductPreview'
 import Recipe from '../components/Recipe'
 import SlickArrow from '../components/SlickArrow'
 import Tabs from '../containers/Tabs'
@@ -92,22 +93,14 @@ const IndexPage = ({data}) => {
 	})
 
 	const productSlides = data.products.edges.map(({ node }, index) => {
-		const label = <span className="label-box label-box--yellow">{node.frontmatter.label}</span>
 		return (
 			<div key={node.id} className="slider-products__slide">
-				<div className="product-preview label-box-container">
-					<img className="el-full" src={require("../../assets/products/1_thumb.jpg")} alt={node.frontmatter.title} />
-					<div className="product-preview__hover">
-						<div className="product-preview__hover-inner">
-							<em>{node.frontmatter.title}</em>
-						</div>
-						<div className="product-preview__hover-icons">
-							<a href={node.frontmatter.urlShop} className="link-hover-yellow ml10"><FontAwesome name="shopping-cart" /></a>
-							<a href={node.frontmatter.urlLike} className="link-hover-yellow ml10"><FontAwesome name="heart" /></a>
-						</div>
-					</div>
-					{node.frontmatter.label && label}
-				</div>
+				<ProductPreview
+					label={node.frontmatter.label}
+					urlLike={node.frontmatter.urlLike}
+					urlShop={node.frontmatter.urlShop}
+					title={node.frontmatter.title}
+				/>
 			</div>
 		)
 	})
