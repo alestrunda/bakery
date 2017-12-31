@@ -9,6 +9,15 @@
     transition: all 0.3s ease-out;
 }
 
+.button--brown {
+    color: $color-brown;
+    border: 1px solid $color-brown;
+
+    &:hover {
+        color: $color-red;
+    }
+}
+
 .button--full {
     display: block;
     width: 100%;
@@ -38,4 +47,9 @@
         background-color: $color-red;
         border-color: $color-red;
     }
+}
+
+.button--xsmall {
+    font-size: 15px;
+    padding: 11px 16px 10px;
 }

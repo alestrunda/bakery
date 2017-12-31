@@ -3,7 +3,6 @@ import Link from 'gatsby-link'
 import classNames from 'classnames'
 
 const NavigationLogo = (props) => {
-    console.log(props.imgSrc)
     return (
         <div className={classNames("img-nav-logo__container", props.className)}>
             <div className="img-nav-logo__circle"></div>

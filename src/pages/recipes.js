@@ -10,12 +10,14 @@ const Recipes = ({data}) => (
           <h3 className="mb10">
             <Link to={node.frontmatter.path}>{node.frontmatter.title}</Link>
           </h3>
-          <p><strong>Ingredients:</strong> {node.frontmatter.ingredients}</p>
+          <strong>Ingredients:</strong>
+          <p dangerouslySetInnerHTML={{ __html: node.frontmatter.ingredients }} />
           <div dangerouslySetInnerHTML={{ __html: node.excerpt }} />
         </div>
       )
     })}
-    <Link to="/">Go back to the homepage</Link>
+    <div className="m20"></div>
+    <Link to="/" className="button button--xsmall button--brown">Back to the homepage</Link>
   </div>
 )
 

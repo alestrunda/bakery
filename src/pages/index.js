@@ -362,6 +362,9 @@ const IndexPage = ({data}) => {
 					<Tabs>
 						{tabsRecipes}
 					</Tabs>
+					<div className="text-center">
+						<Link to="/recipes/" className="button button--small button--brown">All recipes</Link>
+					</div>
 				</div>
 			</section>
 
