@@ -91,6 +91,27 @@ const IndexPage = ({data}) => {
 		)
 	})
 
+	const productSlides = data.products.edges.map(({ node }, index) => {
+		const label = <span className="label-box label-box--yellow">{node.frontmatter.label}</span>
+		return (
+			<div key={node.id} className="slider-products__slide">
+				<div className="product-preview label-box-container">
+					<img className="el-full" src={require("../../assets/products/1_thumb.jpg")} alt={node.frontmatter.title} />
+					<div className="product-preview__hover">
+						<div className="product-preview__hover-inner">
+							<em>{node.frontmatter.title}</em>
+						</div>
+						<div className="product-preview__hover-icons">
+							<a href={node.frontmatter.urlShop} className="link-hover-yellow ml10"><FontAwesome name="shopping-cart" /></a>
+							<a href={node.frontmatter.urlLike} className="link-hover-yellow ml10"><FontAwesome name="heart" /></a>
+						</div>
+					</div>
+					{node.frontmatter.label && label}
+				</div>
+			</div>
+		)
+	})
+
 	return (
 		<div>
 			<SlickArrow text="dfg" />
@@ -161,120 +182,7 @@ const IndexPage = ({data}) => {
 					</p>
 					<div className="slider-products">
 						<Slider className="slick-dots-dash slider--dots-out" {...productsSliderSettings}>
-							<div className="slider-products__slide">
-								<div className="product-preview label-box-container">
-									<img className="el-full" src={require("../../assets/products/1_thumb.jpg")} alt="product" />
-									<div className="product-preview__hover">
-										<div className="product-preview__hover-inner">
-											<em>Croissants</em>
-										</div>
-										<div className="product-preview__hover-icons">
-											<a href="#" className="link-hover-yellow ml10"><FontAwesome name="shopping-cart" /></a>
-											<a href="#" className="link-hover-yellow ml10"><FontAwesome name="heart" /></a>
-										</div>
-									</div>
-									<span className="label-box label-box--yellow">New</span>
-								</div>
-							</div>
-							<div className="slider-products__slide">
-								<div className="product-preview label-box-container">
-									<img className="el-full" src={require("../../assets/products/2_thumb.jpg")} alt="product" />
-									<div className="product-preview__hover">
-										<div className="product-preview__hover-inner">
-											<em>Croissants</em>
-										</div>
-										<div className="product-preview__hover-icons">
-											<a href="#" className="link-hover-yellow ml10"><FontAwesome name="shopping-cart" /></a>
-											<a href="#" className="link-hover-yellow ml10"><FontAwesome name="heart" /></a>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div className="slider-products__slide">
-								<div className="product-preview label-box-container">
-									<img className="el-full" src={require("../../assets/products/3_thumb.jpg")} alt="product" />
-									<div className="product-preview__hover">
-										<div className="product-preview__hover-inner">
-											<em>Croissants</em>
-										</div>
-										<div className="product-preview__hover-icons">
-											<a href="#" className="link-hover-yellow ml10"><FontAwesome name="shopping-cart" /></a>
-											<a href="#" className="link-hover-yellow ml10"><FontAwesome name="heart" /></a>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div className="slider-products__slide">
-								<div className="product-preview label-box-container">
-									<img className="el-full" src={require("../../assets/products/4_thumb.jpg")} alt="product" />
-									<div className="product-preview__hover">
-										<div className="product-preview__hover-inner">
-											<em>Croissants</em>
-										</div>
-										<div className="product-preview__hover-icons">
-											<a href="#" className="link-hover-yellow ml10"><FontAwesome name="shopping-cart" /></a>
-											<a href="#" className="link-hover-yellow ml10"><FontAwesome name="heart" /></a>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div className="slider-products__slide">
-								<div className="product-preview label-box-container">
-									<img className="el-full" src={require("../../assets/products/1_thumb.jpg")} alt="product" />
-									<div className="product-preview__hover">
-										<div className="product-preview__hover-inner">
-											<em>Croissants</em>
-										</div>
-										<div className="product-preview__hover-icons">
-											<a href="#" className="link-hover-yellow ml10"><FontAwesome name="shopping-cart" /></a>
-											<a href="#" className="link-hover-yellow ml10"><FontAwesome name="heart" /></a>
-										</div>
-									</div>
-									<span className="label-box label-box--yellow">New</span>
-								</div>
-							</div>
-							<div className="slider-products__slide">
-								<div className="product-preview label-box-container">
-									<img className="el-full" src={require("../../assets/products/2_thumb.jpg")} alt="product" />
-									<div className="product-preview__hover">
-										<div className="product-preview__hover-inner">
-											<em>Croissants</em>
-										</div>
-										<div className="product-preview__hover-icons">
-											<a href="#" className="link-hover-yellow ml10"><FontAwesome name="shopping-cart" /></a>
-											<a href="#" className="link-hover-yellow ml10"><FontAwesome name="heart" /></a>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div className="slider-products__slide">
-								<div className="product-preview label-box-container">
-									<img className="el-full" src={require("../../assets/products/3_thumb.jpg")} alt="product" />
-									<div className="product-preview__hover">
-										<div className="product-preview__hover-inner">
-											<em>Croissants</em>
-										</div>
-										<div className="product-preview__hover-icons">
-											<a href="#" className="link-hover-yellow ml10"><FontAwesome name="shopping-cart" /></a>
-											<a href="#" className="link-hover-yellow ml10"><FontAwesome name="heart" /></a>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div className="slider-products__slide">
-								<div className="product-preview label-box-container">
-									<img className="el-full" src={require("../../assets/products/4_thumb.jpg")} alt="product" />
-									<div className="product-preview__hover">
-										<div className="product-preview__hover-inner">
-											<em>Croissants</em>
-										</div>
-										<div className="product-preview__hover-icons">
-											<a href="#" className="link-hover-yellow ml10"><FontAwesome name="shopping-cart" /></a>
-											<a href="#" className="link-hover-yellow ml10"><FontAwesome name="heart" /></a>
-										</div>
-									</div>
-								</div>
-							</div>
+							{productSlides}
 						</Slider>
 					</div>
 				</div>
@@ -464,7 +372,6 @@ export const query = graphql`
 			filter: {fileAbsolutePath: {regex: "/recipes/"}}
 			sort: {fields: [frontmatter___date], order: DESC}
 		){
-			totalCount
 			edges {
 				node {
 					id
@@ -482,7 +389,6 @@ export const query = graphql`
 			filter: {fileAbsolutePath: {regex: "/people/"}}
 			sort: {fields: [frontmatter___name], order: ASC}
 		){
-			totalCount
 			edges {
 				node {
 					id
@@ -493,11 +399,26 @@ export const query = graphql`
 					html
 				}
 			}
-		}
+		},
+	products: allMarkdownRemark(
+			filter: {fileAbsolutePath: {regex: "/products/"}}
+			sort: {fields: [frontmatter___date], order: DESC}
+		){
+			edges {
+				node {
+					id
+					frontmatter {
+						title
+						urlLike
+						urlShop
+						label
+					}
+				}
+			}
+		},
 	testimonials: allMarkdownRemark(
 			filter: {fileAbsolutePath: {regex: "/testimonials/"}}
 		){
-			totalCount
 			edges {
 				node {
 					id
