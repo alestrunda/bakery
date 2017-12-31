@@ -10,6 +10,7 @@ const Recipes = ({data}) => (
           <h3 className="mb10">
             <Link to={node.frontmatter.path}>{node.frontmatter.title}</Link>
           </h3>
+          <p><strong>Ingredients:</strong> {node.frontmatter.ingredients}</p>
           <div dangerouslySetInnerHTML={{ __html: node.excerpt }} />
         </div>
       )
@@ -19,13 +20,14 @@ const Recipes = ({data}) => (
 )
 
 export const query = graphql`
-  query RecipesQuery {
+  query RecipesListQuery {
     allMarkdownRemark(filter: {fileAbsolutePath: {regex: "/recipes/"}}) {
       totalCount
       edges {
         node {
           frontmatter {
             title
+            ingredients
           }
           excerpt(pruneLength: 250)
         }
