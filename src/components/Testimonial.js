@@ -6,7 +6,7 @@ const Testimonial = (props) => (
             <img className="image-round el-center" src={require("../../assets/testimonial.jpg")} alt="image" />
         </div>
         <div className="testimonial__content">
-            {props.children}                 
+            <p dangerouslySetInnerHTML={{ __html: props.html }} />
         </div>
     </div>
 )

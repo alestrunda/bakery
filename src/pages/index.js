@@ -54,7 +54,6 @@ const testimonialsSliderSettings = {
 }
 
 const IndexPage = ({data}) => {
-	console.log({data})
 	const tabsRecipes = data.recipes.edges.map(({ node }, index) => {
 		return (
 			<Pane key={node.id} title={node.frontmatter.title}>
@@ -74,12 +73,20 @@ const IndexPage = ({data}) => {
 
 	const workers = data.people.edges.map(({ node }, index) => {
 		return (
-			<div className="grid__item grid__item--lg-span-4 grid__item--md-span-6">
+			<div key={node.id} className="grid__item grid__item--lg-span-4 grid__item--md-span-6">
 				<PersonBox
 					name={node.frontmatter.name}
 					title={node.frontmatter.title}
 					html={node.html}
 				/>
+			</div>
+		)
+	})
+
+	const testimonialSlides = data.testimonials.edges.map(({ node }, index) => {
+		return (
+			<div key={node.id} className="slide">
+				<Testimonial html={node.html} />
 			</div>
 		)
 	})
@@ -276,16 +283,7 @@ const IndexPage = ({data}) => {
 			<section className="bg-testimonials">
 				<div className="container">
 					<Slider className="slick-arrows-1" {...testimonialsSliderSettings}>
-						<div className="slide">
-							<Testimonial>
-								“Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500’s...
-							</Testimonial>
-						</div>
-						<div className="slide">
-							<Testimonial>
-								“Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500’s...
-							</Testimonial>
-						</div>
+						{testimonialSlides}
 					</Slider>
 				</div>
 			</section>
@@ -492,6 +490,17 @@ export const query = graphql`
 						name
 						title
 					}
+					html
+				}
+			}
+		}
+	testimonials: allMarkdownRemark(
+			filter: {fileAbsolutePath: {regex: "/testimonials/"}}
+		){
+			totalCount
+			edges {
+				node {
+					id
 					html
 				}
 			}
