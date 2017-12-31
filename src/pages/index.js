@@ -7,6 +7,7 @@ import GoogleMapReact from 'google-map-react';
 import Lightbox from 'react-images';
 
 import Pane from '../components/Pane'
+import PersonBox from '../components/PersonBox'
 import Recipe from '../components/Recipe'
 import SlickArrow from '../components/SlickArrow'
 import Tabs from '../containers/Tabs'
@@ -73,16 +74,11 @@ const IndexPage = ({data}) => {
 	const workers = data.people.edges.map(({ node }, index) => {
 		return (
 			<div className="grid__item grid__item--lg-span-4 grid__item--md-span-6">
-				<div className="person-box">
-					<div className="person-box__img">
-						<div className="person-box__border"></div>
-						<img className="img-responsive el-center" src={require("../../assets/worker1.jpg")} alt={node.frontmatter.name} />
-					</div>
-					<div className="person-box__content">
-						<p className="person-box__heading">{`${node.frontmatter.title} ${node.frontmatter.name}`}</p>
-						<p dangerouslySetInnerHTML={{ __html: node.html }} />
-					</div>
-				</div>
+				<PersonBox
+					name={node.frontmatter.name}
+					title={node.frontmatter.title}
+					html={node.html}
+				/>
 			</div>
 		)
 	})
