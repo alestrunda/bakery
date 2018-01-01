@@ -6,5 +6,20 @@
 }
 
 .article-preview {
-    margin-bottom: 50px;
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.article-preview__img {
+    transition: all 0.6s ease-out;
+
+    .article-preview:hover & {
+        transform: scale(1.1) rotate(2deg);
+    }
+}
+
+.article-preview__img-wrapper {
+    display: block;
+    margin-bottom: 20px;
+    overflow: hidden;
 }

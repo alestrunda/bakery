@@ -6,6 +6,7 @@ import Slider from 'react-slick'
 import GoogleMapReact from 'google-map-react';
 import Lightbox from 'react-images';
 
+import ArticlePreview from '../components/ArticlePreview'
 import Pane from '../components/Pane'
 import PersonBox from '../components/PersonBox'
 import ProductPreview from '../components/ProductPreview'
@@ -108,14 +109,10 @@ const IndexPage = ({data}) => {
 	const servicesColumns = data.services.edges.map(({ node }, index) => {
 		return (
 			<div key={node.id} className="grid__item grid__item--lg-span-3 grid__item--md-span-6">
-				<div className="product-detail">
-					<a className="product-detail__img-wrapper" href="#">
-						<img className="product-detail__img img-responsive el-center" src={require("../../assets/services/1.jpg")} alt={node.frontmatter.title} />
-					</a>
-					<h4 className="heading-underline text-red text-uppercase">{node.frontmatter.title}</h4>
-					<p>{node.excerpt}</p>
-					<a href="#" className="link-read-more">READ MORE <FontAwesome className="link-read-more__icon" name="chevron-right" /></a>
-				</div>
+				<ArticlePreview
+					title={node.frontmatter.title}
+					excerpt={node.excerpt}
+				/>
 			</div>
 		)
 	})
