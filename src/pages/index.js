@@ -101,6 +101,7 @@ const IndexPage = ({data}) => {
 					urlLike={node.frontmatter.urlLike}
 					urlShop={node.frontmatter.urlShop}
 					title={node.frontmatter.title}
+					link={node.fields.slug}
 				/>
 			</div>
 		)
@@ -378,6 +379,9 @@ export const query = graphql`
 						urlLike
 						urlShop
 						label
+					}
+					fields {
+						slug
 					}
 				}
 			}
