@@ -8,7 +8,7 @@ const PersonBox = (props) => (
         </div>
         <div className="person-box__content">
             <p className="person-box__heading">{`${props.title} ${props.name}`}</p>
-            <p dangerouslySetInnerHTML={{ __html: props.html }} />
+            <div dangerouslySetInnerHTML={{ __html: props.html }} />
         </div>
     </div>
 )

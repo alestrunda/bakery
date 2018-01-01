@@ -17,7 +17,7 @@ class Recipe extends React.Component {
                         <FontAwesome className="text-red text-bigger mr5" name="star" />
                         Ingredients
                     </h4>
-                    <p className="text-italic" dangerouslySetInnerHTML={{ __html: recipe.ingredients }} />
+                    <div className="text-italic" dangerouslySetInnerHTML={{ __html: recipe.ingredients }} />
                 </div>
                 <div className="recipe-simple__photo">
                     <a className="lightbox" href="">

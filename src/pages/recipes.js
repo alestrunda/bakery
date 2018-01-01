@@ -11,8 +11,8 @@ const Recipes = ({data}) => (
             <Link to={node.frontmatter.path}>{node.frontmatter.title}</Link>
           </h3>
           <strong>Ingredients:</strong>
-          <p dangerouslySetInnerHTML={{ __html: node.frontmatter.ingredients }} />
-          <div dangerouslySetInnerHTML={{ __html: node.excerpt }} />
+          <div className="mb20 text-italic" dangerouslySetInnerHTML={{ __html: node.frontmatter.ingredients }} />
+          <p>{node.excerpt}</p>
         </div>
       )
     })}
