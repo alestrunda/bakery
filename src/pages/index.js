@@ -223,7 +223,7 @@ const IndexPage = ({data}) => {
 								Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece
 							</p>
 						</div>
-						<Link to="/" className="button button--white">SEE All OUR PRODUCTS</Link>
+						<Link to="/products/" className="button button--white">SEE All OUR PRODUCTS</Link>
 					</div>
 				</div>
 			</section>

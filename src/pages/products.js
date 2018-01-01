@@ -1,17 +1,16 @@
 import React from 'react'
 import Link from 'gatsby-link'
 
-const Recipes = ({data}) => (
+const Products = ({data}) => (
   <div className="section-content container">
-    <h1 className="mb30">Recipes ({data.allMarkdownRemark.totalCount})</h1>
+    <h1 className="mb30">Products ({data.allMarkdownRemark.totalCount})</h1>
     {data.allMarkdownRemark.edges.map(({ node }, index) => {
       return (
         <div key={node.id} className="article mb50">
           <h3 className="mb10">
             <Link to={node.fields.slug}>{node.frontmatter.title}</Link>
           </h3>
-          <strong>Ingredients:</strong>
-          <div className="mb20 text-italic" dangerouslySetInnerHTML={{ __html: node.frontmatter.ingredients }} />
+          <strong className="text-red">{node.frontmatter.label}</strong>
           <p>{node.excerpt}</p>
         </div>
       )
@@ -22,15 +21,18 @@ const Recipes = ({data}) => (
 )
 
 export const query = graphql`
-  query RecipesListQuery {
-    allMarkdownRemark(filter: {fileAbsolutePath: {regex: "/recipes/"}}) {
+  query ProductsListQuery {
+    allMarkdownRemark(
+      filter: {fileAbsolutePath: {regex: "/products/"}}
+      sort: {fields: [frontmatter___date], order: DESC}
+    ) {
       totalCount
       edges {
         node {
           id
           frontmatter {
             title
-            ingredients
+            label
           }
           fields {
             slug
@@ -42,4 +44,4 @@ export const query = graphql`
   }
 `
 
-export default Recipes
+export default Products
