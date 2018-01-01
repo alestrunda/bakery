@@ -8,7 +8,7 @@ const Recipes = ({data}) => (
       return (
         <div className="article mb50">
           <h3 className="mb10">
-            <Link to={node.frontmatter.path}>{node.frontmatter.title}</Link>
+            <Link to={node.fields.slug}>{node.frontmatter.title}</Link>
           </h3>
           <strong>Ingredients:</strong>
           <div className="mb20 text-italic" dangerouslySetInnerHTML={{ __html: node.frontmatter.ingredients }} />
@@ -30,6 +30,9 @@ export const query = graphql`
           frontmatter {
             title
             ingredients
+          }
+          fields {
+            slug
           }
           excerpt(pruneLength: 250)
         }

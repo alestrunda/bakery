@@ -1,5 +1,6 @@
 import React from 'react'
 import className from 'classnames'
+import Link from 'gatsby-link'
 import FontAwesome from 'react-fontawesome'
 
 const ArticlePreview = (props) => {
@@ -10,7 +11,7 @@ const ArticlePreview = (props) => {
             </a>
             <h4 className="heading-underline text-red text-uppercase">{props.title}</h4>
             <p>{props.excerpt}</p>
-            <a href="#" className="link-read-more">READ MORE <FontAwesome className="link-read-more__icon" name="chevron-right" /></a>
+            <Link to={props.link} className="link-read-more">READ MORE <FontAwesome className="link-read-more__icon" name="chevron-right" /></Link>
         </div>
     )
 }

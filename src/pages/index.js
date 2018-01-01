@@ -112,6 +112,7 @@ const IndexPage = ({data}) => {
 				<ArticlePreview
 					title={node.frontmatter.title}
 					excerpt={node.excerpt}
+					link={node.fields.slug}
 				/>
 			</div>
 		)
@@ -391,6 +392,9 @@ export const query = graphql`
 					id
 					frontmatter {
 						title
+					}
+					fields {
+						slug
 					}
 					excerpt(pruneLength: 120)
 				}
