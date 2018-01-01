@@ -105,6 +105,21 @@ const IndexPage = ({data}) => {
 		)
 	})
 
+	const servicesColumns = data.services.edges.map(({ node }, index) => {
+		return (
+			<div key={node.id} className="grid__item grid__item--lg-span-3 grid__item--md-span-6">
+				<div className="product-detail">
+					<a className="product-detail__img-wrapper" href="#">
+						<img className="product-detail__img img-responsive el-center" src={require("../../assets/services/1.jpg")} alt={node.frontmatter.title} />
+					</a>
+					<h4 className="heading-underline text-red text-uppercase">{node.frontmatter.title}</h4>
+					<p>{node.excerpt}</p>
+					<a href="#" className="link-read-more">READ MORE <FontAwesome className="link-read-more__icon" name="chevron-right" /></a>
+				</div>
+			</div>
+		)
+	})
+
 	return (
 		<div>
 			<Slider className="slider-big slick-dots-dot" {...mainSliderSettings}>
@@ -196,46 +211,7 @@ const IndexPage = ({data}) => {
 					</p>
 					<div className="m30"></div>
 					<div className="grid">
-						<div className="grid__item grid__item--lg-span-3 grid__item--md-span-6">
-							<div className="product-detail">
-								<a className="product-detail__img-wrapper" href="#">
-									<img className="product-detail__img img-responsive el-center" src={require("../../assets/services/1.jpg")} alt="image" />
-								</a>
-								<h4 className="heading-underline text-red">LOT OF BREAD</h4>
-								<p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour.</p>
-								<a href="#" className="link-read-more">READ MORE <FontAwesome className="link-read-more__icon" name="chevron-right" /></a>
-							</div>
-						</div>
-						<div className="grid__item grid__item--lg-span-3 grid__item--md-span-6">
-							<div className="product-detail">
-								<a className="product-detail__img-wrapper" href="#">
-									<img className="product-detail__img img-responsive el-center" src={require("../../assets/services/2.jpg")} alt="image" />
-								</a>
-								<h4 className="heading-underline text-red">DELICIOUS LOAF</h4>
-								<p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour.</p>
-								<a href="#" className="link-read-more">READ MORE <FontAwesome className="link-read-more__icon" name="chevron-right" /></a>
-							</div>
-						</div>
-						<div className="grid__item grid__item--lg-span-3 grid__item--md-span-6">
-							<div className="product-detail">
-								<a className="product-detail__img-wrapper" href="#">
-									<img className="product-detail__img img-responsive el-center" src={require("../../assets/services/3.jpg")} alt="image" />
-								</a>
-								<h4 className="heading-underline text-red">SWEETS N STUFF’s</h4>
-								<p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour.</p>
-								<a href="#" className="link-read-more">READ MORE <FontAwesome className="link-read-more__icon" name="chevron-right" /></a>
-							</div>
-						</div>
-						<div className="grid__item grid__item--lg-span-3 grid__item--md-span-6">
-							<div className="product-detail">
-								<a className="product-detail__img-wrapper" href="#">
-									<img className="product-detail__img img-responsive el-center" src={require("../../assets/services/4.jpg")} alt="image" />
-								</a>
-								<h4 className="heading-underline text-red">CHEF’s SPECIALITY</h4>
-								<p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour.</p>
-								<a href="#" className="link-read-more">READ MORE <FontAwesome className="link-read-more__icon" name="chevron-right" /></a>
-							</div>
-						</div>
+						{servicesColumns}
 					</div>
 				</div>
 			</section>
@@ -405,6 +381,21 @@ export const query = graphql`
 						urlShop
 						label
 					}
+				}
+			}
+		},
+	services: allMarkdownRemark(
+			filter: {fileAbsolutePath: {regex: "/services/"}}
+			sort: {fields: [frontmatter___date], order: DESC}
+			limit: 4
+		){
+			edges {
+				node {
+					id
+					frontmatter {
+						title
+					}
+					excerpt(pruneLength: 120)
 				}
 			}
 		},
