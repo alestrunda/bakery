@@ -1,8 +1,11 @@
 import React from 'react'
 import Link from 'gatsby-link'
+import Helmet from 'react-helmet'
 
 const Products = ({data}) => (
   <div className="section-content container">
+    <Helmet title="Products" />
+
     <h1 className="mb30">Products ({data.allMarkdownRemark.totalCount})</h1>
     {data.allMarkdownRemark.edges.map(({ node }, index) => {
       return (

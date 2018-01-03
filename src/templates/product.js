@@ -1,10 +1,13 @@
-import React from "react";
+import React from "react"
 import FontAwesome from 'react-fontawesome'
+import Helmet from 'react-helmet'
 
 const PageProduct = ({ data }) => {
 	const post = data.markdownRemark;
 	return (
 		<div className="container section-content">
+			<Helmet title={post.frontmatter.title} />
+
 			<div className="article">
 				<h1 className="mb15">{post.frontmatter.title}</h1>
 				<strong>{post.frontmatter.label}</strong>
