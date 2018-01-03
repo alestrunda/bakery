@@ -10,6 +10,7 @@ ingredients: "1 cup white sugar<br />
 1/2 cup milk"
 timePrep: 20
 timeCook: 15
+imageSrc: sandwich-cake-with-honey.jpg
 ---
 
 "Phasellus sit amet turpis non nunc tempor faucibus. Aenean fermentum gravida libero iaculis dictum. Donec vestibulum non metus sed molestie."

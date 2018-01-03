@@ -66,6 +66,7 @@ const IndexPage = ({data}) => {
 							text: node.html,
 							timePrep: parseInt(node.frontmatter.timePrep),
 							timeCook: parseInt(node.frontmatter.timeCook),
+							imageSrc: node.frontmatter.imageSrc.childImageSharp.responsiveSizes.src
 						}}
 					/>
 				</div>
@@ -80,6 +81,7 @@ const IndexPage = ({data}) => {
 					name={node.frontmatter.name}
 					title={node.frontmatter.title}
 					html={node.html}
+					imageSrc={node.frontmatter.imageSrc.childImageSharp.responsiveSizes.src}
 				/>
 			</div>
 		)
@@ -88,7 +90,7 @@ const IndexPage = ({data}) => {
 	const testimonialSlides = data.testimonials.edges.map(({ node }, index) => {
 		return (
 			<div key={node.id} className="slide">
-				<Testimonial html={node.html} />
+				<Testimonial html={node.html} imageSrc={node.frontmatter.imageSrc.childImageSharp.responsiveSizes.src} />
 			</div>
 		)
 	})
@@ -102,6 +104,7 @@ const IndexPage = ({data}) => {
 					urlShop={node.frontmatter.urlShop}
 					title={node.frontmatter.title}
 					link={node.fields.slug}
+					imageSrc={node.frontmatter.imageSrc.childImageSharp.responsiveSizes.src}
 				/>
 			</div>
 		)
@@ -114,6 +117,7 @@ const IndexPage = ({data}) => {
 					title={node.frontmatter.title}
 					excerpt={node.excerpt}
 					link={node.fields.slug}
+					imageSrc={node.frontmatter.imageSrc.childImageSharp.responsiveSizes.src}
 				/>
 			</div>
 		)
@@ -347,6 +351,13 @@ export const query = graphql`
 						ingredients
 						timePrep
 						timeCook
+						imageSrc {
+							childImageSharp {
+								responsiveSizes(maxWidth: 500) {
+									src
+								}
+							}
+						}
 					}
 					html
 				}
@@ -362,6 +373,13 @@ export const query = graphql`
 					frontmatter {
 						name
 						title
+						imageSrc {
+							childImageSharp {
+								responsiveSizes(maxWidth: 500) {
+									src
+								}
+							}
+						}
 					}
 					html
 				}
@@ -379,6 +397,13 @@ export const query = graphql`
 						urlLike
 						urlShop
 						label
+						imageSrc {
+							childImageSharp {
+								responsiveSizes(maxWidth: 500) {
+									src
+								}
+							}
+						}
 					}
 					fields {
 						slug
@@ -396,6 +421,13 @@ export const query = graphql`
 					id
 					frontmatter {
 						title
+						imageSrc {
+							childImageSharp {
+								responsiveSizes(maxWidth: 500) {
+									src
+								}
+							}
+						}
 					}
 					fields {
 						slug
@@ -411,6 +443,15 @@ export const query = graphql`
 				node {
 					id
 					html
+					frontmatter {
+						imageSrc {
+							childImageSharp {
+								responsiveSizes(maxWidth: 260) {
+									src
+								}
+							}
+						}
+					}
 				}
 			}
 		}

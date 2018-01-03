@@ -21,7 +21,7 @@ class Recipe extends React.Component {
                 </div>
                 <div className="recipe-simple__photo">
                     <a className="lightbox" href="">
-                        <img className="el-full recipe-simple__img" src={require("../../assets/recipes/1_thumb.jpg")} alt="image" />
+                        <img className="el-full recipe-simple__img" src={recipe.imageSrc} alt="image" />
                     </a>
                     <div className="row-attrs">
                         <div className="row-attrs__item">

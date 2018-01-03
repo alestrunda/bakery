@@ -3,6 +3,7 @@ title: Cake
 date: "2017-08-01"
 urlLike: "./"
 urlShop: "./"
+imageSrc: cake.jpg
 ---
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla risus massa, tempor eu egestas sollicitudin, hendrerit eu risus. Sed laoreet feugiat nulla, finibus malesuada risus bibendum vel. Donec quis eros nisi. Donec nulla risus, sagittis non euismod vitae, pellentesque a turpis. Quisque velit risus, dapibus nec felis et, faucibus ultricies sem. Nunc efficitur vestibulum blandit. Aenean tempor, ante nec ultricies ultrices, tortor ligula facilisis massa, in fermentum felis justo dictum risus. Nam leo elit, cursus nec purus quis, commodo luctus mauris. Mauris in dictum lacus.

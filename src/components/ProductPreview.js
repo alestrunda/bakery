@@ -7,7 +7,7 @@ const ProductPreview = (props) => {
     return (
         <div className="product-preview label-box-container">
             <Link to={props.link}>
-                <img className="el-full" src={require("../../assets/products/1_thumb.jpg")} alt={props.title} />
+                <img className="el-full" src={props.imageSrc} alt={props.title} />
             </Link>
             <div className="product-preview__hover">
                 <div className="product-preview__hover-inner">

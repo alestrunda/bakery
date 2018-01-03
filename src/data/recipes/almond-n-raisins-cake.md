@@ -10,6 +10,7 @@ ingredients: "1 cup white sugar<br />
 1/2 cup milk"
 timePrep: 25
 timeCook: 35
+imageSrc: almond-n-raisins-cake.jpg
 ---
 
 "Quisque tortor ex, malesuada ac faucibus quis, blandit sit amet neque. Aliquam porttitor dictum odio ac fermentum."
