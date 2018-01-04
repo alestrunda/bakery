@@ -7,7 +7,7 @@ class Button extends React.Component {
   }
 
   handleClick = e => {
-    this.props.onClick && this.props.onClick()
+    this.props.onClick && this.props.onClick(e)
     this.setState({
       active: !this.state.active,
     })
