@@ -4,7 +4,6 @@ import FontAwesome from 'react-fontawesome'
 import PropTypes from 'prop-types'
 
 const ProductPreview = (props) => {
-    const label = <span className="label-box label-box--yellow">{props.label}</span>
     return (
         <div className="product-preview label-box-container">
             <Link to={props.link}>
@@ -19,7 +18,7 @@ const ProductPreview = (props) => {
                     {props.urlLike && <a href={props.urlLike} className="link-hover-yellow ml10"><FontAwesome name="heart" /></a>}
                 </div>
             </div>
-            {props.label && label}
+            {props.label && <span className="label-box label-box--yellow">{props.label}</span>}
         </div>
     )
 }
