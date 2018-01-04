@@ -2,6 +2,7 @@ import React from 'react'
 import className from 'classnames'
 import Link from 'gatsby-link'
 import FontAwesome from 'react-fontawesome'
+import PropTypes from 'prop-types';
 
 const ArticlePreview = (props) => {
     return (
@@ -11,9 +12,16 @@ const ArticlePreview = (props) => {
             </a>
             <h4 className="heading-underline text-red text-uppercase">{props.title}</h4>
             <p>{props.excerpt}</p>
-            <Link to={props.link} className="link-read-more">READ MORE <FontAwesome className="link-read-more__icon" name="chevron-right" /></Link>
+            {props.link && <Link to={props.link} className="link-read-more">READ MORE <FontAwesome className="link-read-more__icon" name="chevron-right" /></Link>}
         </div>
     )
 }
+
+ArticlePreview.propTypes = {
+    className: PropTypes.string,
+    imageSrc: PropTypes.string,
+    title: PropTypes.string.isRequired,
+    excerpt: PropTypes.string,
+};
 
 export default ArticlePreview
