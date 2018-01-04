@@ -1,9 +1,10 @@
 import React from 'react'
+import PropTypes from 'prop-types';
 
 const PersonBox = (props) => (
     <div className="person-box">
         <div className="person-box__img">
-            <div className="person-box__border"></div>
+            <div className="person-box__border" />
             <img className="img-responsive el-center" src={props.imageSrc} alt={props.name} />
         </div>
         <div className="person-box__content">
@@ -12,5 +13,12 @@ const PersonBox = (props) => (
         </div>
     </div>
 )
+
+PersonBox.propTypes = {
+    imageSrc: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
+    title: PropTypes.string,
+    html: PropTypes.string,
+};
 
 export default PersonBox
