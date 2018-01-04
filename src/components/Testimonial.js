@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 const Testimonial = (props) => (
     <div className="testimonial">
@@ -10,5 +11,10 @@ const Testimonial = (props) => (
         </div>
     </div>
 )
+
+Testimonial.propTypes = {
+    imageSrc: PropTypes.string.isRequired,
+    html: PropTypes.string.isRequired,
+}
 
 export default Testimonial
