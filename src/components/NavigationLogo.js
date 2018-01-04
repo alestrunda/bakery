@@ -1,6 +1,7 @@
 import React from 'react'
 import Link from 'gatsby-link'
 import classNames from 'classnames'
+import PropTypes from 'prop-types';
 
 const NavigationLogo = (props) => {
     return (
@@ -10,5 +11,10 @@ const NavigationLogo = (props) => {
         </div>
     )
 }
+
+NavigationLogo.propTypes = {
+    className: PropTypes.string,
+    to: PropTypes.string,
+};
 
 export default NavigationLogo
