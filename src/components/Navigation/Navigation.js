@@ -1,15 +1,18 @@
 import React from 'react'
 import classNames from 'classnames'
-import Link from 'gatsby-link'
 import PropTypes from 'prop-types'
+
+import NavigationItem from './NavigationItem'
 
 const Navigation = props => {
   const items = props.items.map((item, index) => {
     return (
       <li key={index} className={`${props.className}__item`}>
-        <Link className={`${props.className}__link`} to={item.to}>
-          {item.title}
-        </Link>
+        <NavigationItem
+          className={`${props.className}__link`}
+          to={item.to}
+          title={item.title}
+        />
       </li>
     )
   })
