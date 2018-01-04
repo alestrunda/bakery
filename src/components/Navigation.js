@@ -1,6 +1,7 @@
 import React from 'react'
 import classNames from 'classnames'
 import Link from 'gatsby-link'
+import PropTypes from 'prop-types';
 
 const Navigation = (props) => {
     const items = props.items.map((item, index) => {
@@ -18,5 +19,12 @@ const Navigation = (props) => {
         </div>
     )
 }
+
+Navigation.propTypes = {
+    active: PropTypes.bool,
+    className: PropTypes.string,
+    classNameContainer: PropTypes.string,
+    items: PropTypes.array.isRequired
+};
 
 export default Navigation
