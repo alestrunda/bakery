@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types';
 
 class Button extends React.Component {
     state = {
@@ -20,5 +21,11 @@ class Button extends React.Component {
         )
     }
 }
+
+Button.propTypes = {
+    onClick: PropTypes.func.isRequired,
+    className: PropTypes.string,
+    children: PropTypes.element.isRequired
+};
 
 export default Button
