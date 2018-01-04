@@ -1,5 +1,6 @@
 import React from 'react'
 import FontAwesome from 'react-fontawesome'
+import PropTypes from 'prop-types'
 
 class Recipe extends React.Component {
     renderTitle() {
@@ -41,6 +42,11 @@ class Recipe extends React.Component {
             </article>
         )
     }
+}
+
+Recipe.propTypes = {
+    title: PropTypes.string,
+    recipe: PropTypes.object,
 }
 
 export default Recipe
