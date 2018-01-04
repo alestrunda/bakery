@@ -1,6 +1,7 @@
 import React from 'react'
 import Link from 'gatsby-link'
 import FontAwesome from 'react-fontawesome'
+import PropTypes from 'prop-types'
 
 const ProductPreview = (props) => {
     const label = <span className="label-box label-box--yellow">{props.label}</span>
@@ -14,13 +15,22 @@ const ProductPreview = (props) => {
                     <Link className="link-clean link-hover-yellow" to={props.link}><em>{props.title}</em></Link>
                 </div>
                 <div className="product-preview__hover-icons">
-                    <a href={props.urlShop} className="link-hover-yellow ml10"><FontAwesome name="shopping-cart" /></a>
-                    <a href={props.urlLike} className="link-hover-yellow ml10"><FontAwesome name="heart" /></a>
+                    {props.urlShop && <a href={props.urlShop} className="link-hover-yellow ml10"><FontAwesome name="shopping-cart" /></a>}
+                    {props.urlLike && <a href={props.urlLike} className="link-hover-yellow ml10"><FontAwesome name="heart" /></a>}
                 </div>
             </div>
             {props.label && label}
         </div>
     )
+}
+
+ProductPreview.propTypes = {
+    label: PropTypes.string,
+    link: PropTypes.string.isRequired,
+    imageSrc: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    urlLike: PropTypes.string,
+    urlShop: PropTypes.string,
 }
 
 export default ProductPreview
