@@ -1,5 +1,6 @@
 import React from 'react'
 import classNames from 'classnames'
+import PropTypes from 'prop-types'
 
 class Tabs extends React.Component {
     state = {
@@ -66,6 +67,10 @@ class Tabs extends React.Component {
             </div>
         )
     }
+}
+
+Tabs.propTypes = {
+    children: PropTypes.array.isRequired,
 }
 
 export default Tabs;
