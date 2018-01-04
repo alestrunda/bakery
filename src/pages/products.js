@@ -2,7 +2,7 @@ import React from 'react'
 import Link from 'gatsby-link'
 import Helmet from 'react-helmet'
 
-const Products = ({data}) => (
+const Products = ({ data }) => (
   <div className="section-content container">
     <Helmet title="Products" />
 
@@ -18,16 +18,18 @@ const Products = ({data}) => (
         </div>
       )
     })}
-    <div className="m20"></div>
-    <Link to="/" className="button button--xsmall button--brown">Back to the homepage</Link>
+    <div className="m20" />
+    <Link to="/" className="button button--xsmall button--brown">
+      Back to the homepage
+    </Link>
   </div>
 )
 
 export const query = graphql`
   query ProductsListQuery {
     allMarkdownRemark(
-      filter: {fileAbsolutePath: {regex: "/products/"}}
-      sort: {fields: [frontmatter___date], order: DESC}
+      filter: { fileAbsolutePath: { regex: "/products/" } }
+      sort: { fields: [frontmatter___date], order: DESC }
     ) {
       totalCount
       edges {

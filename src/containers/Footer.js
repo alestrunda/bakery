@@ -2,8 +2,8 @@ import React from 'react'
 import Link from 'gatsby-link'
 import FontAwesome from 'react-fontawesome'
 
-const Footer = (props) => {
-  return(
+const Footer = props => {
+  return (
     <footer className="page-footer bg-dark text-white">
       <div className="container section-content section-content--small">
         <div className="grid">
@@ -24,29 +24,41 @@ const Footer = (props) => {
           <div className="grid__item grid__item--lg-span-3 grid__item--md-span-6 grid__item--break-md-25">
             <h5 className="text-yellow">SOCIAL MEDIA</h5>
             <div className="mb10">
-              <Link to="#" className="icon-circle icon-circle--white"><FontAwesome name='facebook-f' /></Link>
-              <Link to="#" className="icon-circle icon-circle--white"><FontAwesome name='twitter' /></Link>
-              <Link to="#" className="icon-circle icon-circle--white"><FontAwesome name='google-plus' /></Link>
-              <Link to="#" className="icon-circle icon-circle--white"><FontAwesome name='pinterest-p' /></Link>
+              <Link to="#" className="icon-circle icon-circle--white">
+                <FontAwesome name="facebook-f" />
+              </Link>
+              <Link to="#" className="icon-circle icon-circle--white">
+                <FontAwesome name="twitter" />
+              </Link>
+              <Link to="#" className="icon-circle icon-circle--white">
+                <FontAwesome name="google-plus" />
+              </Link>
+              <Link to="#" className="icon-circle icon-circle--white">
+                <FontAwesome name="pinterest-p" />
+              </Link>
             </div>
           </div>
           <div className="grid__item grid__item--lg-span-3 grid__item--md-span-6 grid__item--break-md-25">
             <h5 className="text-yellow">CONTACT US</h5>
-            <Link className="link-clean link-hover-red icon-opening" to="tel:123456789">
-              <FontAwesome name='phone' className="icon-opening__icon" />
+            <Link
+              className="link-clean link-hover-red icon-opening"
+              to="tel:123456789"
+            >
+              <FontAwesome name="phone" className="icon-opening__icon" />
               123456789
             </Link>
-            <Link className="link-clean link-hover-red icon-opening" to="mailto:info@email.com">
-              <FontAwesome name='envelope' className="icon-opening__icon" />
+            <Link
+              className="link-clean link-hover-red icon-opening"
+              to="mailto:info@email.com"
+            >
+              <FontAwesome name="envelope" className="icon-opening__icon" />
               info@email.com
             </Link>
           </div>
         </div>
       </div>
       <div className="page-info bg-red text-yellow text-tiny">
-        <div className="container">
-          Bakery 2017
-        </div>
+        <div className="container">Bakery 2017</div>
       </div>
     </footer>
   )

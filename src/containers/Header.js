@@ -8,25 +8,25 @@ import NavigationLogo from '../components/NavigationLogo'
 
 class Header extends React.Component {
   state = {
-    menuOpened: false
+    menuOpened: false,
   }
 
   handleMenuOpenClick = () => {
     this.setState({
-      menuOpened: !this.state.menuOpened
+      menuOpened: !this.state.menuOpened,
     })
   }
 
   render() {
     const menuItemsLeft = [
-      {title: "Home", to: "#"},
-      {title: "About", to: "#"},
-      {title: "Menu", to: "#"},
+      { title: 'Home', to: '#' },
+      { title: 'About', to: '#' },
+      { title: 'Menu', to: '#' },
     ]
     const menuItemsRight = [
-      {title: "Features", to: "#"},
-      {title: "Blog", to: "#"},
-      {title: "Contact", to: "#"},
+      { title: 'Features', to: '#' },
+      { title: 'Blog', to: '#' },
+      { title: 'Contact', to: '#' },
     ]
 
     return (
@@ -34,7 +34,7 @@ class Header extends React.Component {
         <div className="container">
           <div className="page-header__content clearfix">
             <Button onClick={this.handleMenuOpenClick} className="nav-button">
-              <FontAwesome name="reorder"></FontAwesome>
+              <FontAwesome name="reorder" />
             </Button>
             <nav className="nav-container">
               <Navigation
@@ -56,11 +56,13 @@ class Header extends React.Component {
           className="nav-responsive"
           classNameContainer="nav"
           items={menuItemsLeft.concat(menuItemsRight)}
-          ref={(element) => { this.menuResponsive = element; }}
+          ref={element => {
+            this.menuResponsive = element
+          }}
         />
       </header>
     )
   }
 }
 
-export default Header;
+export default Header

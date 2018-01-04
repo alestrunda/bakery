@@ -2,7 +2,7 @@ import React from 'react'
 import Link from 'gatsby-link'
 import Helmet from 'react-helmet'
 
-const Recipes = ({data}) => (
+const Recipes = ({ data }) => (
   <div className="section-content container">
     <Helmet title="Recipes" />
 
@@ -14,19 +14,24 @@ const Recipes = ({data}) => (
             <Link to={node.fields.slug}>{node.frontmatter.title}</Link>
           </h3>
           <strong>Ingredients:</strong>
-          <div className="mb20 text-italic" dangerouslySetInnerHTML={{ __html: node.frontmatter.ingredients }} />
+          <div
+            className="mb20 text-italic"
+            dangerouslySetInnerHTML={{ __html: node.frontmatter.ingredients }}
+          />
           <p>{node.excerpt}</p>
         </div>
       )
     })}
-    <div className="m20"></div>
-    <Link to="/" className="button button--xsmall button--brown">Back to the homepage</Link>
+    <div className="m20" />
+    <Link to="/" className="button button--xsmall button--brown">
+      Back to the homepage
+    </Link>
   </div>
 )
 
 export const query = graphql`
   query RecipesListQuery {
-    allMarkdownRemark(filter: {fileAbsolutePath: {regex: "/recipes/"}}) {
+    allMarkdownRemark(filter: { fileAbsolutePath: { regex: "/recipes/" } }) {
       totalCount
       edges {
         node {
