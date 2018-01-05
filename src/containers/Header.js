@@ -23,12 +23,12 @@ class Header extends React.Component {
   render() {
     const menuItemsLeft = [
       <LinkScroll to="top" smooth={true} duration={500}>Home</LinkScroll>,
-      <Link to="">About</Link>,
-      <Link to="">Menu</Link>,
+      <Link to="/about/">About</Link>,
+      <Link to="/menu/">Menu</Link>,
     ]
     const menuItemsRight = [
       <LinkScroll to="featured-recipes" smooth={true} duration={1500}>Features</LinkScroll>,
-      <Link to="">Blog</Link>,
+      <Link to="/blog/">Blog</Link>,
       <LinkScroll to="contact" smooth={true} duration={2000}>Contact</LinkScroll>,
     ]
 
