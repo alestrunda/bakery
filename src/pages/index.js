@@ -310,7 +310,7 @@ const IndexPage = ({ data }) => {
         </div>
       </section>
 
-      <section className="section-content pb0">
+      <section id="featured-recipes" className="section-content pb0">
         <div className="container">
           <h2 className="heading-decoration">FEATURED RECIPES</h2>
           <div className="m20" />
@@ -330,7 +330,7 @@ const IndexPage = ({ data }) => {
         </div>
       </section>
 
-      <section>
+      <section id="contact">
         <div className="map">
           <div className="map__inner">
             <div className="map__canvas">

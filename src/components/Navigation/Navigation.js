@@ -8,11 +8,9 @@ const Navigation = props => {
   const items = props.items.map((item, index) => {
     return (
       <li key={index} className={`${props.className}__item`}>
-        <NavigationItem
-          className={`${props.className}__link`}
-          to={item.to}
-          title={item.title}
-        />
+        <NavigationItem className={`${props.className}__link`}>
+          {item}
+        </NavigationItem>
       </li>
     )
   })

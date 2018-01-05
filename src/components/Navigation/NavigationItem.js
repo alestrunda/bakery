@@ -1,19 +1,18 @@
 import React from 'react'
-import Link from 'gatsby-link'
 import PropTypes from 'prop-types'
 
 const NavigationItem = props => {
-  return (
-    <Link className={props.className} to={props.to}>
-      {props.title}
-    </Link>
-  )
+  //add className to the child
+  const link = React.cloneElement(props.children, {
+    className: props.className
+  })
+
+  return link
 }
 
 NavigationItem.propTypes = {
+  children: PropTypes.element.isRequired,
   className: PropTypes.string,
-  to: PropTypes.string,
-  title: PropTypes.string,
 }
 
 export default NavigationItem
