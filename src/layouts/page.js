@@ -25,9 +25,7 @@ const LayoutPage = ({ children }) => (
         <Link to="/#contact">Contact</Link>,
       ]}
     />
-    <div className="page-content__stretch">
-      {children()}
-    </div>
+    <div className="page-content__stretch">{children()}</div>
     <Footer />
   </div>
 )

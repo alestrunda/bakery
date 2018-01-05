@@ -18,7 +18,7 @@ class Header extends React.Component {
   }
 
   render() {
-    const {menuItemsLeft, menuItemsRight} = this.props
+    const { menuItemsLeft, menuItemsRight } = this.props
 
     return (
       <header id="top" className="page-header">
