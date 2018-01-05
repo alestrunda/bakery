@@ -9,13 +9,13 @@ const ArticlePreview = props => {
   return (
     <div className={className('article article-preview', props.className)}>
       {imageSrc && (
-        <a className="article-preview__img-wrapper" href="#">
+        <Link to={link} className="article-preview__img-wrapper">
           <img
             className="article-preview__img img-responsive el-center"
             src={imageSrc}
             alt={title}
           />
-        </a>
+        </Link>
       )}
       <h4 className="heading-underline text-red text-uppercase">{title}</h4>
       <p>{excerpt}</p>

@@ -11,7 +11,7 @@ import '../scss/main.scss'
 import 'slick-carousel/slick/slick.css'
 
 const TemplateWrapper = ({ children }) => (
-  <div>
+  <div className="page-content">
     <Helmet defaultTitle="Bakery">
       <meta name="description" content="Bakery template powered by Gatsby" />
       <meta name="author" content="Aleš Trunda alestrunda.cz" />
@@ -34,7 +34,9 @@ const TemplateWrapper = ({ children }) => (
       />
     </Helmet>
     <Header />
-    {children()}
+    <div className="page-content__stretch">
+      {children()}
+    </div>
     <Footer />
   </div>
 )
