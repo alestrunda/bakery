@@ -1,13 +1,10 @@
 import React from 'react'
 import classNames from 'classnames'
 import FontAwesome from 'react-fontawesome'
-import Link from 'gatsby-link'
 
 import Button from '../components/Button'
 import Navigation from '../components/Navigation'
 import NavigationLogo from '../components/NavigationLogo'
-
-import { Link as LinkScroll } from 'react-scroll'
 
 class Header extends React.Component {
   state = {
@@ -21,16 +18,7 @@ class Header extends React.Component {
   }
 
   render() {
-    const menuItemsLeft = [
-      <LinkScroll to="top" smooth={true} duration={500}>Home</LinkScroll>,
-      <Link to="/about/">About</Link>,
-      <Link to="/menu/">Menu</Link>,
-    ]
-    const menuItemsRight = [
-      <LinkScroll to="featured-recipes" smooth={true} duration={1500}>Features</LinkScroll>,
-      <Link to="/blog/">Blog</Link>,
-      <LinkScroll to="contact" smooth={true} duration={2000}>Contact</LinkScroll>,
-    ]
+    const {menuItemsLeft, menuItemsRight} = this.props
 
     return (
       <header id="top" className="page-header">

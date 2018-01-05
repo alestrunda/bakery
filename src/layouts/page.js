@@ -2,7 +2,6 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Link from 'gatsby-link'
 import FontAwesome from 'react-fontawesome'
-import { Link as LinkScroll } from 'react-scroll'
 
 import Footer from '../containers/Footer'
 import Header from '../containers/Header'
@@ -11,19 +10,19 @@ import PageHelmet from '../containers/PageHelmet'
 import '../scss/main.scss'
 import 'slick-carousel/slick/slick.css'
 
-const LayoutIndex = ({ children }) => (
+const LayoutPage = ({ children }) => (
   <div className="page-content">
     <PageHelmet />
     <Header
       menuItemsLeft={[
-        <LinkScroll to="top" smooth={true} duration={500}>Home</LinkScroll>,
+        <Link to="/">Home</Link>,
         <Link to="/about/">About</Link>,
         <Link to="/menu/">Menu</Link>,
       ]}
       menuItemsRight={[
-      <LinkScroll to="featured-recipes" smooth={true} duration={1500}>Features</LinkScroll>,
+        <Link to="/#featured-recipes">Features</Link>,
         <Link to="/blog/">Blog</Link>,
-        <LinkScroll to="contact" smooth={true} duration={2000}>Contact</LinkScroll>,
+        <Link to="/#contact">Contact</Link>,
       ]}
     />
     <div className="page-content__stretch">
@@ -33,8 +32,8 @@ const LayoutIndex = ({ children }) => (
   </div>
 )
 
-LayoutIndex.propTypes = {
+LayoutPage.propTypes = {
   children: PropTypes.func,
 }
 
-export default LayoutIndex
+export default LayoutPage

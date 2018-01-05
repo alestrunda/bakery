@@ -19,6 +19,10 @@ exports.onCreateNode = ({ node, getNode, boundActionCreators }) => {
     }
 }
 
+exports.onCreatePage = function({page}) {
+	page.layout = page.path === "/" ? 'index' : 'page'
+}
+
 exports.createPages = ({ graphql, boundActionCreators }) => {
     const { createPage } = boundActionCreators
     return new Promise((resolve, reject) => {
@@ -41,6 +45,7 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
                 template && createPage({
                     path: node.fields.slug,
                     component: path.resolve(`./src/templates/${template}`),
+                    layout: 'page',
                     context: {
                         slug: node.fields.slug,
                     },
