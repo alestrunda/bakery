@@ -1,6 +1,7 @@
 import React from 'react'
 import FontAwesome from 'react-fontawesome'
 import PropTypes from 'prop-types'
+import Link from 'gatsby-link'
 
 const Recipe = props => {
   const { recipe, title } = props
@@ -19,13 +20,13 @@ const Recipe = props => {
         />
       </div>
       <div className="recipe-simple__photo">
-        <a className="lightbox" href="">
+        <Link to={recipe.link}>
           <img
             className="el-full recipe-simple__img"
             src={recipe.imageSrc}
             alt="image"
           />
-        </a>
+        </Link>
         <div className="row-attrs">
           <div className="row-attrs__item">
             <span className="text-red-dark">PREP:</span>

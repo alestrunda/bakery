@@ -74,8 +74,8 @@ const IndexPage = ({ data }) => {
               text: node.html,
               timePrep: parseInt(node.frontmatter.timePrep),
               timeCook: parseInt(node.frontmatter.timeCook),
-              imageSrc:
-                node.frontmatter.imageSrc.childImageSharp.responsiveSizes.src,
+              imageSrc: node.frontmatter.imageSrc.childImageSharp.responsiveSizes.src,
+              link: node.fields.slug
             }}
           />
         </div>
@@ -488,6 +488,9 @@ export const query = graphql`
             }
           }
           html
+          fields {
+            slug
+          }
         }
       }
     }
