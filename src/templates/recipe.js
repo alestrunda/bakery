@@ -4,14 +4,22 @@ import FontAwesome from 'react-fontawesome'
 
 const PageRecipe = ({ data }) => {
   const post = data.markdownRemark
+  const {
+    title,
+    date,
+    description,
+    ingredients,
+    timePrep,
+    timeCook,
+  } = post.frontmatter
   return (
     <div className="container section-content">
-      <Helmet title={post.frontmatter.title} />
+      <Helmet title={title} />
 
       <div className="article">
-        <h1 className="mb5">{post.frontmatter.title}</h1>
-        <p className="text-small text-silver">{post.frontmatter.date}</p>
-        <p className="mb40">{`"${post.frontmatter.description}"`}</p>
+        <h1 className="mb5">{title}</h1>
+        <p className="text-small text-silver">{date}</p>
+        <p className="mb40">{`"${description}"`}</p>
         <div className="grid mb40">
           <div className="grid__item grid__item--md-span-6">
             <h4 className="mb10">
@@ -20,16 +28,27 @@ const PageRecipe = ({ data }) => {
             </h4>
             <div
               className="mb30 text-italic"
-              dangerouslySetInnerHTML={{ __html: post.frontmatter.ingredients }}
+              dangerouslySetInnerHTML={{ __html: ingredients }}
             />
             <div className="text-big">
-              <span className="text-red-dark">PREP:</span> <strong>{post.frontmatter.timePrep}min</strong><br />
-              <span className="text-red-dark">COOK:</span> <strong>{post.frontmatter.timeCook}min</strong><br />
-              <span className="text-red-dark">READY IN:</span> <strong>{post.frontmatter.timePrep + post.frontmatter.timeCook}min</strong>
+              <span className="text-red-dark">PREP:</span>{' '}
+              <strong>{timePrep}min</strong>
+              <br />
+              <span className="text-red-dark">COOK:</span>{' '}
+              <strong>{timeCook}min</strong>
+              <br />
+              <span className="text-red-dark">READY IN:</span>{' '}
+              <strong>{timePrep + timeCook}min</strong>
             </div>
           </div>
           <div className="grid__item grid__item--md-span-6 grid__item--break-sm-30">
-            <img className="img-responsive" alt={post.frontmatter.title} src={post.frontmatter.imageSrc.childImageSharp.responsiveSizes.src} />
+            <img
+              className="img-responsive"
+              alt={title}
+              src={
+                post.frontmatter.imageSrc.childImageSharp.responsiveSizes.src
+              }
+            />
           </div>
         </div>
         <h4 className="mb10">

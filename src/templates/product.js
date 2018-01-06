@@ -4,18 +4,19 @@ import Helmet from 'react-helmet'
 
 const PageProduct = ({ data }) => {
   const post = data.markdownRemark
+  const { title, label, urlShop, urlLike } = post.frontmatter
   return (
     <div className="container section-content">
-      <Helmet title={post.frontmatter.title} />
+      <Helmet title={title} />
 
       <div className="article">
-        <h1 className="mb15">{post.frontmatter.title}</h1>
-        <strong>{post.frontmatter.label}</strong>
+        <h1 className="mb15">{title}</h1>
+        <strong>{label}</strong>
         <div className="mb20">
-          <a className="mr10" href={post.frontmatter.urlShop}>
+          <a className="mr10" href={urlShop}>
             <FontAwesome name="shopping-cart" />
           </a>
-          <a className="mr10" href={post.frontmatter.urlLike}>
+          <a className="mr10" href={urlLike}>
             <FontAwesome name="heart" />
           </a>
         </div>

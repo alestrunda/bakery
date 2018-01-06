@@ -3,12 +3,13 @@ import Helmet from 'react-helmet'
 
 const PagePost = ({ data }) => {
   const post = data.markdownRemark
+  const { title } = post.frontmatter
   return (
     <div className="container section-content">
-      <Helmet title={post.frontmatter.title} />
+      <Helmet title={title} />
 
       <div className="article">
-        <h1>{post.frontmatter.title}</h1>
+        <h1>{title}</h1>
         <div dangerouslySetInnerHTML={{ __html: post.html }} />
       </div>
     </div>
