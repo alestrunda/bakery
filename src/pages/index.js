@@ -65,13 +65,14 @@ const testimonialsSliderSettings = {
 
 const IndexPage = ({ data }) => {
   const tabsRecipes = data.recipes.edges.map(({ node }, index) => {
+    console.log(node.frontmatter)
     return (
       <Pane key={node.id} title={node.frontmatter.title}>
         <div className="tabs-component__tab">
           <Recipe
             recipe={{
               ingredients: node.frontmatter.ingredients,
-              text: node.html,
+              text: node.frontmatter.description,
               timePrep: parseInt(node.frontmatter.timePrep),
               timeCook: parseInt(node.frontmatter.timeCook),
               imageSrc: node.frontmatter.imageSrc.childImageSharp.responsiveSizes.src,
@@ -477,6 +478,7 @@ export const query = graphql`
           frontmatter {
             title
             ingredients
+            description
             timePrep
             timeCook
             imageSrc {
