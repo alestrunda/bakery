@@ -2,6 +2,8 @@ import React from 'react'
 import Link from 'gatsby-link'
 import FontAwesome from 'react-fontawesome'
 
+import IconSocial from '../components/IconSocial'
+
 const Footer = props => {
   return (
     <footer className="page-footer bg-dark text-white">
@@ -24,18 +26,10 @@ const Footer = props => {
           <div className="grid__item grid__item--lg-span-3 grid__item--md-span-6 grid__item--break-md-25">
             <h5 className="text-yellow">SOCIAL MEDIA</h5>
             <div className="mb10">
-              <Link to="#" className="icon-circle icon-circle--white">
-                <FontAwesome name="facebook-f" />
-              </Link>
-              <Link to="#" className="icon-circle icon-circle--white">
-                <FontAwesome name="twitter" />
-              </Link>
-              <Link to="#" className="icon-circle icon-circle--white">
-                <FontAwesome name="google-plus" />
-              </Link>
-              <Link to="#" className="icon-circle icon-circle--white">
-                <FontAwesome name="pinterest-p" />
-              </Link>
+              <IconSocial icon="facebook-f" target="#" />
+              <IconSocial icon="twitter" target="#" />
+              <IconSocial icon="google-plus" target="#" />
+              <IconSocial icon="pinterest-p" target="#" />
             </div>
           </div>
           <div className="grid__item grid__item--lg-span-3 grid__item--md-span-6 grid__item--break-md-25">
