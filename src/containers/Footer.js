@@ -2,6 +2,7 @@ import React from 'react'
 import Link from 'gatsby-link'
 import FontAwesome from 'react-fontawesome'
 
+import IconContact from '../components/IconContact'
 import IconSocial from '../components/IconSocial'
 
 const Footer = props => {
@@ -34,20 +35,12 @@ const Footer = props => {
           </div>
           <div className="grid__item grid__item--lg-span-3 grid__item--md-span-6 grid__item--break-md-25">
             <h5 className="text-yellow">CONTACT US</h5>
-            <Link
-              className="link-clean link-hover-red icon-opening"
-              to="tel:123456789"
-            >
-              <FontAwesome name="phone" className="icon-opening__icon" />
+            <IconContact target="tel:123456789" icon="phone">
               123456789
-            </Link>
-            <Link
-              className="link-clean link-hover-red icon-opening"
-              to="mailto:info@email.com"
-            >
-              <FontAwesome name="envelope" className="icon-opening__icon" />
+            </IconContact>
+            <IconContact target="mailto:info@email.com" icon="envelope">
               info@email.com
-            </Link>
+            </IconContact>
           </div>
         </div>
       </div>
