@@ -11,6 +11,7 @@ import Pane from '../components/Pane'
 import PersonBox from '../components/PersonBox'
 import ProductPreview from '../components/ProductPreview'
 import Recipe from '../components/Recipe'
+import RowLogos from '../containers/RowLogos'
 import SlickArrow from '../components/SlickArrow'
 import Tabs from '../containers/Tabs'
 import Testimonial from '../components/Testimonial'
@@ -418,48 +419,19 @@ const IndexPage = ({ data }) => {
         <div className="container">
           <h2 className="heading-decoration">OUR CLIENTS</h2>
           <div className="m20" />
-          <div className="row-logos">
-            <div className="row-logos__item">
-              <img
-                className="img-gray img-responsive el-center"
-                width="100"
-                src={require('../../assets/logos/js.svg')}
-                alt="js"
-              />
-            </div>
-            <div className="row-logos__item">
-              <img
-                className="img-gray img-responsive el-center"
-                width="100"
-                src={require('../../assets/logos/react.svg')}
-                alt="react"
-              />
-            </div>
-            <div className="row-logos__item">
-              <img
-                className="img-gray img-responsive el-center"
-                width="100"
-                src={require('../../assets/logos/sass.svg')}
-                alt="sass"
-              />
-            </div>
-            <div className="row-logos__item">
-              <img
-                className="img-gray img-responsive el-center"
-                width="100"
-                src={require('../../assets/logos/webpack.svg')}
-                alt="webpack"
-              />
-            </div>
-            <div className="row-logos__item">
-              <img
-                className="img-gray img-responsive el-center"
-                width="100"
-                src={require('../../assets/logos/wordpress.svg')}
-                alt="wordpress"
-              />
-            </div>
-          </div>
+          <RowLogos>
+            <img src={require('../../assets/logos/js.svg')} alt="js" />
+            <img src={require('../../assets/logos/react.svg')} alt="react" />
+            <img src={require('../../assets/logos/sass.svg')} alt="sass" />
+            <img
+              src={require('../../assets/logos/webpack.svg')}
+              alt="webpack"
+            />
+            <img
+              src={require('../../assets/logos/wordpress.svg')}
+              alt="wordpress"
+            />
+          </RowLogos>
         </div>
       </section>
     </div>
