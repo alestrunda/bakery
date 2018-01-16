@@ -2,6 +2,8 @@ import React from 'react'
 import Helmet from 'react-helmet'
 import FontAwesome from 'react-fontawesome'
 
+import ImageLightbox from '../components/ImageLightbox'
+
 const PageRecipe = ({ data }) => {
   const post = data.markdownRemark
   const {
@@ -42,12 +44,8 @@ const PageRecipe = ({ data }) => {
             </div>
           </div>
           <div className="grid__item grid__item--md-span-6 grid__item--break-sm-30">
-            <img
-              className="img-responsive"
-              alt={title}
-              src={
-                post.frontmatter.imageSrc.childImageSharp.responsiveSizes.src
-              }
+            <ImageLightbox
+              images={[post.frontmatter.imageSrc.childImageSharp.responsiveSizes.src]}
             />
           </div>
         </div>
