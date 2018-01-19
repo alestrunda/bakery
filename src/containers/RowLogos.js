@@ -1,9 +1,9 @@
 import React from 'react'
 
 const RowLogos = props => {
-  const items = props.children.map(item => {
+  const items = props.children.map((item, index) => {
     return (
-      <div className="row-logos__item">
+      <div key={index} className="row-logos__item">
         {React.cloneElement(item, {
           className: 'img-gray img-responsive el-center',
           width: '100',

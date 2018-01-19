@@ -5,6 +5,7 @@ import FontAwesome from 'react-fontawesome'
 import ImageLightbox from '../components/ImageLightbox'
 
 const PageRecipe = ({ data }) => {
+  console.log(post.frontmatter.imageSrc.childImageSharp.responsiveSizes)
   const post = data.markdownRemark
   const {
     title,
@@ -72,8 +73,12 @@ export const query = graphql`
         timeCook
         imageSrc {
           childImageSharp {
-            responsiveSizes(maxWidth: 500) {
+            responsiveSizes(maxWidth: 1200) {
+              aspectRatio
               src
+              srcSet
+              sizes
+              originalImg
             }
           }
         }
