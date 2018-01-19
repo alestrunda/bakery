@@ -5,7 +5,6 @@ import FontAwesome from 'react-fontawesome'
 import ImageLightbox from '../components/ImageLightbox'
 
 const PageRecipe = ({ data }) => {
-  console.log(post.frontmatter.imageSrc.childImageSharp.responsiveSizes)
   const post = data.markdownRemark
   const {
     title,
@@ -15,6 +14,7 @@ const PageRecipe = ({ data }) => {
     timePrep,
     timeCook,
   } = post.frontmatter
+  console.log(post.frontmatter.imageSrc.childImageSharp)
   return (
     <div className="container section-content">
       <Helmet title={title} />
@@ -46,7 +46,8 @@ const PageRecipe = ({ data }) => {
           </div>
           <div className="grid__item grid__item--md-span-6 grid__item--break-sm-30">
             <ImageLightbox
-              images={[post.frontmatter.imageSrc.childImageSharp.responsiveSizes.src]}
+              previewImages={[post.frontmatter.imageSrc.childImageSharp.responsiveSizes.src]}
+              fullImages={[post.frontmatter.imageSrc.childImageSharp.responsiveSizes.originalImg]}
             />
           </div>
         </div>
@@ -73,11 +74,8 @@ export const query = graphql`
         timeCook
         imageSrc {
           childImageSharp {
-            responsiveSizes(maxWidth: 1200) {
-              aspectRatio
+            responsiveSizes(maxWidth: 500) {
               src
-              srcSet
-              sizes
               originalImg
             }
           }
