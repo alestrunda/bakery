@@ -1,6 +1,7 @@
 import React from 'react'
 import Link from 'gatsby-link'
 import Helmet from 'react-helmet'
+import ArticlePreview from '../components/ArticlePreview'
 
 const PageBlog = ({ data }) => (
   <div className="section-content container">
@@ -9,10 +10,12 @@ const PageBlog = ({ data }) => (
     <h1>Blog</h1>
     {data.posts.edges.map(({ node }, index) => {
       return (
-        <div className="article">
-          <h1>{node.frontmatter.title}</h1>
-          <div dangerouslySetInnerHTML={{ __html: node.html }} />
-        </div>
+        <ArticlePreview
+          key={node.id}
+          align="left"
+          title={node.frontmatter.title}
+          excerpt={node.excerpt}
+        />
       )
     })}
   </div>
@@ -31,7 +34,7 @@ export const query = graphql`
             title
             date
           }
-          html
+          excerpt(pruneLength: 350)
         }
       }
     }

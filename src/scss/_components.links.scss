@@ -39,3 +39,7 @@
         transform: translateX(3px);
     }
 }
+
+.link-read-more__icon--small::before {
+    font-size: 13px;
+}

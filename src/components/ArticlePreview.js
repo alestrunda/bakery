@@ -5,9 +5,10 @@ import FontAwesome from 'react-fontawesome'
 import PropTypes from 'prop-types'
 
 const ArticlePreview = props => {
-  const { imageSrc, title, excerpt, link, linkText } = props
+  const { imageSrc, align, title, excerpt, link, linkText } = props
+  const alignClass = align ? `article-preview--${align}` : ""
   return (
-    <div className={className('article article-preview', props.className)}>
+    <div className={className('article article-preview', props.className, align ? `article-preview--${align}` : "")}>
       {imageSrc && (
         <Link to={link} className="article-preview__img-wrapper">
           <img
@@ -17,7 +18,7 @@ const ArticlePreview = props => {
           />
         </Link>
       )}
-      <h4 className="heading-underline text-red text-uppercase">{title}</h4>
+      <h4 className={className('heading-underline text-red text-uppercase', align ? `heading-underline--${align}` : "")}>{title}</h4>
       <p>{excerpt}</p>
       {link && (
         <Link to={link} className="link-read-more text-uppercase">
@@ -30,6 +31,7 @@ const ArticlePreview = props => {
 }
 
 ArticlePreview.propTypes = {
+  align: PropTypes.string,
   className: PropTypes.string,
   imageSrc: PropTypes.string,
   title: PropTypes.string.isRequired,

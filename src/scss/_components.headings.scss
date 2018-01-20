@@ -135,6 +135,15 @@
     }
 }
 
+.heading-underline--left {
+    text-align: left;
+
+    &::after {
+        left: 0;
+        transform: translateX(0);
+    }
+}
+
 .heading-underline2 {
     position: relative;
     padding-bottom: 10px;
