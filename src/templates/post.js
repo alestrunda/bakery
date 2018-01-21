@@ -9,6 +9,14 @@ const PagePost = ({ data }) => {
       <Helmet title={title} />
 
       <div className="article">
+        {
+          post.frontmatter.imageSrc &&
+          <img
+            className="img-responsive el-center mb50"
+            src={post.frontmatter.imageSrc.childImageSharp.responsiveSizes.src}
+            alt={title}
+          />
+        }
         <h1>{title}</h1>
         <div dangerouslySetInnerHTML={{ __html: post.html }} />
       </div>
@@ -22,6 +30,13 @@ export const query = graphql`
       html
       frontmatter {
         title
+        imageSrc {
+          childImageSharp {
+            responsiveSizes(maxWidth: 800) {
+              src
+            }
+          }
+        }
       }
     }
   }
