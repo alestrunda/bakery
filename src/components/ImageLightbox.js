@@ -31,8 +31,12 @@ class ImageLightbox extends React.Component {
         {isOpen && (
           <Lightbox
             mainSrc={fullImages[photoIndex]}
-            nextSrc={fullImages[(photoIndex + 1) % fullImages.length]}
+            nextSrc={
+              fullImages.length > 1 &&
+              fullImages[(photoIndex + 1) % fullImages.length]
+            }
             prevSrc={
+              fullImages.length > 1 &&
               fullImages[
                 (photoIndex + fullImages.length - 1) % fullImages.length
               ]
