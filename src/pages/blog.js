@@ -16,7 +16,10 @@ const PageBlog = ({ data }) => (
               key={node.id}
               title={node.frontmatter.title}
               excerpt={node.excerpt}
-              imageSrc={node.frontmatter.imageSrc && node.frontmatter.imageSrc.childImageSharp.responsiveSizes.src}
+              imageSrc={
+                node.frontmatter.imageSrc &&
+                node.frontmatter.imageSrc.childImageSharp.responsiveSizes.src
+              }
               link={node.fields.slug}
             />
           </div>

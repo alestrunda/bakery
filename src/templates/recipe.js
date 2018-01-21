@@ -46,8 +46,13 @@ const PageRecipe = ({ data }) => {
           </div>
           <div className="grid__item grid__item--md-span-6 grid__item--break-sm-30">
             <ImageLightbox
-              previewImages={[post.frontmatter.imageSrc.childImageSharp.responsiveSizes.src]}
-              fullImages={[post.frontmatter.imageSrc.childImageSharp.responsiveSizes.originalImg]}
+              previewImages={[
+                post.frontmatter.imageSrc.childImageSharp.responsiveSizes.src,
+              ]}
+              fullImages={[
+                post.frontmatter.imageSrc.childImageSharp.responsiveSizes
+                  .originalImg,
+              ]}
             />
           </div>
         </div>

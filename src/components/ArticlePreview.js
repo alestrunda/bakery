@@ -5,32 +5,64 @@ import FontAwesome from 'react-fontawesome'
 import PropTypes from 'prop-types'
 
 const ArticlePreview = props => {
-  const { imageSrc, layout, imageHover, align, title, excerpt, link, linkText } = props
-  const img =
-    (<img
-      className={className('article-preview__img', imageHover ? 'article-preview__img--hover' : '')}
+  const {
+    imageSrc,
+    layout,
+    imageHover,
+    align,
+    title,
+    excerpt,
+    link,
+    linkText,
+  } = props
+  const img = (
+    <img
+      className={className(
+        'article-preview__img',
+        imageHover ? 'article-preview__img--hover' : ''
+      )}
       src={imageSrc}
       alt={title}
-    />)
+    />
+  )
 
   return (
-    <div className={className('article article-preview', `article-preview--layout-${layout}`, props.className, align ? `article-preview--${align}` : "")}>
+    <div
+      className={className(
+        'article article-preview',
+        `article-preview--layout-${layout}`,
+        props.className,
+        align ? `article-preview--${align}` : ''
+      )}
+    >
       {imageSrc && (
         <div className="article-preview__img-wrapper">
-          {link ?
-            <Link to={link} className="article-preview__img-inner">{img}</Link>
-            :
+          {link ? (
+            <Link to={link} className="article-preview__img-inner">
+              {img}
+            </Link>
+          ) : (
             <div className="article-preview__img-inner">{img}</div>
-          }
+          )}
         </div>
       )}
       <div className="article-preview__content">
-        <h4 className={className('heading-underline text-red text-uppercase', align ? `heading-underline--${align}` : "")}>{title}</h4>
+        <h4
+          className={className(
+            'heading-underline text-red text-uppercase',
+            align ? `heading-underline--${align}` : ''
+          )}
+        >
+          {title}
+        </h4>
         <p>{excerpt}</p>
         {link && (
           <Link to={link} className="link-read-more text-uppercase">
             {linkText}{' '}
-            <FontAwesome className="link-read-more__icon" name="chevron-right" />
+            <FontAwesome
+              className="link-read-more__icon"
+              name="chevron-right"
+            />
           </Link>
         )}
       </div>

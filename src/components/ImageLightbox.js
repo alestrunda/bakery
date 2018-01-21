@@ -19,21 +19,29 @@ class ImageLightbox extends React.Component {
     return (
       <div>
         <img
-            className={className("img-responsive cursor-pointer", this.props.className)}
-            alt=""
-            src={previewImages[0]}
-            onClick={() => this.setState({ isOpen: true })}
+          className={className(
+            'img-responsive cursor-pointer',
+            this.props.className
+          )}
+          alt=""
+          src={previewImages[0]}
+          onClick={() => this.setState({ isOpen: true })}
         />
 
         {isOpen && (
           <Lightbox
             mainSrc={fullImages[photoIndex]}
             nextSrc={fullImages[(photoIndex + 1) % fullImages.length]}
-            prevSrc={fullImages[(photoIndex + fullImages.length - 1) % fullImages.length]}
+            prevSrc={
+              fullImages[
+                (photoIndex + fullImages.length - 1) % fullImages.length
+              ]
+            }
             onCloseRequest={() => this.setState({ isOpen: false })}
             onMovePrevRequest={() =>
               this.setState({
-                photoIndex: (photoIndex + fullImages.length - 1) % fullImages.length,
+                photoIndex:
+                  (photoIndex + fullImages.length - 1) % fullImages.length,
               })
             }
             onMoveNextRequest={() =>

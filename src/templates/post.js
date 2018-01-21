@@ -11,15 +11,19 @@ const PagePost = ({ data }) => {
       <Helmet title={title} />
 
       <div className="article">
-        {
-          post.frontmatter.imageSrc &&
+        {post.frontmatter.imageSrc && (
           <ImageLightbox
             className="el-center mb60"
-            previewImages={[post.frontmatter.imageSrc.childImageSharp.responsiveSizes.src]}
-            fullImages={[post.frontmatter.imageSrc.childImageSharp.responsiveSizes.originalImg]}
+            previewImages={[
+              post.frontmatter.imageSrc.childImageSharp.responsiveSizes.src,
+            ]}
+            fullImages={[
+              post.frontmatter.imageSrc.childImageSharp.responsiveSizes
+                .originalImg,
+            ]}
             alt={title}
           />
-        }
+        )}
         <h1>{title}</h1>
         <div dangerouslySetInnerHTML={{ __html: post.html }} />
       </div>
