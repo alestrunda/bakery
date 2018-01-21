@@ -17,6 +17,7 @@ const PageBlog = ({ data }) => (
               title={node.frontmatter.title}
               excerpt={node.excerpt}
               imageSrc={node.frontmatter.imageSrc && node.frontmatter.imageSrc.childImageSharp.responsiveSizes.src}
+              link={node.fields.slug}
             />
           </div>
         )
@@ -44,6 +45,9 @@ export const query = graphql`
                 }
               }
             }
+          }
+          fields {
+            slug
           }
           excerpt(pruneLength: 350)
         }

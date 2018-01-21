@@ -63,6 +63,7 @@ function getTemplateBySlug(slug) {
             return 'product.js'
         case 'recipes':
             return 'recipe.js'
+        case 'posts':
         case 'services':
             return 'post.js'
     }
