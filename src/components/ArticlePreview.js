@@ -20,7 +20,7 @@ const ArticlePreview = props => {
           {link ?
             <Link to={link} className="article-preview__img-inner">{img}</Link>
             :
-            <div>{img}</div>
+            <div className="article-preview__img-inner">{img}</div>
           }
         </div>
       )}
