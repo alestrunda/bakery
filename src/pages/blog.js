@@ -8,16 +8,21 @@ const PageBlog = ({ data }) => (
     <Helmet title="Blog" />
 
     <h1>Blog</h1>
-    {data.posts.edges.map(({ node }, index) => {
-      return (
-        <ArticlePreview
-          key={node.id}
-          align="left"
-          title={node.frontmatter.title}
-          excerpt={node.excerpt}
-        />
-      )
-    })}
+    <div className="grid grid--center">
+      {data.posts.edges.map(({ node }, index) => {
+        return (
+          <div className="grid__item grid__item--md-span-4">
+            <ArticlePreview
+              key={node.id}
+              imageHover={false}
+              title={node.frontmatter.title}
+              excerpt={node.excerpt}
+              imageSrc={node.frontmatter.imageSrc && node.frontmatter.imageSrc.childImageSharp.responsiveSizes.src}
+            />
+          </div>
+        )
+      })}
+    </div>
   </div>
 )
 
@@ -33,6 +38,13 @@ export const query = graphql`
           frontmatter {
             title
             date
+            imageSrc {
+              childImageSharp {
+                responsiveSizes(maxWidth: 500) {
+                  src
+                }
+              }
+            }
           }
           excerpt(pruneLength: 350)
         }

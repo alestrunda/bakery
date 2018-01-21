@@ -1,6 +1,7 @@
 ---
 title: Sample Post
 date: "2017-08-05"
+imageSrc: "sample-post.jpg"
 ---
 
 Suspendisse lectus libero, luctus sit amet dictum gravida, tempus nec ex. Interdum et malesuada fames ac ante ipsum primis in faucibus. Sed sagittis, ex sed consequat vestibulum, lorem sapien viverra arcu, ut tempor est augue vel lorem. Aenean molestie ipsum in est gravida eleifend aliquam eu lacus. Aliquam tincidunt ligula urna, sit amet faucibus felis cursus id. Suspendisse tristique nisl libero, et rutrum nibh viverra ut. In fringilla convallis viverra. Nullam efficitur quam ac velit vestibulum, vitae ultricies nisl malesuada. Integer nec dictum lectus. Vivamus tincidunt, dolor consectetur efficitur ultricies, libero nisi tincidunt urna, sit amet blandit risus orci a felis. Quisque eu nisl ac elit luctus tincidunt eget id lacus.
