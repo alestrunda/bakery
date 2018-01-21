@@ -6,7 +6,7 @@ const PageAbout = ({ data }) => (
   <div className="section-content container">
     <Helmet title="About" />
 
-    <h1>About</h1>
+    <h1 className="heading-main-single">About</h1>
     <p>content</p>
   </div>
 )

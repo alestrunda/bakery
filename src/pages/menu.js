@@ -6,7 +6,7 @@ const PageMenu = ({ data }) => (
   <div className="section-content container">
     <Helmet title="Menu" />
 
-    <h1>Menu</h1>
+    <h1 className="heading-main-single">Menu</h1>
     <p>content</p>
   </div>
 )

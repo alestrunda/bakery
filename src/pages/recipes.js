@@ -6,7 +6,7 @@ const Recipes = ({ data }) => (
   <div className="section-content container">
     <Helmet title="Recipes" />
 
-    <h1 className="mb30">Recipes ({data.allMarkdownRemark.totalCount})</h1>
+    <h1 className="heading-main-single">Recipes ({data.allMarkdownRemark.totalCount})</h1>
     {data.allMarkdownRemark.edges.map(({ node }, index) => {
       return (
         <div key={node.id} className="article mb50">
