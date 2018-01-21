@@ -1,6 +1,8 @@
 import React from 'react'
 import Helmet from 'react-helmet'
 
+import ImageLightbox from '../components/ImageLightbox'
+
 const PagePost = ({ data }) => {
   const post = data.markdownRemark
   const { title } = post.frontmatter
@@ -11,9 +13,10 @@ const PagePost = ({ data }) => {
       <div className="article">
         {
           post.frontmatter.imageSrc &&
-          <img
-            className="img-responsive el-center mb50"
-            src={post.frontmatter.imageSrc.childImageSharp.responsiveSizes.src}
+          <ImageLightbox
+            className="el-center mb60"
+            previewImages={[post.frontmatter.imageSrc.childImageSharp.responsiveSizes.src]}
+            fullImages={[post.frontmatter.imageSrc.childImageSharp.responsiveSizes.originalImg]}
             alt={title}
           />
         }
@@ -32,8 +35,9 @@ export const query = graphql`
         title
         imageSrc {
           childImageSharp {
-            responsiveSizes(maxWidth: 800) {
+            responsiveSizes(maxWidth: 950) {
               src
+              originalImg
             }
           }
         }

@@ -36,7 +36,7 @@ $directions: (
 //margin direction from 5 to 50
 @if $framework-spacing-direction {
 	@each $key, $value in $directions {
-		@for $i from 1 through 10 {
+		@for $i from 1 through 12 {
 			.m#{$key}#{$i * 5} { margin-#{$value}: $i * 5px; }
 		}
 	}

@@ -1,5 +1,6 @@
 import React from 'react'
 import Lightbox from 'react-image-lightbox'
+import className from 'classnames'
 
 class ImageLightbox extends React.Component {
   constructor(props) {
@@ -18,7 +19,7 @@ class ImageLightbox extends React.Component {
     return (
       <div>
         <img
-            className="img-responsive cursor-pointer"
+            className={className("img-responsive cursor-pointer", this.props.className)}
             alt=""
             src={previewImages[0]}
             onClick={() => this.setState({ isOpen: true })}
