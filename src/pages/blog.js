@@ -14,7 +14,6 @@ const PageBlog = ({ data }) => (
           <div className="grid__item grid__item--md-span-4">
             <ArticlePreview
               key={node.id}
-              imageHover={false}
               title={node.frontmatter.title}
               excerpt={node.excerpt}
               imageSrc={node.frontmatter.imageSrc && node.frontmatter.imageSrc.childImageSharp.responsiveSizes.src}
