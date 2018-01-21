@@ -4,10 +4,10 @@ import Helmet from 'react-helmet'
 import ArticlePreview from '../components/ArticlePreview'
 
 const PageBlog = ({ data }) => (
-  <div className="section-content container">
+  <div className="section-content section-content--bottom-smaller container">
     <Helmet title="Blog" />
 
-    <h1>Blog</h1>
+    <h1 className="mb30">Blog</h1>
     <div className="grid grid--center">
       {data.posts.edges.map(({ node }, index) => {
         return (
