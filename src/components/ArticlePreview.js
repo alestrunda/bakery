@@ -9,7 +9,7 @@ const ArticlePreview = props => {
     imageSrc,
     layout,
     imageHover,
-    align,
+    textAlign,
     title,
     excerpt,
     link,
@@ -32,7 +32,7 @@ const ArticlePreview = props => {
         'article article-preview',
         `article-preview--layout-${layout}`,
         props.className,
-        align ? `article-preview--${align}` : ''
+        textAlign ? `article-preview--${textAlign}` : ''
       )}
     >
       {imageSrc && (
@@ -50,7 +50,7 @@ const ArticlePreview = props => {
         <h4
           className={className(
             'heading-underline text-red text-uppercase',
-            align ? `heading-underline--${align}` : ''
+            textAlign ? `heading-underline--${textAlign}` : ''
           )}
         >
           {title}
@@ -71,7 +71,7 @@ const ArticlePreview = props => {
 }
 
 ArticlePreview.propTypes = {
-  align: PropTypes.string,
+  textAlign: PropTypes.string,
   layout: PropTypes.string,
   className: PropTypes.string,
   imageSrc: PropTypes.string,

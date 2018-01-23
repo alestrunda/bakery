@@ -23,15 +23,17 @@
 .article-preview--layout-left {
     flex-direction: row;
     flex-wrap: wrap;
-}
-
-.article-preview--left {
     text-align: left;
 }
 
 .article-preview__content {
     .article-preview--layout-left & {
-        flex: 1;
+        flex: 2;
+
+        @include break(md) {
+            flex: auto;
+            width: 100%;
+        }
     }
 }
 
@@ -60,8 +62,13 @@
     justify-content: center;
 
     .article-preview--layout-left & {
-        width: 500px;
+        width: 400px;
         margin-right: 40px;
+
+        @include break(md) {
+            width: 100%;
+            margin-right: 0;
+        }
     }
 
     .article-preview--left & {
