@@ -11,9 +11,8 @@ const PageBlog = ({ data }) => (
     <div className="grid grid--center">
       {data.posts.edges.map(({ node }, index) => {
         return (
-          <div className="grid__item grid__item--md-span-4">
+          <div className="grid__item grid__item--md-span-4" key={node.id}>
             <ArticlePreview
-              key={node.id}
               title={node.frontmatter.title}
               excerpt={node.excerpt}
               imageSrc={
