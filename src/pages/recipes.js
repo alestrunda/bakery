@@ -2,6 +2,8 @@ import React from 'react'
 import Link from 'gatsby-link'
 import Helmet from 'react-helmet'
 
+import ArticlePreview from '../components/ArticlePreview'
+
 const Recipes = ({ data }) => (
   <div className="section-content container">
     <Helmet title="Recipes" />
@@ -11,20 +13,20 @@ const Recipes = ({ data }) => (
     </h1>
     {data.allMarkdownRemark.edges.map(({ node }, index) => {
       return (
-        <div key={node.id} className="article mb50">
-          <h3 className="mb10">
-            <Link to={node.fields.slug}>{node.frontmatter.title}</Link>
-          </h3>
-          <strong>Ingredients:</strong>
-          <div
-            className="mb20 text-italic"
-            dangerouslySetInnerHTML={{ __html: node.frontmatter.ingredients }}
-          />
-          <p>{node.excerpt}</p>
-        </div>
+        <ArticlePreview
+          key={node.id}
+          title={node.frontmatter.title}
+          excerpt={node.excerpt}
+          textAlign="left"
+          layout="left"
+          imageSrc={
+            node.frontmatter.imageSrc &&
+            node.frontmatter.imageSrc.childImageSharp.responsiveSizes.src
+          }
+          link={node.fields.slug}
+        />
       )
     })}
-    <div className="m20" />
     <Link to="/" className="button button--xsmall button--brown">
       Back to the homepage
     </Link>
@@ -41,6 +43,13 @@ export const query = graphql`
           frontmatter {
             title
             ingredients
+            imageSrc {
+              childImageSharp {
+                responsiveSizes(maxWidth: 400) {
+                  src
+                }
+              }
+            }
           }
           fields {
             slug
