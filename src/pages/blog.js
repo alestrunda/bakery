@@ -14,13 +14,14 @@ const PageBlog = ({ data }) => (
           <div className="grid__item grid__item--md-span-4" key={node.id}>
             <ArticlePreview
               title={node.frontmatter.title}
-              excerpt={node.excerpt}
               imageSrc={
                 node.frontmatter.imageSrc &&
                 node.frontmatter.imageSrc.childImageSharp.responsiveSizes.src
               }
               link={node.fields.slug}
-            />
+            >
+              {node.excerpt}
+            </ArticlePreview>
           </div>
         )
       })}

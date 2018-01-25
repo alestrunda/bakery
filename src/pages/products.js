@@ -16,7 +16,6 @@ const Products = ({ data }) => (
         <ArticlePreview
           key={node.id}
           title={node.frontmatter.title}
-          excerpt={node.excerpt}
           textAlign="left"
           layout="left"
           imageSrc={
@@ -24,7 +23,12 @@ const Products = ({ data }) => (
             node.frontmatter.imageSrc.childImageSharp.responsiveSizes.src
           }
           link={node.fields.slug}
-        />
+        >
+          <div className="mb10">
+            <span className="label-box">{node.label}</span>
+          </div>
+          {node.excerpt}
+        </ArticlePreview>
       )
     })}
     <Link to="/" className="button button--xsmall button--brown">

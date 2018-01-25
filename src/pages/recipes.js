@@ -1,6 +1,7 @@
 import React from 'react'
 import Link from 'gatsby-link'
 import Helmet from 'react-helmet'
+import FontAwesome from 'react-fontawesome'
 
 import ArticlePreview from '../components/ArticlePreview'
 
@@ -16,7 +17,6 @@ const Recipes = ({ data }) => (
         <ArticlePreview
           key={node.id}
           title={node.frontmatter.title}
-          excerpt={node.excerpt}
           textAlign="left"
           layout="left"
           imageSrc={
@@ -24,7 +24,14 @@ const Recipes = ({ data }) => (
             node.frontmatter.imageSrc.childImageSharp.responsiveSizes.src
           }
           link={node.fields.slug}
-        />
+        >
+          <h4 className="mb10 mt25">
+            <FontAwesome className="text-red text-bigger mr5" name="star" />
+            Ingredients
+          </h4>
+          <div className="mb25 text-italic" dangerouslySetInnerHTML={{ __html: node.frontmatter.ingredients }} />
+          {node.excerpt}
+        </ArticlePreview>
       )
     })}
     <Link to="/" className="button button--xsmall button--brown">

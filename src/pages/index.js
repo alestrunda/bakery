@@ -141,12 +141,13 @@ const IndexPage = ({ data }) => {
       >
         <ArticlePreview
           title={node.frontmatter.title}
-          excerpt={node.excerpt}
           link={node.fields.slug}
           imageSrc={
             node.frontmatter.imageSrc.childImageSharp.responsiveSizes.src
           }
-        />
+        >
+          {node.excerpt}
+        </ArticlePreview>
       </div>
     )
   })

@@ -6,6 +6,7 @@ import PropTypes from 'prop-types'
 
 const ArticlePreview = props => {
   const {
+    children,
     imageSrc,
     layout,
     imageHover,
@@ -27,7 +28,7 @@ const ArticlePreview = props => {
   )
 
   return (
-    <div
+    <article
       className={className(
         'article article-preview',
         `article-preview--layout-${layout}`,
@@ -55,7 +56,9 @@ const ArticlePreview = props => {
         >
           {title}
         </h4>
-        <p>{excerpt}</p>
+        <div className="article-preview__content-inner">
+          {children}
+        </div>
         {link && (
           <Link to={link} className="link-read-more text-uppercase">
             {linkText}{' '}
@@ -66,7 +69,7 @@ const ArticlePreview = props => {
           </Link>
         )}
       </div>
-    </div>
+    </article>
   )
 }
 
@@ -76,7 +79,6 @@ ArticlePreview.propTypes = {
   className: PropTypes.string,
   imageSrc: PropTypes.string,
   title: PropTypes.string.isRequired,
-  excerpt: PropTypes.string,
   link: PropTypes.string,
   linkText: PropTypes.string,
   imageHover: PropTypes.bool,
