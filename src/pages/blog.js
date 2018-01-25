@@ -7,9 +7,12 @@ const PageBlog = ({ data }) => (
   <div className="section-content section-content--bottom-smaller container">
     <Helmet title="Blog" />
 
-    <h1 className="heading-main-single">Blog</h1>
+    <h1 className="heading-main-single">
+      Blog
+      ({data.allMarkdownRemark.totalCount})
+    </h1>
     <div className="grid grid--center">
-      {data.posts.edges.map(({ node }, index) => {
+      {data.allMarkdownRemark.edges.map(({ node }, index) => {
         return (
           <div className="grid__item grid__item--md-span-4" key={node.id}>
             <ArticlePreview
@@ -31,10 +34,11 @@ const PageBlog = ({ data }) => (
 
 export const query = graphql`
   query PostsQuery {
-    posts: allMarkdownRemark(
+    allMarkdownRemark(
       filter: { fileAbsolutePath: { regex: "/posts/" } }
       sort: { fields: [frontmatter___date], order: DESC }
     ) {
+      totalCount
       edges {
         node {
           id
