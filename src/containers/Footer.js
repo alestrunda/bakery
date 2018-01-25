@@ -21,7 +21,7 @@ const Footer = props => {
             <h5 className="text-yellow">HAPPY HOURS</h5>
             <p>
               Lorem Ipsum is simply dummy text of the printing.<br />
-              <Link to="./">Click Here</Link>
+              <Link to="/about/">Click Here</Link>
             </p>
           </div>
           <div className="grid__item grid__item--lg-span-3 grid__item--md-span-6 grid__item--break-md-25">
