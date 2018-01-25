@@ -64,6 +64,7 @@
     display: flex;
     margin-bottom: 20px;
     justify-content: center;
+    align-items: flex-start;
 
     .article-preview--layout-left & {
         width: 400px;
