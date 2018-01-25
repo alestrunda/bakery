@@ -15,6 +15,7 @@ const LayoutIndex = ({ children }) => (
   <div className="page-content">
     <PageHelmet />
     <Header
+      fixOnScroll
       menuItemsLeft={[
         <LinkScroll to="top" smooth={true} duration={500}>
           Home

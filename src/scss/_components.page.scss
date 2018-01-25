@@ -12,6 +12,7 @@
     position: relative;
     padding-top: 15px;
     border-bottom: 3px solid $color-brown;
+    background-color: $color-white;
     @include z-index(page-header);
 
     &::after {
@@ -24,6 +25,13 @@
         content: '';
         @include z-index(above);
     }
+}
+
+.page-header--fixed {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
 }
 
 .page-header__content {

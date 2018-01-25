@@ -15,6 +15,7 @@
     "gatsby-transformer-remark": "^1.7.28",
     "gatsby-transformer-sharp": "^1.6.16",
     "google-map-react": "^0.26.0",
+    "lodash.throttle": "^4.1.1",
     "react-fontawesome": "^1.6.1",
     "react-helmet": "^5.2.0",
     "react-image-lightbox": "^4.4.1",
