@@ -13,6 +13,7 @@
     padding-top: 15px;
     border-bottom: 3px solid $color-brown;
     background-color: $color-white;
+    margin-bottom: 3px;
     @include z-index(page-header);
 
     &::after {

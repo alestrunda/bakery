@@ -115,6 +115,16 @@
         content: '';
     }
 
+    &::before {
+        position: absolute;
+        left: 0;
+        bottom: -10px;
+        height: 4px;
+        width: 100%;
+        background-color: $color-red;
+        content: '';
+    }
+
     @include break(md) {
         min-height: 230px;
     }
