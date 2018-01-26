@@ -93,8 +93,48 @@
     font-weight: normal;
 }
 
-.heading-main-single {
-    margin-bottom: 35px;
+.heading-main {
+    position: relative;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    min-height: 280px;
+    margin-bottom: 30px;
+    background-size: cover;
+    background-position: center center;
+    background-image: url($images-dir + 'bg_page.jpg');
+
+    &::after {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: fade-out($color-red, 0.2);
+        content: '';
+    }
+
+    @include break(md) {
+        min-height: 230px;
+    }
+
+    @include break(sm) {
+        min-height: 180px;
+    }
+}
+
+.heading-main__title {
+    position: relative;
+    color: #fff;
+    margin: 0;
+    font-size: 40px;
+    letter-spacing: 1px;
+    @include z-index(above);
+
+    @include break(sm) {
+        font-size: 30px;
+    }
 }
 
 .heading-mid {

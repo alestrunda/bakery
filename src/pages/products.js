@@ -3,37 +3,38 @@ import Link from 'gatsby-link'
 import Helmet from 'react-helmet'
 
 import ArticlePreview from '../components/ArticlePreview'
+import HeadingMain from '../components/HeadingMain'
 
 const Products = ({ data }) => (
-  <div className="section-content container">
+  <div>
     <Helmet title="Products" />
+    <HeadingMain title={`Products (${data.allMarkdownRemark.totalCount})`} />
 
-    <h1 className="heading-main-single">
-      Products ({data.allMarkdownRemark.totalCount})
-    </h1>
-    {data.allMarkdownRemark.edges.map(({ node }, index) => {
-      return (
-        <ArticlePreview
-          key={node.id}
-          title={node.frontmatter.title}
-          textAlign="left"
-          layout="left"
-          imageSrc={
-            node.frontmatter.imageSrc &&
-            node.frontmatter.imageSrc.childImageSharp.responsiveSizes.src
-          }
-          link={node.fields.slug}
-        >
-          <div className="mb10">
-            <span className="label-box">{node.label}</span>
-          </div>
-          {node.excerpt}
-        </ArticlePreview>
-      )
-    })}
-    <Link to="/" className="button button--xsmall button--brown">
-      Back to the homepage
-    </Link>
+    <div className="section-content container">
+      {data.allMarkdownRemark.edges.map(({ node }, index) => {
+        return (
+          <ArticlePreview
+            key={node.id}
+            title={node.frontmatter.title}
+            textAlign="left"
+            layout="left"
+            imageSrc={
+              node.frontmatter.imageSrc &&
+              node.frontmatter.imageSrc.childImageSharp.responsiveSizes.src
+            }
+            link={node.fields.slug}
+          >
+            <div className="mb10">
+              <span className="label-box">{node.label}</span>
+            </div>
+            {node.excerpt}
+          </ArticlePreview>
+        )
+      })}
+      <Link to="/" className="button button--xsmall button--brown">
+        Back to the homepage
+      </Link>
+    </div>
   </div>
 )
 
