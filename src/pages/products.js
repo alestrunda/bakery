@@ -18,6 +18,7 @@ const Products = ({ data }) => (
             title={node.frontmatter.title}
             textAlign="left"
             layout="left"
+            imageShadow={true}
             imageSrc={
               node.frontmatter.imageSrc &&
               node.frontmatter.imageSrc.childImageSharp.responsiveSizes.src

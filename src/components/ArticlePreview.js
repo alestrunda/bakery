@@ -10,12 +10,14 @@ const ArticlePreview = props => {
     imageSrc,
     layout,
     imageHover,
+    imageShadow,
     textAlign,
     title,
     excerpt,
     link,
     linkText,
   } = props
+
   const img = (
     <img
       className={className(
@@ -25,6 +27,10 @@ const ArticlePreview = props => {
       src={imageSrc}
       alt={title}
     />
+  )
+  const articlePreviewImgInnerClasses = className(
+    'article-preview__img-inner',
+    imageShadow ? 'article-preview__img-inner--shadow' : ''
   )
 
   return (
@@ -39,11 +45,11 @@ const ArticlePreview = props => {
       {imageSrc && (
         <div className="article-preview__img-wrapper">
           {link ? (
-            <Link to={link} className="article-preview__img-inner">
+            <Link to={link} className={articlePreviewImgInnerClasses}>
               {img}
             </Link>
           ) : (
-            <div className="article-preview__img-inner">{img}</div>
+            <div className={articlePreviewImgInnerClasses}>{img}</div>
           )}
         </div>
       )}
@@ -56,9 +62,7 @@ const ArticlePreview = props => {
         >
           {title}
         </h4>
-        <div className="article-preview__content-inner">
-          {children}
-        </div>
+        <div className="article-preview__content-inner">{children}</div>
         {link && (
           <Link to={link} className="link-read-more text-uppercase">
             {linkText}{' '}
@@ -82,10 +86,12 @@ ArticlePreview.propTypes = {
   link: PropTypes.string,
   linkText: PropTypes.string,
   imageHover: PropTypes.bool,
+  imageShadow: PropTypes.bool,
 }
 
 ArticlePreview.defaultProps = {
   imageHover: true,
+  imageShadow: false,
   layout: 'center',
   linkText: 'Read more',
 }

@@ -60,6 +60,10 @@
     overflow: hidden;
 }
 
+.article-preview__img-inner--shadow {
+    box-shadow: 0 0 13px rgba(0, 0, 0, 0.6);
+}
+
 .article-preview__img-wrapper {
     display: flex;
     margin-bottom: 20px;
