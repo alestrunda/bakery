@@ -2,6 +2,7 @@ import React from 'react'
 import Link from 'gatsby-link'
 import Helmet from 'react-helmet'
 
+import ContactMap from '../containers/ContactMap'
 import HeadingMain from '../components/HeadingMain'
 
 const PageAbout = ({ data }) => (
@@ -21,6 +22,8 @@ const PageAbout = ({ data }) => (
       </div>
       <p>Quisque sed est dapibus, convallis mauris eget, molestie elit. Praesent congue neque vitae ante scelerisque venenatis. Morbi eget felis lacus. Sed quis quam eros. Donec ac eros non elit blandit tincidunt ac ut orci. Sed sed ultricies tellus, non facilisis metus. Duis mollis tellus at feugiat rutrum. Aenean nec quam sit amet leo tristique malesuada in eget nisl. Ut sem sapien, placerat at maximus ut, egestas ut ante.</p>
     </div>
+
+    <ContactMap />
   </div>
 )
 
