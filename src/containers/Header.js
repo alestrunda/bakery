@@ -75,11 +75,11 @@ class Header extends React.Component {
   }
 
   render() {
-    const { menuItemsLeft, menuItemsRight } = this.props
+    const { menuItemsLeft, menuItemsRight, className } = this.props
 
     return (
       <div>
-        <header id="top" className="page-header" ref={(el) => { this.headerEl = el; }}>
+        <header id="top" className={classNames("page-header", className ? className : "")} ref={(el) => { this.headerEl = el; }}>
           <div className="container">
             <div className="page-header__content clearfix">
               <Button onClick={this.handleMenuOpenClick} className="nav-button">
