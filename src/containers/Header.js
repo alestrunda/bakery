@@ -11,7 +11,7 @@ class Header extends React.Component {
   state = {
     menuOpened: false,
     headerFixed: false,
-    prevScrollTop: 0
+    prevScrollTop: 0,
   }
 
   componentDidMount() {
@@ -39,14 +39,12 @@ class Header extends React.Component {
   }
 
   handleScroll = () => {
-    if(this.isScrolledUpwards())
-      !this.isHeaderFixed() && this.fixHeader()
-    else
-      this.isHeaderFixed() && this.unfixHeader()
+    if (this.isScrolledUpwards()) !this.isHeaderFixed() && this.fixHeader()
+    else this.isHeaderFixed() && this.unfixHeader()
 
     this.setState({
-      prevScrollTop: document.documentElement.scrollTop
-    });
+      prevScrollTop: document.documentElement.scrollTop,
+    })
   }
 
   isHeaderFixed() {
@@ -59,19 +57,19 @@ class Header extends React.Component {
   }
 
   fixHeader() {
-    this.headerPlaceholderEl.style.height = this.headerEl.offsetHeight + "px"
-    this.headerEl.classList.add("page-header--fixed");
+    this.headerPlaceholderEl.style.height = this.headerEl.offsetHeight + 'px'
+    this.headerEl.classList.add('page-header--fixed')
     this.setState({
-      headerFixed: true
-    });
+      headerFixed: true,
+    })
   }
 
   unfixHeader() {
     this.headerPlaceholderEl.style.height = 0
-    this.headerEl.classList.remove("page-header--fixed");
+    this.headerEl.classList.remove('page-header--fixed')
     this.setState({
-      headerFixed: false
-    });
+      headerFixed: false,
+    })
   }
 
   render() {
@@ -79,7 +77,13 @@ class Header extends React.Component {
 
     return (
       <div>
-        <header id="top" className={classNames("page-header", className ? className : "")} ref={(el) => { this.headerEl = el; }}>
+        <header
+          id="top"
+          className={classNames('page-header', className ? className : '')}
+          ref={el => {
+            this.headerEl = el
+          }}
+        >
           <div className="container">
             <div className="page-header__content clearfix">
               <Button onClick={this.handleMenuOpenClick} className="nav-button">
@@ -101,7 +105,7 @@ class Header extends React.Component {
             </div>
           </div>
           <Navigation
-            active={this.state.menuOpened}
+            isActive={this.state.menuOpened}
             className="nav-responsive"
             classNameContainer="nav"
             items={menuItemsLeft.concat(menuItemsRight)}
@@ -110,8 +114,11 @@ class Header extends React.Component {
             }}
           />
         </header>
-        <div className="page-header-placeholder"
-          ref={(el) => { this.headerPlaceholderEl = el; }}
+        <div
+          className="page-header-placeholder"
+          ref={el => {
+            this.headerPlaceholderEl = el
+          }}
         />
       </div>
     )

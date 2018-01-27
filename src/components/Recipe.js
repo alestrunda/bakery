@@ -5,6 +5,7 @@ import Link from 'gatsby-link'
 
 const Recipe = props => {
   const { recipe, title } = props
+
   return (
     <article className="recipe-simple">
       <div className="recipe-simple__content">

@@ -4,10 +4,12 @@ import classNames from 'classnames'
 import PropTypes from 'prop-types'
 
 const NavigationLogo = props => {
+  const { className, to } = props
+
   return (
-    <div className={classNames('img-nav-logo__container', props.className)}>
+    <div className={classNames('img-nav-logo__container', className)}>
       <div className="img-nav-logo__circle" />
-      <Link to={props.to}>
+      <Link to={to}>
         <img
           className="img-nav-logo"
           src={require('../../assets/logo.png')}

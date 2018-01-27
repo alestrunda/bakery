@@ -5,33 +5,32 @@ import PropTypes from 'prop-types'
 import NavigationItem from './NavigationItem'
 
 const Navigation = props => {
-  const items = props.items.map((item, index) => {
+  const { items, isActive, className, classNameContainer } = props
+  const navItems = items.map((item, index) => {
     return (
-      <li key={index} className={`${props.className}__item`}>
-        <NavigationItem className={`${props.className}__link`}>
-          {item}
-        </NavigationItem>
+      <li key={index} className={`${className}__item`}>
+        <NavigationItem className={`${className}__link`}>{item}</NavigationItem>
       </li>
     )
   })
   return (
-    <div className={props.classNameContainer}>
-      <ul className={classNames(props.className, { active: props.active })}>
-        {items}
+    <div className={classNameContainer}>
+      <ul className={classNames(className, { active: isActive })}>
+        {navItems}
       </ul>
     </div>
   )
 }
 
 Navigation.propTypes = {
-  active: PropTypes.bool,
+  isActive: PropTypes.bool,
   className: PropTypes.string,
   classNameContainer: PropTypes.string,
   items: PropTypes.array.isRequired,
 }
 
 Navigation.defaultProps = {
-  active: false,
+  isActive: false,
   className: 'nav',
 }
 

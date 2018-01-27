@@ -13,7 +13,7 @@ const PagePost = ({ data }) => {
       <div className="article">
         {post.frontmatter.imageSrc && (
           <ImageLightbox
-            className="el-center mb60"
+            classNameImg="el-center mb60"
             previewImages={[
               post.frontmatter.imageSrc.childImageSharp.responsiveSizes.src,
             ]}

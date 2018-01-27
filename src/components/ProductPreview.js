@@ -2,9 +2,11 @@ import React from 'react'
 import Link from 'gatsby-link'
 import FontAwesome from 'react-fontawesome'
 import PropTypes from 'prop-types'
+import classNames from 'classnames'
 
 const ProductPreview = props => {
-  const { link, imageSrc, title, urlShop, urlLike, labelClass, label } = props
+  const { link, imageSrc, title, urlShop, urlLike, labelColor, label } = props
+
   return (
     <div className="product-preview label-box-container">
       <Link to={link}>
@@ -29,14 +31,16 @@ const ProductPreview = props => {
           )}
         </div>
       </div>
-      {label && <span className={`label-box ${labelClass}`}>{label}</span>}
+      {label && (
+        <span className={`label-box label-box--${labelColor}`}>{label}</span>
+      )}
     </div>
   )
 }
 
 ProductPreview.propTypes = {
   label: PropTypes.string,
-  labelClass: PropTypes.string,
+  labelColor: PropTypes.string,
   link: PropTypes.string.isRequired,
   imageSrc: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
@@ -45,7 +49,7 @@ ProductPreview.propTypes = {
 }
 
 ProductPreview.defaultProps = {
-  labelClass: 'label-box--yellow',
+  labelColor: 'yellow',
 }
 
 export default ProductPreview

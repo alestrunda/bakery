@@ -27,10 +27,10 @@ const Footer = props => {
           <div className="grid__item grid__item--lg-span-3 grid__item--md-span-6 grid__item--break-md-25">
             <h5 className="text-yellow">SOCIAL MEDIA</h5>
             <div className="mb10">
-              <IconSocial icon="facebook-f" target="#" />
-              <IconSocial icon="twitter" target="#" />
-              <IconSocial icon="google-plus" target="#" />
-              <IconSocial icon="pinterest-p" target="#" />
+              <IconSocial icon="facebook-f" target="#" color="white" />
+              <IconSocial icon="twitter" target="#" color="white" />
+              <IconSocial icon="google-plus" target="#" color="white" />
+              <IconSocial icon="pinterest-p" target="#" color="white" />
             </div>
           </div>
           <div className="grid__item grid__item--lg-span-3 grid__item--md-span-6 grid__item--break-md-25">

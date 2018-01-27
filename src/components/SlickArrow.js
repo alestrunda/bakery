@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 
 const SlickArrow = props => {
   const { className, onClick, children } = props
+
   return (
     <div className={className} onClick={onClick}>
       {children}

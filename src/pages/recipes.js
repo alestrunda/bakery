@@ -30,7 +30,10 @@ const Recipes = ({ data }) => (
               <FontAwesome className="text-red text-bigger mr5" name="star" />
               Ingredients
             </h4>
-            <div className="mb25 text-italic" dangerouslySetInnerHTML={{ __html: node.frontmatter.ingredients }} />
+            <div
+              className="mb25 text-italic"
+              dangerouslySetInnerHTML={{ __html: node.frontmatter.ingredients }}
+            />
             {node.excerpt}
           </ArticlePreview>
         )
