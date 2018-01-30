@@ -2,6 +2,8 @@ import React from 'react'
 import FontAwesome from 'react-fontawesome'
 import Helmet from 'react-helmet'
 
+import IconLink from '../components/IconLink'
+
 const PageProduct = ({ data }) => {
   const post = data.markdownRemark
   const { title, label, urlShop, urlLike } = post.frontmatter
@@ -13,12 +15,8 @@ const PageProduct = ({ data }) => {
         <h1 className="mb15">{title}</h1>
         <strong>{label}</strong>
         <div className="mb20">
-          <a className="mr10" href={urlShop}>
-            <FontAwesome name="shopping-cart" />
-          </a>
-          <a className="mr10" href={urlLike}>
-            <FontAwesome name="heart" />
-          </a>
+          <IconLink icon="shopping-cart" target={urlShop} color="brown" />
+          <IconLink icon="heart" target={urlLike} color="brown" />
         </div>
         <div dangerouslySetInnerHTML={{ __html: post.html }} />
       </div>

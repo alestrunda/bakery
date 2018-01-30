@@ -35,6 +35,18 @@
     }
 }
 
+.icon-circle--brown {
+    border-color: $color-brown;
+
+    &::after {
+        background-color: $color-brown;
+    }
+
+    &:hover {
+        color: #fff;
+    }
+}
+
 .icon-circle--white {
     border-color: #fff;
 
