@@ -3,6 +3,7 @@ import FontAwesome from 'react-fontawesome'
 import Helmet from 'react-helmet'
 
 import IconLink from '../components/IconLink'
+import ImageLightbox from '../components/ImageLightbox'
 
 const PageProduct = ({ data }) => {
   const post = data.markdownRemark
@@ -12,6 +13,19 @@ const PageProduct = ({ data }) => {
       <Helmet title={title} />
 
       <div className="article">
+        {post.frontmatter.imageSrc && (
+          <ImageLightbox
+            classNameImg="el-center mb60"
+            previewImages={[
+              post.frontmatter.imageSrc.childImageSharp.responsiveSizes.src,
+            ]}
+            fullImages={[
+              post.frontmatter.imageSrc.childImageSharp.responsiveSizes
+                .originalImg,
+            ]}
+            alt={title}
+          />
+        )}
         <h1 className="mb15">{title}</h1>
         <strong>{label}</strong>
         <div className="mb20">
@@ -33,6 +47,14 @@ export const query = graphql`
         urlLike
         urlShop
         label
+        imageSrc {
+          childImageSharp {
+            responsiveSizes(maxWidth: 950) {
+              src
+              originalImg
+            }
+          }
+        }
       }
     }
   }
