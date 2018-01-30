@@ -12,6 +12,11 @@ const Products = ({ data }) => (
 
     <div className="section-content container">
       {data.allMarkdownRemark.edges.map(({ node }, index) => {
+        const label = node.frontmatter.label ? (
+          <span className="label-box label-box--yellow">
+            {node.frontmatter.label}
+          </span>
+        ) : null
         return (
           <ArticlePreview
             key={node.id}
@@ -23,11 +28,9 @@ const Products = ({ data }) => (
               node.frontmatter.imageSrc &&
               node.frontmatter.imageSrc.childImageSharp.responsiveSizes.src
             }
+            imageLabel={label}
             link={node.fields.slug}
           >
-            <div className="mb10">
-              <span className="label-box">{node.label}</span>
-            </div>
             {node.excerpt}
           </ArticlePreview>
         )

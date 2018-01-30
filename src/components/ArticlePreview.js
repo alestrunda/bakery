@@ -11,6 +11,7 @@ const ArticlePreview = props => {
     layout,
     imageHover,
     imageShadow,
+    imageLabel,
     textAlign,
     title,
     excerpt,
@@ -19,14 +20,17 @@ const ArticlePreview = props => {
   } = props
 
   const img = (
-    <img
-      className={className(
-        'article-preview__img',
-        imageHover ? 'article-preview__img--hover' : ''
-      )}
-      src={imageSrc}
-      alt={title}
-    />
+    <div className="label-box-container">
+      {imageLabel && imageLabel}
+      <img
+        className={className(
+          'article-preview__img',
+          imageHover ? 'article-preview__img--hover' : ''
+        )}
+        src={imageSrc}
+        alt={title}
+      />
+    </div>
   )
   const articlePreviewImgInnerClasses = className(
     'article-preview__img-inner',
@@ -84,6 +88,7 @@ ArticlePreview.propTypes = {
   layout: PropTypes.string,
   className: PropTypes.string,
   imageSrc: PropTypes.string,
+  imageLabel: PropTypes.element,
   title: PropTypes.string.isRequired,
   link: PropTypes.string,
   linkText: PropTypes.string,
