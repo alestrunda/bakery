@@ -3,12 +3,17 @@ import Link from 'gatsby-link'
 import Helmet from 'react-helmet'
 
 import ArticlePreview from '../components/ArticlePreview'
+import Breadcrumbs from '../components/Breadcrumbs'
 import HeadingMain from '../components/HeadingMain'
 
 const Products = ({ data }) => (
   <div>
     <Helmet title="Products" />
     <HeadingMain title={`Products (${data.allMarkdownRemark.totalCount})`} />
+
+    <div className="container">
+      <Breadcrumbs items={[{ text: 'Home', to: '/' }, { text: 'Products' }]} />
+    </div>
 
     <div className="section-content container">
       {data.allMarkdownRemark.edges.map(({ node }, index) => {
