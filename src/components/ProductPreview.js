@@ -4,11 +4,13 @@ import FontAwesome from 'react-fontawesome'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
 
+import LabelBox from '../components/LabelBox'
+
 const ProductPreview = props => {
   const { link, imageSrc, title, urlShop, urlLike, labelColor, label } = props
 
   return (
-    <div className="product-preview label-box-container">
+    <LabelBox className="product-preview" label={label} color={labelColor}>
       <Link to={link}>
         <img className="el-full" src={imageSrc} alt={title} />
       </Link>
@@ -31,10 +33,7 @@ const ProductPreview = props => {
           )}
         </div>
       </div>
-      {label && (
-        <span className={`label-box label-box--${labelColor}`}>{label}</span>
-      )}
-    </div>
+    </LabelBox>
   )
 }
 
