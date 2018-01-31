@@ -1,3 +1,24 @@
+.list-breadcrumbs__item {
+    position: relative;
+    display: inline-block;
+
+    &:not(:last-of-type) {
+        padding-right: 25px;
+
+        &::after {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            width: 7px;
+            height: 7px;
+            border-right: 1px solid $color-darker;
+            border-top: 1px solid $color-darker;
+            transform: translateY(-50%) rotate(45deg);
+            content: '';
+        }
+    }
+}
+
 .list-tabs {
     margin-bottom: 20px;
     font-weight: normal;
