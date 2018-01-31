@@ -1,14 +1,19 @@
 import React from 'react'
 import Link from 'gatsby-link'
 import Helmet from 'react-helmet'
-import ArticlePreview from '../components/ArticlePreview'
 
+import ArticlePreview from '../components/ArticlePreview'
+import Breadcrumbs from '../components/Breadcrumbs'
 import HeadingMain from '../components/HeadingMain'
 
 const PageBlog = ({ data }) => (
   <div>
     <Helmet title="Blog" />
     <HeadingMain title={`Blog (${data.allMarkdownRemark.totalCount})`} />
+
+    <div className="container">
+      <Breadcrumbs items={[{ text: 'Home', to: '/' }, { text: 'Blog' }]} />
+    </div>
 
     <div className="section-content section-content--bottom-smaller container">
       <div className="grid grid--center">
