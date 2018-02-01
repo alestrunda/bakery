@@ -79,7 +79,7 @@ class Header extends React.Component {
       <div>
         <header
           id="top"
-          className={classNames('page-header', className ? className : '')}
+          className={classNames('page-header', className)}
           ref={el => {
             this.headerEl = el
           }}
