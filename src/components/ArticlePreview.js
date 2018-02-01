@@ -83,7 +83,7 @@ const ArticlePreview = props => {
 }
 
 ArticlePreview.propTypes = {
-  children: PropTypes.oneOfType([PropTypes.element, PropTypes.string])
+  children: PropTypes.oneOfType([PropTypes.element, PropTypes.array, PropTypes.string])
     .isRequired,
   textAlign: PropTypes.string,
   layout: PropTypes.string,
