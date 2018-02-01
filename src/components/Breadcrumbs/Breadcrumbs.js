@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 import BreadcrumbsItem from '../Breadcrumbs/BreadcrumbsItem'
 
@@ -10,6 +11,10 @@ const Breadcrumbs = props => {
       ))}
     </ul>
   )
+}
+
+Breadcrumbs.propTypes = {
+  items: PropTypes.array.isRequired,
 }
 
 export default Breadcrumbs
