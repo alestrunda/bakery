@@ -17,7 +17,7 @@ const Recipe = props => {
         </h4>
         <div
           className="text-italic"
-          dangerouslySetInnerHTML={{ __html: recipe.ingredients }}
+          dangerouslySetInnerHTML={{ __html: recipe.ingredients.join('<br>') }}
         />
       </div>
       <div className="recipe-simple__photo">

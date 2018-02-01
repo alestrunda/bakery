@@ -39,8 +39,9 @@ const Recipes = ({ data }) => {
               </h4>
               <div
                 className="mb25 text-italic"
-                dangerouslySetInnerHTML={{ __html: node.frontmatter.ingredients }}
-              />
+              >
+                {node.frontmatter.ingredients.join(", ")}
+              </div>
               {node.excerpt}
             </ArticlePreview>
           )

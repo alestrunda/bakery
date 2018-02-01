@@ -15,7 +15,6 @@ const PageRecipe = ({ data }) => {
     timePrep,
     timeCook,
   } = post.frontmatter
-  console.log(post.frontmatter.imageSrc.childImageSharp)
   return (
     <div className="container">
       <Breadcrumbs
@@ -41,7 +40,7 @@ const PageRecipe = ({ data }) => {
               </h4>
               <div
                 className="mb30 text-italic"
-                dangerouslySetInnerHTML={{ __html: ingredients }}
+                dangerouslySetInnerHTML={{ __html: ingredients.join('<br>') }}
               />
               <div className="text-big">
                 <span className="text-red-dark">PREP:</span>{' '}
