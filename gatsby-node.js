@@ -45,7 +45,7 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
                 template && createPage({
                     path: node.fields.slug,
                     component: path.resolve(`./src/templates/${template}`),
-                    layout: 'page',
+                    layout: 'post',
                     context: {
                         slug: node.fields.slug,
                     },
