@@ -20,7 +20,7 @@ const PageRecipe = ({ data }) => {
       <Breadcrumbs
         items={[
           { text: 'Home', to: '/' },
-          { text: 'Blog', to: '/blog/' },
+          { text: 'Recipes', to: '/recipes/' },
           { text: title },
         ]}
       />
