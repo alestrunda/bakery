@@ -93,7 +93,8 @@ class Tabs extends React.Component {
 }
 
 Tabs.propTypes = {
-  children: PropTypes.array.isRequired,
+  children: PropTypes.oneOfType([PropTypes.element, PropTypes.array])
+    .isRequired,
 }
 
 export default Tabs

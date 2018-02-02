@@ -1,6 +1,7 @@
 import React from 'react'
 import classNames from 'classnames'
 import FontAwesome from 'react-fontawesome'
+import PropTypes from 'prop-types'
 import throttle from 'lodash.throttle'
 
 import Button from '../components/Button'
@@ -15,7 +16,7 @@ class Header extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fixOnScroll && this.addScrollHandler()
+    this.props.isFixedOnScroll && this.addScrollHandler()
   }
 
   componentWillUnmount() {
@@ -123,6 +124,17 @@ class Header extends React.Component {
       </div>
     )
   }
+}
+
+Header.propTypes = {
+  menuItemsLeft: PropTypes.array.isRequired,
+  menuItemsRight: PropTypes.array.isRequired,
+  className: PropTypes.string,
+  isFixedOnScroll: PropTypes.bool,
+}
+
+Header.defaultProps = {
+  isFixedOnScroll: false,
 }
 
 export default Header

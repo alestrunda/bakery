@@ -8,11 +8,13 @@ import Breadcrumbs from '../components/Breadcrumbs'
 import HeadingMain from '../components/HeadingMain'
 
 const Recipes = ({ data }) => {
-  const pageTitle = "Recipes"
+  const pageTitle = 'Recipes'
   return (
     <div>
       <Helmet title={pageTitle} />
-      <HeadingMain title={`${pageTitle} (${data.allMarkdownRemark.totalCount})`} />
+      <HeadingMain
+        title={`${pageTitle} (${data.allMarkdownRemark.totalCount})`}
+      />
 
       <div className="container">
         <Breadcrumbs items={[{ text: 'Home', to: '/' }, { text: pageTitle }]} />
@@ -37,10 +39,8 @@ const Recipes = ({ data }) => {
                 <FontAwesome className="text-red text-bigger mr5" name="star" />
                 Ingredients
               </h4>
-              <div
-                className="mb25 text-italic"
-              >
-                {node.frontmatter.ingredients.join(", ")}
+              <div className="mb25 text-italic">
+                {node.frontmatter.ingredients.join(', ')}
               </div>
               {node.excerpt}
             </ArticlePreview>

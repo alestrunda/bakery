@@ -9,7 +9,9 @@ class Navigation extends React.Component {
     return (
       <li key={index} className={`${className}__item`}>
         <NavigationLink className={`${className}__link`} {...item} />
-        {item.items && <Navigation className={`${className}__sub`} items={item.items} />}
+        {item.items && (
+          <Navigation className={`${className}__sub`} items={item.items} />
+        )}
       </li>
     )
   }
@@ -19,7 +21,9 @@ class Navigation extends React.Component {
     return (
       <div className={classNameContainer}>
         <ul className={classNames(className, { active: isActive })}>
-          {items.map((item, index) => this.renderNavigationLink(index, className, item))}
+          {items.map((item, index) =>
+            this.renderNavigationLink(index, className, item)
+          )}
         </ul>
       </div>
     )
