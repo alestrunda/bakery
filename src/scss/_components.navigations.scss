@@ -65,12 +65,11 @@
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    font-size: 18px;
-    font-weight: bold;
-    text-transform: uppercase;
 }
 
 .nav-main__item {
+    position: relative;
+
     &:not(:last-of-type) {
         border-right: 1px solid fade-out($color-brown, 0.6);
     }
@@ -82,10 +81,58 @@
     text-decoration: none;
     transition: all 0.2s ease-out;
     cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+    text-transform: uppercase;
 
     &:hover,
     &:focus {
         color: $color-red;
+    }
+}
+
+.nav-main__sub {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    min-width: 175px;
+    font-size: 16px;
+    padding-top: 10px;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease-out;
+    text-align: left;
+
+    .nav-main__item:hover & {
+        opacity: 1;
+        visibility: visible;
+    }
+}
+
+.nav-main__sub__item {
+    background-color: #fff;
+    border-bottom: 1px solid $color-gray-light;
+
+    &:first-of-type {
+        border-top: 1px solid $color-brown;
+    }
+
+    &:last-of-type {
+        border-bottom-color: $color-brown;
+    }
+}
+
+.nav-main__sub__link {
+    display: block;
+    padding: 5px 15px;
+    text-decoration: none;
+    transition: all 0.3s ease-out;
+    cursor: pointer;
+    font-weight: bold;
+
+    &:hover {
+        background-color: $color-red;
+        color: #fff;
     }
 }
 

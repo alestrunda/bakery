@@ -16,14 +16,22 @@ const LayoutPost = ({ children }) => (
     <Header
       className="page-header--offset-bottom"
       menuItemsLeft={[
-        <Link to="/">Home</Link>,
-        <Link to="/about/">About</Link>,
-        <Link to="/menu/">Menu</Link>,
+        { to: '/', text: 'Home' },
+        {
+          to: '/menu/',
+          text: 'Menu',
+          items: [{ to: '/products/', text: 'Products' }],
+        },
+        { to: '/#featured-recipes', text: 'Features' },
       ]}
       menuItemsRight={[
-        <Link to="/#featured-recipes">Features</Link>,
-        <Link to="/blog/">Blog</Link>,
-        <Link to="/#contact">Contact</Link>,
+        {
+          to: '/blog/',
+          text: 'Blog',
+          items: [{ to: '/recipes/', text: 'Recipes' }],
+        },
+        { to: '/about/', text: 'About' },
+        { to: '/#contact', text: 'Contact' },
       ]}
     />
     <div className="page-content__stretch">{children()}</div>
