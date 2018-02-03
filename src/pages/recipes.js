@@ -20,7 +20,7 @@ const Recipes = ({ data }) => {
         <Breadcrumbs items={[{ text: 'Home', to: '/' }, { text: pageTitle }]} />
       </div>
 
-      <div className="section-content container">
+      <div className="section-content section-content--top-smaller container">
         {data.allMarkdownRemark.edges.map(({ node }, index) => {
           return (
             <ArticlePreview

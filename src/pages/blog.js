@@ -15,7 +15,7 @@ const PageBlog = ({ data }) => (
       <Breadcrumbs items={[{ text: 'Home', to: '/' }, { text: 'Blog' }]} />
     </div>
 
-    <div className="section-content section-content--bottom-smaller container">
+    <div className="section-content section-content--bottom-smaller section-content--top-smaller container">
       <div className="grid grid--center">
         {data.allMarkdownRemark.edges.map(({ node }, index) => {
           return (

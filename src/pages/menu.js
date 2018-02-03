@@ -9,7 +9,7 @@ const PageMenu = ({ data }) => (
     <Helmet title="Menu" />
     <HeadingMain title="Menu" />
 
-    <div className="section-content container">
+    <div className="section-content section-content--top-smaller container">
       <p>
         Sed ullamcorper ac eros in maximus. Nam quis magna fringilla, volutpat
         quam in, eleifend quam. Integer bibendum odio sit amet lectus rhoncus,
