@@ -2,11 +2,12 @@ import React from 'react'
 import Helmet from 'react-helmet'
 import FontAwesome from 'react-fontawesome'
 
+import ArticleNavigation from '../components/ArticleNavigation'
 import Breadcrumbs from '../components/Breadcrumbs'
 import ImageLightbox from '../components/ImageLightbox'
 
-const PageRecipe = ({ data }) => {
-  const post = data.markdownRemark
+const PageRecipe = props => {
+  const { currentPost, allPosts } = props.data
   const {
     title,
     date,
@@ -14,7 +15,8 @@ const PageRecipe = ({ data }) => {
     ingredients,
     timePrep,
     timeCook,
-  } = post.frontmatter
+  } = currentPost.frontmatter
+
   return (
     <div className="container">
       <Breadcrumbs
@@ -25,7 +27,7 @@ const PageRecipe = ({ data }) => {
         ]}
       />
 
-      <div className="section-content">
+      <div className="section-content section-content--top-small">
         <Helmet title={title} />
 
         <div className="article">
@@ -56,10 +58,10 @@ const PageRecipe = ({ data }) => {
             <div className="grid__item grid__item--md-span-6 grid__item--break-sm-30">
               <ImageLightbox
                 previewImages={[
-                  post.frontmatter.imageSrc.childImageSharp.responsiveSizes.src,
+                  currentPost.frontmatter.imageSrc.childImageSharp.responsiveSizes.src,
                 ]}
                 fullImages={[
-                  post.frontmatter.imageSrc.childImageSharp.responsiveSizes
+                  currentPost.frontmatter.imageSrc.childImageSharp.responsiveSizes
                     .originalImg,
                 ]}
               />
@@ -69,8 +71,9 @@ const PageRecipe = ({ data }) => {
             <FontAwesome className="text-red text-bigger mr5" name="star" />
             Steps:
           </h4>
-          <div dangerouslySetInnerHTML={{ __html: post.html }} />
+          <div dangerouslySetInnerHTML={{ __html: currentPost.html }} />
         </div>
+        <ArticleNavigation currentPost={currentPost} posts={allPosts.edges} />
       </div>
     </div>
   )
@@ -78,8 +81,9 @@ const PageRecipe = ({ data }) => {
 
 export const query = graphql`
   query PageRecipeQuery($slug: String!) {
-    markdownRemark(fields: { slug: { eq: $slug } }) {
+    currentPost: markdownRemark(fields: { slug: { eq: $slug } }) {
       html
+      id
       frontmatter {
         title
         date(formatString: "DD. MM. YYYY")
@@ -93,6 +97,22 @@ export const query = graphql`
               src
               originalImg
             }
+          }
+        }
+      }
+    }
+    allPosts: allMarkdownRemark(
+      filter: { fileAbsolutePath: { regex: "/recipes/" } }
+      sort: { fields: [frontmatter___date], order: DESC }
+    ) {
+      edges {
+        node {
+          id
+          frontmatter {
+            title
+          }
+          fields {
+            slug
           }
         }
       }
