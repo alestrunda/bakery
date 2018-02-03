@@ -1,12 +1,13 @@
 import React from 'react'
 import Helmet from 'react-helmet'
 
+import ArticleNavigation from '../components/ArticleNavigation'
 import Breadcrumbs from '../components/Breadcrumbs'
 import ImageLightbox from '../components/ImageLightbox'
 
-const PagePost = ({ data }) => {
-  const post = data.markdownRemark
-  const { title } = post.frontmatter
+const PagePost = props => {
+  const { currentPost, allPosts } = props.data
+  const { title } = currentPost.frontmatter
   return (
     <div className="container">
       <Breadcrumbs
@@ -21,22 +22,24 @@ const PagePost = ({ data }) => {
         <Helmet title={title} />
 
         <div className="article">
-          {post.frontmatter.imageSrc && (
+          {currentPost.frontmatter.imageSrc && (
             <ImageLightbox
               classNameImg="el-center mb60"
               previewImages={[
-                post.frontmatter.imageSrc.childImageSharp.responsiveSizes.src,
+                currentPost.frontmatter.imageSrc.childImageSharp.responsiveSizes
+                  .src,
               ]}
               fullImages={[
-                post.frontmatter.imageSrc.childImageSharp.responsiveSizes
+                currentPost.frontmatter.imageSrc.childImageSharp.responsiveSizes
                   .originalImg,
               ]}
               alt={title}
             />
           )}
           <h1>{title}</h1>
-          <div dangerouslySetInnerHTML={{ __html: post.html }} />
+          <div dangerouslySetInnerHTML={{ __html: currentPost.html }} />
         </div>
+        <ArticleNavigation currentPost={currentPost} posts={allPosts.edges} />
       </div>
     </div>
   )
@@ -44,8 +47,9 @@ const PagePost = ({ data }) => {
 
 export const query = graphql`
   query PagePostQuery($slug: String!) {
-    markdownRemark(fields: { slug: { eq: $slug } }) {
+    currentPost: markdownRemark(fields: { slug: { eq: $slug } }) {
       html
+      id
       frontmatter {
         title
         imageSrc {
@@ -54,6 +58,22 @@ export const query = graphql`
               src
               originalImg
             }
+          }
+        }
+      }
+    }
+    allPosts: allMarkdownRemark(
+      filter: { fileAbsolutePath: { regex: "/posts/" } }
+      sort: { fields: [frontmatter___date], order: DESC }
+    ) {
+      edges {
+        node {
+          id
+          frontmatter {
+            title
+          }
+          fields {
+            slug
           }
         }
       }
