@@ -66,3 +66,28 @@
         padding-right: 20px;
     }
 }
+
+.row-price {
+    display: flex;
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+
+.row-price__dots {
+    flex: 1;
+    align-self: flex-end;
+    border-bottom: 1px solid $color-gray-light;
+    transform: translateY(-5px);
+}
+
+.row-price__price {
+    align-self: flex-end;
+    text-align: right;
+    padding-left: 20px;
+    font-weight: bold;
+}
+
+.row-price__title {
+    padding-right: 20px;
+    text-align: left;
+}
