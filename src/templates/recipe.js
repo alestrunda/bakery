@@ -31,7 +31,7 @@ const PageRecipe = props => {
         <Helmet title={title} />
 
         <div className="article">
-          <h1 className="mb5">{title}</h1>
+          <h1 className="mb0">{title}</h1>
           <p className="text-small text-silver">{date}</p>
           <p className="mb40">{`"${description}"`}</p>
           <div className="grid mb40">
