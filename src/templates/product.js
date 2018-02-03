@@ -35,12 +35,12 @@ const PageProduct = props => {
               <LabelBox label={label}>
                 <ImageLightbox
                   previewImages={[
-                    currentPost.frontmatter.imageSrc.childImageSharp.responsiveSizes
-                      .src,
+                    currentPost.frontmatter.imageSrc.childImageSharp
+                      .responsiveSizes.src,
                   ]}
                   fullImages={[
-                    currentPost.frontmatter.imageSrc.childImageSharp.responsiveSizes
-                      .originalImg,
+                    currentPost.frontmatter.imageSrc.childImageSharp
+                      .responsiveSizes.originalImg,
                   ]}
                   alt={title}
                 />

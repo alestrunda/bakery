@@ -15,12 +15,14 @@ const PageAbout = ({ data }) => (
         <h1>Integer ornare</h1>
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed egestas,
-          lorem non mattis ullamcorper, enim eros consectetur ligula, id malesuada
-          sem magna non felis. Suspendisse luctus ut tortor eget sollicitudin.
-          Morbi venenatis semper est at venenatis. Integer ornare velit eget
-          hendrerit scelerisque. Nullam ullamcorper cursus nisi eget fermentum.<br />
-          Curabitur pulvinar scelerisque libero, sed posuere mi finibus eget. Cras
-          dignissim blandit viverra. Duis convallis mauris dictum placerat varius.
+          lorem non mattis ullamcorper, enim eros consectetur ligula, id
+          malesuada sem magna non felis. Suspendisse luctus ut tortor eget
+          sollicitudin. Morbi venenatis semper est at venenatis. Integer ornare
+          velit eget hendrerit scelerisque. Nullam ullamcorper cursus nisi eget
+          fermentum.<br />
+          Curabitur pulvinar scelerisque libero, sed posuere mi finibus eget.
+          Cras dignissim blandit viverra. Duis convallis mauris dictum placerat
+          varius.
         </p>
         <h3>Pellentesque</h3>
         <div className="grid">
@@ -52,21 +54,29 @@ const PageAbout = ({ data }) => (
           alt="slide"
         />
         <h3>Pellentesque</h3>
-        <p><strong>Sed quis quam eros. Donec ac eros non elit blandit tincidunt ac ut orci.</strong></p>
+        <p>
+          <strong>
+            Sed quis quam eros. Donec ac eros non elit blandit tincidunt ac ut
+            orci.
+          </strong>
+        </p>
         <ul>
           <li>Donec ac eros non elit</li>
           <li>Suspendisse ut odio turpis</li>
-          <li>Proin nec elementum urna. Nullam euismod felis id leo
-              imperdiet, et fringilla felis maximus.</li>
+          <li>
+            Proin nec elementum urna. Nullam euismod felis id leo imperdiet, et
+            fringilla felis maximus.
+          </li>
           <li>Maecenas enim</li>
         </ul>
         <p>
-          Quisque sed est dapibus, convallis mauris eget, molestie elit. Praesent
-          congue neque vitae ante scelerisque venenatis. Morbi eget felis lacus.
-          Sed quis quam eros. Donec ac eros non elit blandit tincidunt ac ut orci.
-          Sed sed ultricies tellus, non facilisis metus. Duis mollis tellus at
-          feugiat rutrum. Aenean nec quam sit amet leo tristique malesuada in eget
-          nisl. Ut sem sapien, placerat at maximus ut, egestas ut ante.
+          Quisque sed est dapibus, convallis mauris eget, molestie elit.
+          Praesent congue neque vitae ante scelerisque venenatis. Morbi eget
+          felis lacus. Sed quis quam eros. Donec ac eros non elit blandit
+          tincidunt ac ut orci. Sed sed ultricies tellus, non facilisis metus.
+          Duis mollis tellus at feugiat rutrum. Aenean nec quam sit amet leo
+          tristique malesuada in eget nisl. Ut sem sapien, placerat at maximus
+          ut, egestas ut ante.
         </p>
       </div>
     </div>

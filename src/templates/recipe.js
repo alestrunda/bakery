@@ -58,11 +58,12 @@ const PageRecipe = props => {
             <div className="grid__item grid__item--md-span-6 grid__item--break-sm-30">
               <ImageLightbox
                 previewImages={[
-                  currentPost.frontmatter.imageSrc.childImageSharp.responsiveSizes.src,
+                  currentPost.frontmatter.imageSrc.childImageSharp
+                    .responsiveSizes.src,
                 ]}
                 fullImages={[
-                  currentPost.frontmatter.imageSrc.childImageSharp.responsiveSizes
-                    .originalImg,
+                  currentPost.frontmatter.imageSrc.childImageSharp
+                    .responsiveSizes.originalImg,
                 ]}
               />
             </div>
