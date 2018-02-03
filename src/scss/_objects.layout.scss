@@ -66,3 +66,15 @@
         padding-top: 35px;
     }
 }
+
+.section-content--top-smaller {
+    padding-top: 70px;
+
+    @include break(md) {
+        padding-top: 50px;
+    }
+
+    @include break(sm) {
+        padding-top: 40px;
+    }
+}

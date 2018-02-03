@@ -19,6 +19,31 @@
     }
 }
 
+.list-dots,
+.lists-dots ul {
+    margin-bottom: 20px;
+
+    li {
+        position: relative;
+        padding-left: 25px;
+
+        &::after {
+            position: absolute;
+            left: 5px;
+            top: 6px;
+            width: 8px;
+            height: 8px;
+            background-color: $color-red;
+            border-radius: 50%;
+            content: '';
+        }
+
+        &:not(:last-of-type) {
+            margin-bottom: 8px;
+        }
+    }
+}
+
 .list-tabs {
     margin-bottom: 20px;
     font-weight: normal;
