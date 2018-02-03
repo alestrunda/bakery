@@ -8,7 +8,10 @@ import ImageLightbox from '../components/ImageLightbox'
 const PagePost = props => {
   const { currentPost, allPosts } = props.data
   const { title } = currentPost.frontmatter
-  const articleNav = <ArticleNavigation currentPost={currentPost} posts={allPosts.edges} />
+  const articleNav = (
+    <ArticleNavigation currentPost={currentPost} posts={allPosts.edges} />
+  )
+
   return (
     <div className="container">
       <Breadcrumbs
@@ -21,9 +24,7 @@ const PagePost = props => {
 
       <div className="section-content section-content--top-small">
         <Helmet title={title} />
-        <div className="mb30">
-          {articleNav}
-        </div>
+        <div className="mb30">{articleNav}</div>
 
         <div className="article">
           {currentPost.frontmatter.imageSrc && (

@@ -2,14 +2,19 @@ import React from 'react'
 import FontAwesome from 'react-fontawesome'
 import Helmet from 'react-helmet'
 
+import ArticleNavigation from '../components/ArticleNavigation'
 import Breadcrumbs from '../components/Breadcrumbs'
 import IconLink from '../components/IconLink'
 import ImageLightbox from '../components/ImageLightbox'
 import LabelBox from '../components/LabelBox'
 
-const PageProduct = ({ data }) => {
-  const post = data.markdownRemark
-  const { title, label, urlShop, urlLike } = post.frontmatter
+const PageProduct = props => {
+  const { currentPost, allPosts } = props.data
+  const { title, label, urlShop, urlLike } = currentPost.frontmatter
+  const articleNav = (
+    <ArticleNavigation currentPost={currentPost} posts={allPosts.edges} />
+  )
+
   return (
     <div className="container">
       <Breadcrumbs
@@ -22,18 +27,19 @@ const PageProduct = ({ data }) => {
 
       <div className="section-content">
         <Helmet title={title} />
+        <div className="mb30">{articleNav}</div>
 
         <div className="article">
-          {post.frontmatter.imageSrc && (
+          {currentPost.frontmatter.imageSrc && (
             <div className="wrapper-centering mb60">
               <LabelBox label={label}>
                 <ImageLightbox
                   previewImages={[
-                    post.frontmatter.imageSrc.childImageSharp.responsiveSizes
+                    currentPost.frontmatter.imageSrc.childImageSharp.responsiveSizes
                       .src,
                   ]}
                   fullImages={[
-                    post.frontmatter.imageSrc.childImageSharp.responsiveSizes
+                    currentPost.frontmatter.imageSrc.childImageSharp.responsiveSizes
                       .originalImg,
                   ]}
                   alt={title}
@@ -46,8 +52,9 @@ const PageProduct = ({ data }) => {
             <IconLink icon="shopping-cart" target={urlShop} color="brown" />
             <IconLink icon="heart" target={urlLike} color="brown" />
           </div>
-          <div dangerouslySetInnerHTML={{ __html: post.html }} />
+          <div dangerouslySetInnerHTML={{ __html: currentPost.html }} />
         </div>
+        {articleNav}
       </div>
     </div>
   )
@@ -55,8 +62,9 @@ const PageProduct = ({ data }) => {
 
 export const query = graphql`
   query PageProductQuery($slug: String!) {
-    markdownRemark(fields: { slug: { eq: $slug } }) {
+    currentPost: markdownRemark(fields: { slug: { eq: $slug } }) {
       html
+      id
       frontmatter {
         title
         urlLike
@@ -68,6 +76,22 @@ export const query = graphql`
               src
               originalImg
             }
+          }
+        }
+      }
+    }
+    allPosts: allMarkdownRemark(
+      filter: { fileAbsolutePath: { regex: "/products/" } }
+      sort: { fields: [frontmatter___date], order: DESC }
+    ) {
+      edges {
+        node {
+          id
+          frontmatter {
+            title
+          }
+          fields {
+            slug
           }
         }
       }
