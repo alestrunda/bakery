@@ -6,11 +6,11 @@ import PropTypes from 'prop-types'
 class ArticleNavigation extends React.Component {
   getPrevPost(posts, currentPost) {
     if (posts.length === 1) return
-    let prevPostIndex = -1
+    let prevPostIndex = null
     posts.map((item, index) => {
       item.node.id === currentPost.id && (prevPostIndex = index - 1)
     })
-    if(prevPostIndex === -1)
+    if(prevPostIndex === null)
       return
     return prevPostIndex >= 0
       ? posts[prevPostIndex].node
@@ -19,11 +19,11 @@ class ArticleNavigation extends React.Component {
 
   getNextPost(posts, currentPost) {
     if (posts.length === 1) return
-    let nextPostIndex = -1
+    let nextPostIndex = null
     posts.map((item, index) => {
       item.node.id === currentPost.id && (nextPostIndex = index + 1)
     })
-    if(nextPostIndex === -1)
+    if(nextPostIndex === null)
       return
     return nextPostIndex < posts.length
       ? posts[nextPostIndex].node
