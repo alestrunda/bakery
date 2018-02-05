@@ -10,8 +10,7 @@ class ArticleNavigation extends React.Component {
     posts.map((item, index) => {
       item.node.id === currentPost.id && (prevPostIndex = index - 1)
     })
-    if(prevPostIndex === null)
-      return
+    if (prevPostIndex === null) return
     return prevPostIndex >= 0
       ? posts[prevPostIndex].node
       : posts[posts.length - 1].node
@@ -23,8 +22,7 @@ class ArticleNavigation extends React.Component {
     posts.map((item, index) => {
       item.node.id === currentPost.id && (nextPostIndex = index + 1)
     })
-    if(nextPostIndex === null)
-      return
+    if (nextPostIndex === null) return
     return nextPostIndex < posts.length
       ? posts[nextPostIndex].node
       : posts[0].node
