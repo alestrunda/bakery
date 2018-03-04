@@ -64,7 +64,8 @@ const testimonialsSliderSettings = {
   ),
 }
 
-const IndexPage = ({ data }) => {
+const IndexPage = (props) => {
+  const data = props.data
   const tabsRecipes = data.recipes.edges.map(({ node }, index) => {
     return (
       <Pane key={node.id} title={node.frontmatter.title}>
