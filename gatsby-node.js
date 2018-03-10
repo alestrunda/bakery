@@ -61,7 +61,7 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
         edges: postsEdges,
         createPage: createPage,
         pageTemplate: 'src/templates/blog.js',
-        pageLength: 3,
+        pageLength: 3, //items per page
         pathPrefix: 'blog',
       })
       result.data.allMarkdownRemark.edges.map(({ node }) => {
@@ -81,15 +81,15 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
   })
 }
 
-function getTemplateBySlug(slug) {
+function getTemplateBySlug (slug) {
   const folder = slug.split('/')[1]
   switch (folder) {
-    case 'products':
-      return 'product.js'
-    case 'recipes':
-      return 'recipe.js'
-    case 'posts':
-    case 'services':
-      return 'post.js'
+  case 'products':
+    return 'product.js'
+  case 'recipes':
+    return 'recipe.js'
+  case 'posts':
+  case 'services':
+    return 'post.js'
   }
 }

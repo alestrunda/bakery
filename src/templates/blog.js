@@ -1,16 +1,17 @@
 import React from 'react'
-import Link from 'gatsby-link'
 import Helmet from 'react-helmet'
+import PropTypes from 'prop-types'
 
 import ArticlePreview from '../components/ArticlePreview'
 import Breadcrumbs from '../components/Breadcrumbs'
 import HeadingMain from '../components/HeadingMain'
+import Pagination from '../components/Pagination'
 
 const PageBlog = ({ data, pathContext }) => {
-  const nextUrl = (pathContext.index + 1).toString()
+  let nextUrl = (pathContext.index + 1).toString()
   let previousUrl = (pathContext.index - 1).toString()
-  if (previousUrl == 1) previousUrl = '/blog/'
-  else if (previousUrl == 0) previousUrl = ''
+  if (previousUrl === '1') previousUrl = '/blog/'
+  else if (previousUrl === '0') previousUrl = ''
 
   return (
     <div>
@@ -41,28 +42,21 @@ const PageBlog = ({ data, pathContext }) => {
             )
           })}
         </div>
-        <div className="grid text-xs-center">
-          <div className="grid__item grid__item--sm-span-4">
-            {previousUrl && (
-              <Link to={previousUrl} className="link-read-more text-uppercase">
-                previous page
-              </Link>
-            )}
-          </div>
-          <div className="grid__item grid__item--sm-span-4 text-center">
-            Page: {pathContext.index}
-          </div>
-          <div className="grid__item grid__item--sm-span-4 text-right text-xs-center">
-            {nextUrl <= pathContext.pageCount && (
-              <Link to={nextUrl} className="link-read-more text-uppercase">
-                next page
-              </Link>
-            )}
-          </div>
-        </div>
+        <Pagination
+          currentPageNumber={pathContext.index}
+          maxPageNumber={pathContext.pageCount}
+          previousPageUrl={previousUrl}
+          nextPageUrl={nextUrl <= pathContext.pageCount ? nextUrl : null}
+          basePageUrl="/blog/"
+        />
       </div>
     </div>
   )
+}
+
+PageBlog.propTypes = {
+  data: PropTypes.object,
+  pathContext: PropTypes.object,
 }
 
 export const query = graphql`
