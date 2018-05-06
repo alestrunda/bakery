@@ -9,18 +9,18 @@ import Navigation from '../components/Navigation'
 import NavigationLogo from '../components/NavigationLogo'
 
 class Header extends React.Component {
-  state = {
-    menuOpened: false,
-    headerFixed: false,
-    prevScrollTop: 0,
-  }
-
   componentDidMount() {
     this.props.isFixedOnScroll && this.addScrollHandler()
   }
 
   componentWillUnmount() {
     this.throttledHandleScroll && this.removeScrollHanlder()
+  }
+
+  state = {
+    menuOpened: false,
+    headerFixed: false,
+    prevScrollTop: 0,
   }
 
   addScrollHandler() {
