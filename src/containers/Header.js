@@ -77,9 +77,8 @@ class Header extends React.Component {
     const { menuItemsLeft, menuItemsRight, className } = this.props
 
     return (
-      <div>
+      <div id="top">
         <header
-          id="top"
           className={classNames('page-header', className)}
           ref={el => {
             this.headerEl = el
