@@ -82,15 +82,15 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
   })
 }
 
-function getTemplateBySlug (slug) {
+function getTemplateBySlug(slug) {
   const folder = slug.split('/')[1]
   switch (folder) {
-  case 'products':
-    return 'product.js'
-  case 'recipes':
-    return 'recipe.js'
-  case 'posts':
-  case 'services':
-    return 'post.js'
+    case 'products':
+      return 'product.js'
+    case 'recipes':
+      return 'recipe.js'
+    case 'posts':
+    case 'services':
+      return 'post.js'
   }
 }

@@ -9,7 +9,9 @@ const PaginationItem = props => {
     <li
       className={className(
         `${props.className}__item`,
-        classNameModifier ? `${props.className}__item--${classNameModifier}` : '',
+        classNameModifier
+          ? `${props.className}__item--${classNameModifier}`
+          : '',
         classNameExtra ? classNameExtra : ''
       )}
     >
@@ -24,8 +26,7 @@ PaginationItem.propTypes = {
   className: PropTypes.string.isRequired,
   classNameExtra: PropTypes.string,
   classNameModifier: PropTypes.string,
-  children: PropTypes.oneOfType([PropTypes.node, PropTypes.string])
-    .isRequired,
+  children: PropTypes.oneOfType([PropTypes.node, PropTypes.string]).isRequired,
   to: PropTypes.string.isRequired,
 }
 
