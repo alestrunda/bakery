@@ -63,6 +63,7 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
         pageTemplate: 'src/templates/blog.js',
         pageLength: 3, //items per page
         pathPrefix: 'blog',
+        layout: 'page',
       })
       result.data.allMarkdownRemark.edges.map(({ node }) => {
         const template = getTemplateBySlug(node.fields.slug)
