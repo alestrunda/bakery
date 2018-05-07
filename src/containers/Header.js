@@ -40,7 +40,7 @@ class Header extends React.Component {
   }
 
   handleScroll = () => {
-    if (this.isScrolledUpwards()) !this.isHeaderFixed() && this.fixHeader()
+    if (this.isScrolledUpwards() && this.isScrolledFromTop()) !this.isHeaderFixed() && this.fixHeader()
     else this.isHeaderFixed() && this.unfixHeader()
 
     this.setState({
@@ -57,70 +57,83 @@ class Header extends React.Component {
     return scrollTop < this.state.prevScrollTop
   }
 
+  isScrolledFromTop() {
+    const scrollFromTopThreshold = 600
+    return document.documentElement.scrollTop > scrollFromTopThreshold
+  }
+
   fixHeader() {
-    this.headerPlaceholderEl.style.height = this.headerEl.offsetHeight + 'px'
-    this.headerEl.classList.add('page-header--fixed')
+    this.headerEl.classList.add('active')
     this.setState({
       headerFixed: true,
     })
   }
 
   unfixHeader() {
-    this.headerPlaceholderEl.style.height = 0
-    this.headerEl.classList.remove('page-header--fixed')
+    this.headerEl.classList.remove('active')
     this.setState({
       headerFixed: false,
     })
   }
 
   render() {
-    const { menuItemsLeft, menuItemsRight, className } = this.props
+    const {
+      menuItemsLeft,
+      menuItemsRight,
+      className,
+      isFixedOnScroll,
+    } = this.props
 
-    return (
-      <div id="top">
-        <header
-          className={classNames('page-header', className)}
-          ref={el => {
-            this.headerEl = el
-          }}
-        >
-          <div className="container">
-            <div className="page-header__content clearfix">
-              <Button onClick={this.handleMenuOpenClick} className="nav-button">
-                <FontAwesome name="reorder" />
-              </Button>
-              <nav className="nav-container">
-                <Navigation
-                  className="nav-main"
-                  classNameContainer="nav-container__left"
-                  items={menuItemsLeft}
-                />
-                <Navigation
-                  className="nav-main"
-                  classNameContainer="nav-container__right"
-                  items={menuItemsRight}
-                />
-                <NavigationLogo className="nav-container__img" to="/" />
-              </nav>
-            </div>
+    const headerContent = (
+      <div>
+        <div className="container">
+          <div className="page-header__content clearfix">
+            <Button onClick={this.handleMenuOpenClick} className="nav-button">
+              <FontAwesome name="reorder" />
+            </Button>
+            <nav className="nav-container">
+              <Navigation
+                className="nav-main"
+                classNameContainer="nav-container__left"
+                items={menuItemsLeft}
+              />
+              <Navigation
+                className="nav-main"
+                classNameContainer="nav-container__right"
+                items={menuItemsRight}
+              />
+              <NavigationLogo className="nav-container__img" to="/" />
+            </nav>
           </div>
-          <Navigation
-            isActive={this.state.menuOpened}
-            className="nav-responsive"
-            classNameContainer="nav"
-            items={menuItemsLeft.concat(menuItemsRight)}
-            ref={element => {
-              this.menuResponsive = element
-            }}
-          />
-        </header>
-        <div
-          className="page-header-placeholder"
-          ref={el => {
-            this.headerPlaceholderEl = el
+        </div>
+        <Navigation
+          isActive={this.state.menuOpened}
+          className="nav-responsive"
+          classNameContainer="nav"
+          items={menuItemsLeft.concat(menuItemsRight)}
+          ref={element => {
+            this.menuResponsive = element
           }}
         />
       </div>
+    )
+
+    return (
+      <header id="top">
+        <div className={classNames('page-header', className)}>
+          {headerContent}
+        </div>
+        {isFixedOnScroll && (
+          <div
+            className={classNames('page-header page-header--fixed', className)}
+            ref={el => {
+              this.headerEl = el
+            }}
+          >
+            {headerContent}
+          </div>
+        )}
+      </header>
     )
   }
 }

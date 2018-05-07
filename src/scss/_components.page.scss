@@ -37,6 +37,16 @@
     top: 0;
     left: 0;
     width: 100%;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-100%);
+    transition: opacity 0.3s ease-out, visibility 0.3s ease-out, transform 0.3s ease-out;
+
+    &.active {
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+    }
 }
 
 .page-header--offset-bottom {
