@@ -155,7 +155,12 @@
     text-transform: uppercase;
 
     @include break(lg) {
-        &.active {
+        .page-header--default &.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .page-header--fixed.active &.active {
             opacity: 1;
             visibility: visible;
         }
@@ -195,6 +200,7 @@
     padding: 12px 10px;
     text-decoration: none;
     transition: all 0.2s ease-out;
+    cursor: pointer;
 
     &:hover,
     &:focus {
@@ -203,10 +209,13 @@
 }
 
 .nav-responsive__sub {
-    font-size: 14px;
-    font-weight: normal;
+    font-size: 16px;
     text-transform: none;
     margin-bottom: 15px;
+
+    @include break(sm) {
+        margin-bottom: 5px;
+    }
 }
 
 .nav-responsive__sub__link {

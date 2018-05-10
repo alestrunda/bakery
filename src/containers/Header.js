@@ -18,8 +18,8 @@ class Header extends React.Component {
   }
 
   state = {
-    menuOpened: false,
-    headerFixed: false,
+    isMenuOpened: false,
+    isHeaderFixed: false,
     prevScrollTop: 0,
   }
 
@@ -35,7 +35,7 @@ class Header extends React.Component {
 
   handleMenuOpenClick = () => {
     this.setState({
-      menuOpened: !this.state.menuOpened,
+      isMenuOpened: !this.state.isMenuOpened,
     })
   }
 
@@ -49,7 +49,7 @@ class Header extends React.Component {
   }
 
   isHeaderFixed() {
-    return this.state.headerFixed
+    return this.state.isHeaderFixed
   }
 
   isScrolledUpwards() {
@@ -65,14 +65,14 @@ class Header extends React.Component {
   fixHeader() {
     this.headerEl.classList.add('active')
     this.setState({
-      headerFixed: true,
+      isHeaderFixed: true,
     })
   }
 
   unfixHeader() {
     this.headerEl.classList.remove('active')
     this.setState({
-      headerFixed: false,
+      isHeaderFixed: false,
     })
   }
 
@@ -107,7 +107,7 @@ class Header extends React.Component {
           </div>
         </div>
         <Navigation
-          isActive={this.state.menuOpened}
+          isActive={this.state.isMenuOpened}
           className="nav-responsive"
           classNameContainer="nav"
           items={menuItemsLeft.concat(menuItemsRight)}
@@ -120,7 +120,7 @@ class Header extends React.Component {
 
     return (
       <header id="top">
-        <div className={classNames('page-header', className)}>
+        <div className={classNames('page-header page-header--default', className)}>
           {headerContent}
         </div>
         {isFixedOnScroll && (
