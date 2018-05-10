@@ -5,14 +5,14 @@ const Testimonial = props => {
   const { imageSrc, html } = props
 
   return (
-    <div className="testimonial">
+    <blockquote className="testimonial">
       <div className="testimonial__img">
         <img className="image-round el-center" src={imageSrc} alt="image" />
       </div>
       <div className="testimonial__content">
         <div dangerouslySetInnerHTML={{ __html: html }} />
       </div>
-    </div>
+    </blockquote>
   )
 }
 
