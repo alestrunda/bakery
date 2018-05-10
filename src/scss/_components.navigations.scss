@@ -201,3 +201,20 @@
         color: $color-red;
     }
 }
+
+.nav-responsive__sub {
+    font-size: 14px;
+    font-weight: normal;
+    text-transform: none;
+    margin-bottom: 15px;
+}
+
+.nav-responsive__sub__link {
+    text-decoration: none;
+    transition: all 0.2s ease-out;
+
+    &:hover,
+    &:focus {
+        color: $color-red;
+    }
+}
