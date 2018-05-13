@@ -1,9 +1,7 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import Link from 'gatsby-link'
 import FontAwesome from 'react-fontawesome'
 import Slider from 'react-slick'
-import Lightbox from 'react-images'
 
 import ArticlePreview from '../components/ArticlePreview'
 import ContactMap from '../containers/ContactMap'
@@ -13,6 +11,7 @@ import ProductPreview from '../components/ProductPreview'
 import Recipe from '../components/Recipe'
 import RowLogos from '../containers/RowLogos'
 import SlickArrow from '../components/SlickArrow'
+import SliderMain from '../components/SliderMain'
 import Tabs from '../containers/Tabs'
 import Testimonial from '../components/Testimonial'
 
@@ -155,108 +154,7 @@ const IndexPage = props => {
 
   return (
     <div>
-      <Slider className="slider-big slick-dots-dot" {...mainSliderSettings}>
-        <div className="slider-big__slide">
-          <picture>
-            <source
-              media="(max-width: 800px)"
-              srcSet={require('../../assets/slider-big/1_800w.jpg')}
-            />
-            <img
-              className="el-full"
-              src={require('../../assets/slider-big/1.jpg')}
-              alt="slide"
-            />
-          </picture>
-          <div className="slider-big__content">
-            <div className="container container--full">
-              <div>
-                <h2 className="heading-highlight m0 slick-anime slick-anime--heading1">
-                  Baked &amp; Crisp Cookies
-                </h2>
-              </div>
-              <span className="heading-highlight-red m0 slick-anime slick-anime--heading2">
-                whole wheat
-              </span>
-            </div>
-          </div>
-        </div>
-        <div className="slider-big__slide">
-          <picture>
-            <source
-              media="(max-width: 800px)"
-              srcSet={require('../../assets/slider-big/2_800w.jpg')}
-            />
-            <img
-              className="el-full"
-              src={require('../../assets/slider-big/2.jpg')}
-              alt="slide"
-            />
-          </picture>
-          <div className="slider-big__content">
-            <div className="container container--full">
-              <div>
-                <h2 className="heading-highlight m0 slick-anime slick-anime--heading1">
-                  Baked &amp; Crisp Cookies
-                </h2>
-              </div>
-              <span className="heading-highlight-red m0 slick-anime slick-anime--heading2">
-                whole wheat
-              </span>
-            </div>
-          </div>
-        </div>
-        <div className="slider-big__slide">
-          <picture>
-            <source
-              media="(max-width: 800px)"
-              srcSet={require('../../assets/slider-big/3_800w.jpg')}
-            />
-            <img
-              className="el-full"
-              src={require('../../assets/slider-big/3.jpg')}
-              alt="slide"
-            />
-          </picture>
-          <div className="slider-big__content">
-            <div className="container container--full">
-              <div>
-                <h2 className="heading-highlight m0 slick-anime slick-anime--heading1">
-                  Baked &amp; Crisp Cookies
-                </h2>
-              </div>
-              <span className="heading-highlight-red m0 slick-anime slick-anime--heading2">
-                whole wheat
-              </span>
-            </div>
-          </div>
-        </div>
-        <div className="slider-big__slide">
-          <picture>
-            <source
-              media="(max-width: 800px)"
-              srcSet={require('../../assets/slider-big/4_800w.jpg')}
-            />
-            <img
-              className="el-full"
-              src={require('../../assets/slider-big/4.jpg')}
-              alt="slide"
-            />
-          </picture>
-          <div className="slider-big__content">
-            <div className="container container--full">
-              <div>
-                <h2 className="heading-highlight m0 slick-anime slick-anime--heading1">
-                  Baked &amp; Crisp Cookies
-                </h2>
-              </div>
-              <span className="heading-highlight-red m0 slick-anime slick-anime--heading2">
-                whole wheat
-              </span>
-            </div>
-          </div>
-        </div>
-      </Slider>
+      <SliderMain className="slider-big slick-dots-dot" {...mainSliderSettings} />
 
       <section className="section-content">
         <div className="container">
@@ -275,13 +173,13 @@ const IndexPage = props => {
         </div>
       </section>
 
-      <section className="bg-testimonials">
+      <div className="bg-testimonials">
         <div className="container">
           <Slider className="slick-arrows-1" {...testimonialsSliderSettings}>
             {testimonialSlides}
           </Slider>
         </div>
-      </section>
+      </div>
 
       <section className="section-content section-content--bottom-small">
         <div className="container">
