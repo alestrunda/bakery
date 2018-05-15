@@ -5,10 +5,6 @@ import PropTypes from 'prop-types'
 import Button from '../components/Button'
 
 class Tabs extends React.Component {
-  state = {
-    selected: 0,
-  }
-
   constructor(props) {
     super(props)
     this.tabItems = []
@@ -16,6 +12,10 @@ class Tabs extends React.Component {
 
   componentDidMount() {
     this.setArrowPosition()
+  }
+
+  state = {
+    selected: 0,
   }
 
   setArrowPosition() {

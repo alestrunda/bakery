@@ -1,6 +1,5 @@
 import React from 'react'
 import Link from 'gatsby-link'
-import FontAwesome from 'react-fontawesome'
 
 import IconContact from '../components/IconContact'
 import IconLink from '../components/IconLink'
@@ -45,7 +44,7 @@ const Footer = props => {
         </div>
       </div>
       <div className="page-info bg-red text-yellow text-tiny">
-        <div className="container">Bakery 2017</div>
+        <div className="container">Bakery &copy; 2018</div>
       </div>
     </footer>
   )
