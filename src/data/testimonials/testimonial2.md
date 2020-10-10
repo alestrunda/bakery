@@ -2,4 +2,4 @@
 imageSrc: testimonial.jpg
 ---
 
-“Lorem Ipsum has been the industry's standard dummy text ever since the 1500’s... Lorem Ipsum is simply dummy text of the printing and typesetting industry. “
+“Donec sit amet mi tortor. Duis vitae ligula velit. Praesent at ex id tellus imperdiet malesuada ac a lorem. Quisque bibendum nibh id purus pretium, nec faucibus tortor tempus.“
