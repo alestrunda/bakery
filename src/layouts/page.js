@@ -37,7 +37,10 @@ const LayoutPage = ({ children }) => (
 )
 
 LayoutPage.propTypes = {
-  children: PropTypes.func,
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.node,
+  ]).isRequired,
 }
 
 export default LayoutPage

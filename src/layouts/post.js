@@ -38,7 +38,10 @@ const LayoutPost = ({ children }) => (
 )
 
 LayoutPost.propTypes = {
-  children: PropTypes.func,
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.node,
+  ]).isRequired,
 }
 
 export default LayoutPost

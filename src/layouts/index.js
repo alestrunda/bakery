@@ -39,7 +39,10 @@ const LayoutIndex = ({ children }) => (
 )
 
 LayoutIndex.propTypes = {
-  children: PropTypes.func,
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.node,
+  ]).isRequired,
 }
 
 export default LayoutIndex
