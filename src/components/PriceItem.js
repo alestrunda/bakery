@@ -23,7 +23,7 @@ const PriceItem = (props) => {
 
 PriceItem.propTypes = {
   title: PropTypes.string.isRequired,
-  price: PropTypes.string.isRequired,
+  price: PropTypes.number.isRequired,
 }
 
 export default PriceItem
