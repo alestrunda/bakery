@@ -8,7 +8,7 @@ import IconLink from '../components/IconLink'
 import ImageLightbox from '../components/ImageLightbox'
 import LabelBox from '../components/LabelBox'
 
-const PageProduct = props => {
+const PageProduct = (props) => {
   const { currentPost, allPosts } = props.data
   const { title, label, urlShop, urlLike } = currentPost.frontmatter
   const articleNav = (
@@ -35,12 +35,11 @@ const PageProduct = props => {
               <LabelBox label={label}>
                 <ImageLightbox
                   previewImages={[
-                    currentPost.frontmatter.imageSrc.childImageSharp
-                      .responsiveSizes.src,
+                    currentPost.frontmatter.imageSrc.childImageSharp.fluid.src,
                   ]}
                   fullImages={[
-                    currentPost.frontmatter.imageSrc.childImageSharp
-                      .responsiveSizes.originalImg,
+                    currentPost.frontmatter.imageSrc.childImageSharp.fluid
+                      .originalImg,
                   ]}
                   alt={title}
                 />
@@ -72,7 +71,7 @@ export const query = graphql`
         label
         imageSrc {
           childImageSharp {
-            responsiveSizes(maxWidth: 950) {
+            fluid(maxWidth: 950) {
               src
               originalImg
             }

@@ -1,5 +1,6 @@
 import React from 'react'
 import Link from 'gatsby-link'
+import { useStaticQuery, graphql } from 'gatsby'
 import FontAwesome from 'react-fontawesome'
 import Slider from 'react-slick'
 
@@ -14,6 +15,7 @@ import SlickArrow from '../components/SlickArrow'
 import SliderMain from '../components/SliderMain'
 import Tabs from '../containers/Tabs'
 import Testimonial from '../components/Testimonial'
+import Layout from '../layouts/Index'
 
 const mainSliderSettings = {
   autoplay: true,
@@ -63,8 +65,134 @@ const testimonialsSliderSettings = {
   ),
 }
 
-const IndexPage = props => {
-  const data = props.data
+const IndexPage = () => {
+  const data = useStaticQuery(
+    graphql`
+      query IndexPageQueries {
+        recipes: allMarkdownRemark(
+          filter: { fileAbsolutePath: { regex: "/recipes/" } }
+          sort: { fields: [frontmatter___date], order: DESC }
+        ) {
+          edges {
+            node {
+              id
+              frontmatter {
+                title
+                ingredients
+                description
+                timePrep
+                timeCook
+                imageSrc {
+                  childImageSharp {
+                    fluid(maxWidth: 500) {
+                      src
+                    }
+                  }
+                }
+              }
+              html
+              fields {
+                slug
+              }
+            }
+          }
+        }
+        people: allMarkdownRemark(
+          filter: { fileAbsolutePath: { regex: "/people/" } }
+          sort: { fields: [frontmatter___name], order: ASC }
+        ) {
+          edges {
+            node {
+              id
+              frontmatter {
+                name
+                title
+                imageSrc {
+                  childImageSharp {
+                    fluid(maxWidth: 500) {
+                      src
+                    }
+                  }
+                }
+              }
+              html
+            }
+          }
+        }
+        products: allMarkdownRemark(
+          filter: { fileAbsolutePath: { regex: "/products/" } }
+          sort: { fields: [frontmatter___date], order: DESC }
+        ) {
+          edges {
+            node {
+              id
+              frontmatter {
+                title
+                urlLike
+                urlShop
+                label
+                imageSrc {
+                  childImageSharp {
+                    fluid(maxWidth: 500) {
+                      src
+                    }
+                  }
+                }
+              }
+              fields {
+                slug
+              }
+            }
+          }
+        }
+        services: allMarkdownRemark(
+          filter: { fileAbsolutePath: { regex: "/services/" } }
+          sort: { fields: [frontmatter___date], order: DESC }
+          limit: 4
+        ) {
+          edges {
+            node {
+              id
+              frontmatter {
+                title
+                imageSrc {
+                  childImageSharp {
+                    fluid(maxWidth: 500) {
+                      src
+                    }
+                  }
+                }
+              }
+              fields {
+                slug
+              }
+              excerpt(pruneLength: 120)
+            }
+          }
+        }
+        testimonials: allMarkdownRemark(
+          filter: { fileAbsolutePath: { regex: "/testimonials/" } }
+        ) {
+          edges {
+            node {
+              id
+              html
+              frontmatter {
+                imageSrc {
+                  childImageSharp {
+                    fluid(maxWidth: 260) {
+                      src
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    `
+  )
+
   const tabsRecipes = data.recipes.edges.map(({ node }, index) => {
     return (
       <Pane key={node.id} title={node.frontmatter.title}>
@@ -75,8 +203,7 @@ const IndexPage = props => {
               text: node.frontmatter.description,
               timePrep: parseInt(node.frontmatter.timePrep),
               timeCook: parseInt(node.frontmatter.timeCook),
-              imageSrc:
-                node.frontmatter.imageSrc.childImageSharp.responsiveSizes.src,
+              imageSrc: node.frontmatter.imageSrc.childImageSharp.fluid.src,
               link: node.fields.slug,
             }}
           />
@@ -95,9 +222,7 @@ const IndexPage = props => {
           name={node.frontmatter.name}
           title={node.frontmatter.title}
           html={node.html}
-          imageSrc={
-            node.frontmatter.imageSrc.childImageSharp.responsiveSizes.src
-          }
+          imageSrc={node.frontmatter.imageSrc.childImageSharp.fluid.src}
         />
       </div>
     )
@@ -108,9 +233,7 @@ const IndexPage = props => {
       <div key={node.id} className="slide">
         <Testimonial
           html={node.html}
-          imageSrc={
-            node.frontmatter.imageSrc.childImageSharp.responsiveSizes.src
-          }
+          imageSrc={node.frontmatter.imageSrc.childImageSharp.fluid.src}
         />
       </div>
     )
@@ -125,9 +248,7 @@ const IndexPage = props => {
           urlShop={node.frontmatter.urlShop}
           title={node.frontmatter.title}
           link={node.fields.slug}
-          imageSrc={
-            node.frontmatter.imageSrc.childImageSharp.responsiveSizes.src
-          }
+          imageSrc={node.frontmatter.imageSrc.childImageSharp.fluid.src}
         />
       </div>
     )
@@ -142,9 +263,7 @@ const IndexPage = props => {
         <ArticlePreview
           title={node.frontmatter.title}
           link={node.fields.slug}
-          imageSrc={
-            node.frontmatter.imageSrc.childImageSharp.responsiveSizes.src
-          }
+          imageSrc={node.frontmatter.imageSrc.childImageSharp.fluid.src}
         >
           {node.excerpt}
         </ArticlePreview>
@@ -153,8 +272,11 @@ const IndexPage = props => {
   })
 
   return (
-    <div>
-      <SliderMain className="slider-big slick-dots-dot" {...mainSliderSettings} />
+    <Layout>
+      <SliderMain
+        className="slider-big slick-dots-dot"
+        {...mainSliderSettings}
+      />
 
       <section className="section-content">
         <div className="container">
@@ -294,133 +416,8 @@ const IndexPage = props => {
           </RowLogos>
         </div>
       </section>
-    </div>
+    </Layout>
   )
 }
-
-export const query = graphql`
-  query IndexPageQueries {
-    recipes: allMarkdownRemark(
-      filter: { fileAbsolutePath: { regex: "/recipes/" } }
-      sort: { fields: [frontmatter___date], order: DESC }
-    ) {
-      edges {
-        node {
-          id
-          frontmatter {
-            title
-            ingredients
-            description
-            timePrep
-            timeCook
-            imageSrc {
-              childImageSharp {
-                responsiveSizes(maxWidth: 500) {
-                  src
-                }
-              }
-            }
-          }
-          html
-          fields {
-            slug
-          }
-        }
-      }
-    }
-    people: allMarkdownRemark(
-      filter: { fileAbsolutePath: { regex: "/people/" } }
-      sort: { fields: [frontmatter___name], order: ASC }
-    ) {
-      edges {
-        node {
-          id
-          frontmatter {
-            name
-            title
-            imageSrc {
-              childImageSharp {
-                responsiveSizes(maxWidth: 500) {
-                  src
-                }
-              }
-            }
-          }
-          html
-        }
-      }
-    }
-    products: allMarkdownRemark(
-      filter: { fileAbsolutePath: { regex: "/products/" } }
-      sort: { fields: [frontmatter___date], order: DESC }
-    ) {
-      edges {
-        node {
-          id
-          frontmatter {
-            title
-            urlLike
-            urlShop
-            label
-            imageSrc {
-              childImageSharp {
-                responsiveSizes(maxWidth: 500) {
-                  src
-                }
-              }
-            }
-          }
-          fields {
-            slug
-          }
-        }
-      }
-    }
-    services: allMarkdownRemark(
-      filter: { fileAbsolutePath: { regex: "/services/" } }
-      sort: { fields: [frontmatter___date], order: DESC }
-      limit: 4
-    ) {
-      edges {
-        node {
-          id
-          frontmatter {
-            title
-            imageSrc {
-              childImageSharp {
-                responsiveSizes(maxWidth: 500) {
-                  src
-                }
-              }
-            }
-          }
-          fields {
-            slug
-          }
-          excerpt(pruneLength: 120)
-        }
-      }
-    }
-    testimonials: allMarkdownRemark(
-      filter: { fileAbsolutePath: { regex: "/testimonials/" } }
-    ) {
-      edges {
-        node {
-          id
-          html
-          frontmatter {
-            imageSrc {
-              childImageSharp {
-                responsiveSizes(maxWidth: 260) {
-                  src
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-`
 
 export default IndexPage

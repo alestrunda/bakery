@@ -5,7 +5,7 @@ import { withPrefix } from 'gatsby-link'
 class SliderMain extends React.Component {
   constructor() {
     super()
-    fetch('http://localhost:8080/api/slides')
+    /*fetch('http://localhost:8080/api/slides')
       .then(response => {
         return response.json()
       })
@@ -14,7 +14,7 @@ class SliderMain extends React.Component {
       })
       .catch(reject => {
         this.setState({ error: 'No slides found' })
-      })
+      })*/
   }
 
   state = {
@@ -23,14 +23,18 @@ class SliderMain extends React.Component {
   }
 
   render() {
-    const slides = this.state.slides.map(slide => (
+    const slides = this.state.slides.map((slide) => (
       <div key={slide._id} className="slider-big__slide">
         <picture>
           <source
             media="(max-width: 800px)"
             srcSet={withPrefix('slider-big/' + slide.img_small)}
           />
-          <img className="el-full" src={withPrefix('slider-big/' + slide.img_big)} alt="slide" />
+          <img
+            className="el-full"
+            src={withPrefix('slider-big/' + slide.img_big)}
+            alt="slide"
+          />
         </picture>
         <div className="slider-big__content">
           <div className="container container--full">

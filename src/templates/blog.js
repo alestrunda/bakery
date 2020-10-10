@@ -7,9 +7,9 @@ import Breadcrumbs from '../components/Breadcrumbs'
 import HeadingMain from '../components/HeadingMain'
 import Pagination from '../components/Pagination'
 
-const PageBlog = ({ data, pathContext }) => {
-  let nextUrl = (pathContext.index + 1).toString()
-  let previousUrl = (pathContext.index - 1).toString()
+const PageBlog = ({ data, pageContext }) => {
+  let nextUrl = (pageContext.index + 1).toString()
+  let previousUrl = (pageContext.index - 1).toString()
   if (previousUrl === '1') previousUrl = '/blog/'
   else if (previousUrl === '0') previousUrl = ''
 
@@ -24,15 +24,14 @@ const PageBlog = ({ data, pathContext }) => {
 
       <div className="section-content section-content--bottom-smaller section-content--top-smaller container">
         <div className="grid grid--center">
-          {pathContext.group.map(({ node }, index) => {
+          {pageContext.group.map(({ node }, index) => {
             return (
               <div className="grid__item grid__item--md-span-4" key={node.id}>
                 <ArticlePreview
                   title={node.frontmatter.title}
                   imageSrc={
                     node.frontmatter.imageSrc &&
-                    node.frontmatter.imageSrc.childImageSharp.responsiveSizes
-                      .src
+                    node.frontmatter.imageSrc.childImageSharp.fluid.src
                   }
                   link={node.fields.slug}
                 >
@@ -43,10 +42,10 @@ const PageBlog = ({ data, pathContext }) => {
           })}
         </div>
         <Pagination
-          currentPageNumber={pathContext.index}
-          maxPageNumber={pathContext.pageCount}
+          currentPageNumber={pageContext.index}
+          maxPageNumber={pageContext.pageCount}
           previousPageUrl={previousUrl}
-          nextPageUrl={nextUrl <= pathContext.pageCount ? nextUrl : null}
+          nextPageUrl={nextUrl <= pageContext.pageCount ? nextUrl : null}
           basePageUrl="/blog/"
         />
       </div>
@@ -56,7 +55,7 @@ const PageBlog = ({ data, pathContext }) => {
 
 PageBlog.propTypes = {
   data: PropTypes.object,
-  pathContext: PropTypes.object,
+  pageContext: PropTypes.object,
 }
 
 export const query = graphql`

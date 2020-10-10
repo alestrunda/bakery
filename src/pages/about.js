@@ -4,11 +4,14 @@ import Helmet from 'react-helmet'
 
 import ContactMap from '../containers/ContactMap'
 import HeadingMain from '../components/HeadingMain'
+import Layout from '../layouts/Page'
+
+const PAGE_TITLE = 'About'
 
 const PageAbout = ({ data }) => (
-  <div>
-    <Helmet title="About" />
-    <HeadingMain title="About" />
+  <Layout>
+    <Helmet title={PAGE_TITLE} />
+    <HeadingMain title={PAGE_TITLE} />
 
     <div className="section-content section-content--top-smaller container">
       <div className="article lists-dots">
@@ -19,7 +22,8 @@ const PageAbout = ({ data }) => (
           malesuada sem magna non felis. Suspendisse luctus ut tortor eget
           sollicitudin. Morbi venenatis semper est at venenatis. Integer ornare
           velit eget hendrerit scelerisque. Nullam ullamcorper cursus nisi eget
-          fermentum.<br />
+          fermentum.
+          <br />
           Curabitur pulvinar scelerisque libero, sed posuere mi finibus eget.
           Cras dignissim blandit viverra. Duis convallis mauris dictum placerat
           varius.
@@ -82,7 +86,7 @@ const PageAbout = ({ data }) => (
     </div>
 
     <ContactMap />
-  </div>
+  </Layout>
 )
 
 export default PageAbout

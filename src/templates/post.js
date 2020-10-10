@@ -5,7 +5,7 @@ import ArticleNavigation from '../components/ArticleNavigation'
 import Breadcrumbs from '../components/Breadcrumbs'
 import ImageLightbox from '../components/ImageLightbox'
 
-const PagePost = props => {
+const PagePost = (props) => {
   const { currentPost, allPosts } = props.data
   const { title } = currentPost.frontmatter
   const articleNav = (
@@ -31,11 +31,10 @@ const PagePost = props => {
             <ImageLightbox
               classNameImg="el-center mb60"
               previewImages={[
-                currentPost.frontmatter.imageSrc.childImageSharp.responsiveSizes
-                  .src,
+                currentPost.frontmatter.imageSrc.childImageSharp.fluid.src,
               ]}
               fullImages={[
-                currentPost.frontmatter.imageSrc.childImageSharp.responsiveSizes
+                currentPost.frontmatter.imageSrc.childImageSharp.fluid
                   .originalImg,
               ]}
               alt={title}
@@ -59,7 +58,7 @@ export const query = graphql`
         title
         imageSrc {
           childImageSharp {
-            responsiveSizes(maxWidth: 950) {
+            fluid(maxWidth: 950) {
               src
               originalImg
             }

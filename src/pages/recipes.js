@@ -6,18 +6,22 @@ import FontAwesome from 'react-fontawesome'
 import ArticlePreview from '../components/ArticlePreview'
 import Breadcrumbs from '../components/Breadcrumbs'
 import HeadingMain from '../components/HeadingMain'
+import Layout from '../layouts/Page'
+
+const PAGE_TITLE = 'Recipes'
 
 const Recipes = ({ data }) => {
-  const pageTitle = 'Recipes'
   return (
-    <div>
-      <Helmet title={pageTitle} />
+    <Layout>
+      <Helmet title={PAGE_TITLE} />
       <HeadingMain
-        title={`${pageTitle} (${data.allMarkdownRemark.totalCount})`}
+        title={`${PAGE_TITLE} (${data.allMarkdownRemark.totalCount})`}
       />
 
       <div className="container">
-        <Breadcrumbs items={[{ text: 'Home', to: '/' }, { text: pageTitle }]} />
+        <Breadcrumbs
+          items={[{ text: 'Home', to: '/' }, { text: PAGE_TITLE }]}
+        />
       </div>
 
       <div className="section-content section-content--top-smaller container">
@@ -31,7 +35,7 @@ const Recipes = ({ data }) => {
               imageShadow
               imageSrc={
                 node.frontmatter.imageSrc &&
-                node.frontmatter.imageSrc.childImageSharp.responsiveSizes.src
+                node.frontmatter.imageSrc.childImageSharp.fluid.src
               }
               link={node.fields.slug}
             >
@@ -50,7 +54,7 @@ const Recipes = ({ data }) => {
           Back to the homepage
         </Link>
       </div>
-    </div>
+    </Layout>
   )
 }
 
@@ -66,7 +70,7 @@ export const query = graphql`
             ingredients
             imageSrc {
               childImageSharp {
-                responsiveSizes(maxWidth: 400) {
+                fluid(maxWidth: 400) {
                   src
                 }
               }

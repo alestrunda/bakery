@@ -8,8 +8,8 @@ const path = require(`path`)
 const { createFilePath } = require(`gatsby-source-filesystem`)
 const createPaginatedPages = require('gatsby-paginate')
 
-exports.onCreateNode = ({ node, getNode, boundActionCreators }) => {
-  const { createNodeField } = boundActionCreators
+exports.onCreateNode = ({ node, getNode, actions }) => {
+  const { createNodeField } = actions
   if (node.internal.type === `MarkdownRemark`) {
     const slug = createFilePath({ node, getNode, basePath: `pages` })
     createNodeField({
@@ -20,12 +20,8 @@ exports.onCreateNode = ({ node, getNode, boundActionCreators }) => {
   }
 }
 
-exports.onCreatePage = function({ page }) {
-  page.layout = page.path === '/' ? 'index' : 'page'
-}
-
-exports.createPages = ({ graphql, boundActionCreators }) => {
-  const { createPage } = boundActionCreators
+exports.createPages = ({ actions, graphql }) => {
+  const { createPage } = actions
   return new Promise((resolve, reject) => {
     graphql(`
       {
@@ -39,7 +35,7 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
                 date
                 imageSrc {
                   childImageSharp {
-                    responsiveSizes(maxWidth: 500) {
+                    fluid(maxWidth: 500) {
                       src
                     }
                   }
@@ -53,7 +49,7 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
           }
         }
       }
-    `).then(result => {
+    `).then((result) => {
       const postsEdges = result.data.allMarkdownRemark.edges.filter(
         ({ node }) => node.fileAbsolutePath.match('/posts/')
       )

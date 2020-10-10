@@ -5,14 +5,19 @@ import Helmet from 'react-helmet'
 import ArticlePreview from '../components/ArticlePreview'
 import Breadcrumbs from '../components/Breadcrumbs'
 import HeadingMain from '../components/HeadingMain'
+import Layout from '../layouts/Page'
+
+const PAGE_TITLE = 'Products'
 
 const Products = ({ data }) => (
-  <div>
-    <Helmet title="Products" />
-    <HeadingMain title={`Products (${data.allMarkdownRemark.totalCount})`} />
+  <Layout>
+    <Helmet title={PAGE_TITLE} />
+    <HeadingMain
+      title={`${PAGE_TITLE} (${data.allMarkdownRemark.totalCount})`}
+    />
 
     <div className="container">
-      <Breadcrumbs items={[{ text: 'Home', to: '/' }, { text: 'Products' }]} />
+      <Breadcrumbs items={[{ text: 'Home', to: '/' }, { text: PAGE_TITLE }]} />
     </div>
 
     <div className="section-content section-content--top-smaller container">
@@ -26,7 +31,7 @@ const Products = ({ data }) => (
             imageShadow={true}
             imageSrc={
               node.frontmatter.imageSrc &&
-              node.frontmatter.imageSrc.childImageSharp.responsiveSizes.src
+              node.frontmatter.imageSrc.childImageSharp.fluid.src
             }
             imageLabel={node.frontmatter.label}
             link={node.fields.slug}
@@ -39,7 +44,7 @@ const Products = ({ data }) => (
         Back to the homepage
       </Link>
     </div>
-  </div>
+  </Layout>
 )
 
 export const query = graphql`
@@ -57,7 +62,7 @@ export const query = graphql`
             label
             imageSrc {
               childImageSharp {
-                responsiveSizes(maxWidth: 400) {
+                fluid(maxWidth: 400) {
                   src
                 }
               }

@@ -4,6 +4,9 @@ import Helmet from 'react-helmet'
 
 import HeadingMain from '../components/HeadingMain'
 import PriceItem from '../components/PriceItem'
+import Layout from '../layouts/Page'
+
+const PAGE_TITLE = 'Menu'
 
 class PageMenu extends React.Component {
   renderMenuItems(array) {
@@ -71,9 +74,9 @@ class PageMenu extends React.Component {
     ]
 
     return (
-      <div>
-        <Helmet title="Menu" />
-        <HeadingMain title="Menu" />
+      <Layout>
+        <Helmet title={PAGE_TITLE} />
+        <HeadingMain title={PAGE_TITLE} />
 
         <div className="section-content section-content--top-smaller container">
           <div className="article article--headings-center text-center">
@@ -98,7 +101,7 @@ class PageMenu extends React.Component {
             </div>
           </div>
         </div>
-      </div>
+      </Layout>
     )
   }
 }
