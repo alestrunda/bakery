@@ -34,7 +34,7 @@ const LayoutPost = ({ children }) => (
         { to: '/#contact', text: 'Contact' },
       ]}
     />
-    <div className="page-content__stretch">{children()}</div>
+    <div className="page-content__stretch">{children}</div>
     <Footer />
   </div>
 )
