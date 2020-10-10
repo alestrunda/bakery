@@ -5,6 +5,8 @@ import HeadingMain from '../components/HeadingMain'
 import PriceItem from '../components/PriceItem'
 import Layout from '../layouts/Page'
 
+import drinks from '../data/drinks'
+import food from '../data/food'
 const PAGE_TITLE = 'Menu'
 
 class PageMenu extends React.Component {
@@ -15,63 +17,6 @@ class PageMenu extends React.Component {
   }
 
   render() {
-    const itemsFood = [
-      {
-        title: 'Quisque tempus',
-        price: '$12.<small class="vertical-top">00</small>',
-      },
-      {
-        title: 'Magna eget',
-        price: '$29.<small class="vertical-top">00</small>',
-      },
-      {
-        title: 'Eros posuere',
-        price: '$50.<small class="vertical-top">00</small>',
-      },
-      {
-        title: 'Sed ac faucibus neque',
-        price: '$99.<small class="vertical-top">00</small>',
-      },
-      { title: 'Cras', price: '$27.<small class="vertical-top">00</small>' },
-      { title: 'Maecenas', price: '$1.<small class="vertical-top">99</small>' },
-      {
-        title: 'Etiam eget',
-        price: '$199.<small class="vertical-top">00</small>',
-      },
-      {
-        title: 'Nunc sagittis',
-        price: '$69.<small class="vertical-top">00</small>',
-      },
-    ]
-    const itemsDrinks = [
-      {
-        title: 'Nunc sagittis',
-        price: '$69.<small class="vertical-top">00</small>',
-      },
-      {
-        title: 'Quisque tempus',
-        price: '$12.<small class="vertical-top">00</small>',
-      },
-      {
-        title: 'Magna eget',
-        price: '$29.<small class="vertical-top">00</small>',
-      },
-      {
-        title: 'Eros posuere',
-        price: '$50.<small class="vertical-top">00</small>',
-      },
-      {
-        title: 'Sed ac faucibus neque',
-        price: '$99.<small class="vertical-top">00</small>',
-      },
-      { title: 'Cras', price: '$27.<small class="vertical-top">00</small>' },
-      { title: 'Maecenas', price: '$1.<small class="vertical-top">99</small>' },
-      {
-        title: 'Etiam eget',
-        price: '$199.<small class="vertical-top">00</small>',
-      },
-    ]
-
     return (
       <Layout>
         <Helmet title={PAGE_TITLE} />
@@ -91,11 +36,11 @@ class PageMenu extends React.Component {
             <div className="grid grid--xhuge mt45">
               <div className="grid__item grid__item--lg-span-6">
                 <h3>Food</h3>
-                {this.renderMenuItems(itemsFood)}
+                {this.renderMenuItems(food)}
               </div>
               <div className="grid__item grid__item--lg-span-6 grid__item--break-md-35">
                 <h3>Drinks</h3>
-                {this.renderMenuItems(itemsDrinks)}
+                {this.renderMenuItems(drinks)}
               </div>
             </div>
           </div>
