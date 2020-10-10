@@ -2,29 +2,36 @@ import React from 'react'
 import Slider from 'react-slick'
 import { withPrefix } from 'gatsby-link'
 
+const SLIDES = [
+  {
+    img_big: '1.jpg',
+    img_small: '1_800w.jpg',
+    subtitle: 'Cupcakes',
+    title: 'Decicilous',
+  },
+  {
+    img_big: '2.jpg',
+    img_small: '2_800w.jpg',
+    subtitle: 'Maple Syrup',
+    title: 'Pancakes',
+  },
+  {
+    img_big: '3.jpg',
+    img_small: '3_800w.jpg',
+    subtitle: 'Chocolate',
+    title: 'Biscuits',
+  },
+  {
+    img_big: '4.jpg',
+    img_small: '4_800w.jpg',
+    title: 'Fair Prices',
+  },
+]
+
 class SliderMain extends React.Component {
-  constructor() {
-    super()
-    /*fetch('http://localhost:8080/api/slides')
-      .then(response => {
-        return response.json()
-      })
-      .then(response => {
-        this.setState({ slides: response })
-      })
-      .catch(reject => {
-        this.setState({ error: 'No slides found' })
-      })*/
-  }
-
-  state = {
-    slides: [],
-    error: '',
-  }
-
   render() {
-    const slides = this.state.slides.map((slide) => (
-      <div key={slide._id} className="slider-big__slide">
+    const slides = SLIDES.map((slide) => (
+      <div key={slide.img_big} className="slider-big__slide">
         <picture>
           <source
             media="(max-width: 800px)"
@@ -52,16 +59,8 @@ class SliderMain extends React.Component {
         </div>
       </div>
     ))
-    return (
-      <div>
-        {this.state.error && (
-          <p className="mt50 mb0 text-center text-red text-bold text-big">
-            {this.state.error}
-          </p>
-        )}
-        {slides && <Slider {...this.props}>{slides}</Slider>}
-      </div>
-    )
+
+    return <div>{slides && <Slider {...this.props}>{slides}</Slider>}</div>
   }
 }
 

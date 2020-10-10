@@ -1,11 +1,14 @@
 import React from 'react'
-import Helmet from 'react-helmet'
 import PropTypes from 'prop-types'
 
 import ArticlePreview from '../components/ArticlePreview'
 import Breadcrumbs from '../components/Breadcrumbs'
 import HeadingMain from '../components/HeadingMain'
 import Pagination from '../components/Pagination'
+
+import Layout from '../layouts/Page'
+
+const PAGE_TITLE = 'Blog'
 
 const PageBlog = ({ data, pageContext }) => {
   let nextUrl = (pageContext.index + 1).toString()
@@ -14,17 +17,18 @@ const PageBlog = ({ data, pageContext }) => {
   else if (previousUrl === '0') previousUrl = ''
 
   return (
-    <div>
-      <Helmet title="Blog" />
-      <HeadingMain title={`Blog (${data.allMarkdownRemark.totalCount})`} />
-
+    <Layout title={PAGE_TITLE}>
+      <HeadingMain
+        title={`${PAGE_TITLE} (${data.allMarkdownRemark.totalCount})`}
+      />
       <div className="container">
-        <Breadcrumbs items={[{ text: 'Home', to: '/' }, { text: 'Blog' }]} />
+        <Breadcrumbs
+          items={[{ text: 'Home', to: '/' }, { text: PAGE_TITLE }]}
+        />
       </div>
-
       <div className="section-content section-content--bottom-smaller section-content--top-smaller container">
         <div className="grid grid--center">
-          {pageContext.group.map(({ node }, index) => {
+          {pageContext.group.map(({ node }) => {
             return (
               <div className="grid__item grid__item--md-span-4" key={node.id}>
                 <ArticlePreview
@@ -49,7 +53,7 @@ const PageBlog = ({ data, pageContext }) => {
           basePageUrl="/blog/"
         />
       </div>
-    </div>
+    </Layout>
   )
 }
 

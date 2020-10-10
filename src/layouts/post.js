@@ -8,9 +8,9 @@ import PageHelmet from '../containers/PageHelmet'
 import '../scss/main.scss'
 import 'slick-carousel/slick/slick.css'
 
-const LayoutPost = ({ children }) => (
+const LayoutPost = ({ children, title }) => (
   <div className="page-content">
-    <PageHelmet />
+    <PageHelmet title={title} />
     <Header
       className="page-header--offset-bottom"
       menuItemsLeft={[

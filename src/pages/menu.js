@@ -1,5 +1,4 @@
 import React from 'react'
-import Helmet from 'react-helmet'
 
 import HeadingMain from '../components/HeadingMain'
 import PriceItem from '../components/PriceItem'
@@ -7,6 +6,7 @@ import Layout from '../layouts/Page'
 
 import drinks from '../data/drinks'
 import food from '../data/food'
+
 const PAGE_TITLE = 'Menu'
 
 class PageMenu extends React.Component {
@@ -18,10 +18,8 @@ class PageMenu extends React.Component {
 
   render() {
     return (
-      <Layout>
-        <Helmet title={PAGE_TITLE} />
+      <Layout title={PAGE_TITLE}>
         <HeadingMain title={PAGE_TITLE} />
-
         <div className="section-content section-content--top-smaller container">
           <div className="article article--headings-center text-center">
             <h1>Sed ultricies aliquet</h1>

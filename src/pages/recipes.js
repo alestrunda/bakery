@@ -1,6 +1,5 @@
 import React from 'react'
 import Link from 'gatsby-link'
-import Helmet from 'react-helmet'
 import FontAwesome from 'react-fontawesome'
 
 import ArticlePreview from '../components/ArticlePreview'
@@ -12,8 +11,7 @@ const PAGE_TITLE = 'Recipes'
 
 const Recipes = ({ data }) => {
   return (
-    <Layout>
-      <Helmet title={PAGE_TITLE} />
+    <Layout title={PAGE_TITLE}>
       <HeadingMain
         title={`${PAGE_TITLE} (${data.allMarkdownRemark.totalCount})`}
       />

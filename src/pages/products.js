@@ -1,6 +1,5 @@
 import React from 'react'
 import Link from 'gatsby-link'
-import Helmet from 'react-helmet'
 
 import ArticlePreview from '../components/ArticlePreview'
 import Breadcrumbs from '../components/Breadcrumbs'
@@ -10,18 +9,15 @@ import Layout from '../layouts/Page'
 const PAGE_TITLE = 'Products'
 
 const Products = ({ data }) => (
-  <Layout>
-    <Helmet title={PAGE_TITLE} />
+  <Layout title={PAGE_TITLE}>
     <HeadingMain
       title={`${PAGE_TITLE} (${data.allMarkdownRemark.totalCount})`}
     />
-
     <div className="container">
       <Breadcrumbs items={[{ text: 'Home', to: '/' }, { text: PAGE_TITLE }]} />
     </div>
-
     <div className="section-content section-content--top-smaller container">
-      {data.allMarkdownRemark.edges.map(({ node }, index) => {
+      {data.allMarkdownRemark.edges.map(({ node }) => {
         return (
           <ArticlePreview
             key={node.id}

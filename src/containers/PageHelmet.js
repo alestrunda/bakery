@@ -1,9 +1,9 @@
 import React from 'react'
 import Helmet from 'react-helmet'
 
-const PageHelmet = props => {
+const PageHelmet = ({ title }) => {
   return (
-    <Helmet defaultTitle="Bakery">
+    <Helmet defaultTitle="Bakery" title={title}>
       <meta name="description" content="Bakery template powered by Gatsby" />
       <meta name="author" content="Aleš Trunda alestrunda.cz" />
       <meta name="viewport" content="width=device-width, initial-scale=1" />

@@ -1,6 +1,4 @@
 import React from 'react'
-import Link from 'gatsby-link'
-import Helmet from 'react-helmet'
 
 import ContactMap from '../containers/ContactMap'
 import HeadingMain from '../components/HeadingMain'
@@ -9,10 +7,8 @@ import Layout from '../layouts/Page'
 const PAGE_TITLE = 'About'
 
 const PageAbout = () => (
-  <Layout>
-    <Helmet title={PAGE_TITLE} />
+  <Layout title={PAGE_TITLE}>
     <HeadingMain title={PAGE_TITLE} />
-
     <div className="section-content section-content--top-smaller container">
       <div className="article lists-dots">
         <h1>Integer ornare</h1>
