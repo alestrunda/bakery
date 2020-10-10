@@ -1,3 +1,7 @@
 .slick-dots {
     display: flex !important;
 }
+
+.slick-slide .slide:focus {
+    outline: none;
+}
