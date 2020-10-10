@@ -1,6 +1,5 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import FontAwesome from 'react-fontawesome'
 
 import Footer from '../containers/Footer'
 import Header from '../containers/Header'

@@ -8,7 +8,7 @@ import Layout from '../layouts/Page'
 
 const PAGE_TITLE = 'About'
 
-const PageAbout = ({ data }) => (
+const PageAbout = () => (
   <Layout>
     <Helmet title={PAGE_TITLE} />
     <HeadingMain title={PAGE_TITLE} />
