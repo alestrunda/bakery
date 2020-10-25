@@ -7,19 +7,19 @@ const SLIDES = [
     img_big: '1.jpg',
     img_small: '1_800w.jpg',
     subtitle: 'Cupcakes',
-    title: 'Decicilous',
+    title: 'New Decicilous',
   },
   {
     img_big: '2.jpg',
     img_small: '2_800w.jpg',
     subtitle: 'Maple Syrup',
-    title: 'Pancakes',
+    title: 'Special Pancakes',
   },
   {
     img_big: '3.jpg',
     img_small: '3_800w.jpg',
     subtitle: 'Chocolate',
-    title: 'Biscuits',
+    title: 'Organic Biscuits',
   },
   {
     img_big: '4.jpg',
