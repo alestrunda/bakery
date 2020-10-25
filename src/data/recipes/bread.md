@@ -2,7 +2,7 @@
 title: Bread
 date: "2017-08-20"
 ingredients: ["2 teaspoons vanilla extract",
-"1 eggs"
+"1 eggs",
 "1 & 1/2 cups all-purpose flour",
 "1/2 cup milk"]
 description: "Morbi a tempor ante, et venenatis ipsum. Vestibulum ipsum justo, egestas eu finibus eget."
