@@ -4,7 +4,7 @@ import ArticleNavigation from '../components/ArticleNavigation'
 import Breadcrumbs from '../components/Breadcrumbs'
 import ImageLightbox from '../components/ImageLightbox'
 
-import Layout from '../layouts/Page'
+import Layout from '../layouts/Post'
 
 const PagePost = ({ data }) => {
   const { currentPost, allPosts } = data
