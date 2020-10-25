@@ -72,6 +72,7 @@ const IndexPage = () => {
         recipes: allMarkdownRemark(
           filter: { fileAbsolutePath: { regex: "/recipes/" } }
           sort: { fields: [frontmatter___date], order: DESC }
+          limit: 5
         ) {
           edges {
             node {
