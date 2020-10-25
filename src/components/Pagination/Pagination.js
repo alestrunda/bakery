@@ -4,16 +4,17 @@ import PropTypes from 'prop-types'
 
 import PaginationItem from './PaginationItem'
 
-const Pagination = props => {
+const Pagination = (props) => {
   const {
     currentPageNumber,
     maxPageNumber,
-    previousPageUrl,
-    nextPageUrl,
     basePageUrl,
     hideIfEmpty,
     className,
   } = props
+
+  const prevPageNumber = currentPageNumber - 1
+  const nextPageNumber = currentPageNumber + 1
 
   if (hideIfEmpty && maxPageNumber === 1) return
 
@@ -24,7 +25,7 @@ const Pagination = props => {
     return (
       <PaginationItem
         key={index}
-        to={pageNumber.toString()}
+        to={`${basePageUrl}${pageNumber}`}
         className={className}
         classNameExtra={activeClass}
       >
@@ -35,9 +36,13 @@ const Pagination = props => {
 
   return (
     <ul className={className}>
-      {previousPageUrl && (
+      {prevPageNumber > 0 && (
         <PaginationItem
-          to={previousPageUrl}
+          to={
+            prevPageNumber === 1
+              ? basePageUrl
+              : `${basePageUrl}${prevPageNumber}`
+          }
           className={className}
           classNameModifier={'prev'}
         >
@@ -52,9 +57,9 @@ const Pagination = props => {
         1
       </PaginationItem>
       {pagingItems}
-      {nextPageUrl && (
+      {nextPageNumber <= maxPageNumber && (
         <PaginationItem
-          to={nextPageUrl}
+          to={`${basePageUrl}${nextPageNumber}`}
           className={className}
           classNameModifier={'next'}
         >
@@ -68,8 +73,6 @@ const Pagination = props => {
 Pagination.propTypes = {
   currentPageNumber: PropTypes.number.isRequired,
   maxPageNumber: PropTypes.number.isRequired,
-  previousPageUrl: PropTypes.string,
-  nextPageUrl: PropTypes.string,
   basePageUrl: PropTypes.string.isRequired,
   hideIfEmpty: PropTypes.bool,
   className: PropTypes.string,

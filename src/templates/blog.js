@@ -11,11 +11,6 @@ import Layout from '../layouts/Page'
 const PAGE_TITLE = 'Blog'
 
 const PageBlog = ({ data, pageContext }) => {
-  let nextUrl = (pageContext.index + 1).toString()
-  let previousUrl = (pageContext.index - 1).toString()
-  if (previousUrl === '1') previousUrl = '/blog/'
-  else if (previousUrl === '0') previousUrl = ''
-
   return (
     <Layout title={PAGE_TITLE}>
       <HeadingMain
@@ -48,8 +43,6 @@ const PageBlog = ({ data, pageContext }) => {
         <Pagination
           currentPageNumber={pageContext.index}
           maxPageNumber={pageContext.pageCount}
-          previousPageUrl={previousUrl}
-          nextPageUrl={nextUrl <= pageContext.pageCount ? nextUrl : null}
           basePageUrl="/blog/"
         />
       </div>
