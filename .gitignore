@@ -6,6 +6,5 @@ node_modules
 public/
 .DS_Store
 yarn-error.log
-/assets
 /design
 /static
