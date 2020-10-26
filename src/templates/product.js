@@ -7,7 +7,7 @@ import IconLink from '../components/IconLink'
 import ImageLightbox from '../components/ImageLightbox'
 import LabelBox from '../components/LabelBox'
 
-import Layout from '../layouts/Page'
+import Layout from '../layouts/Post'
 
 const PageProduct = ({ data }) => {
   const { currentPost, allPosts } = data
@@ -26,7 +26,7 @@ const PageProduct = ({ data }) => {
             { text: title },
           ]}
         />
-        <div className="section-content">
+        <div className="section-content section-content--top-small">
           <div className="mb30">{articleNav}</div>
           <div className="article">
             {currentPost.frontmatter.imageSrc && (
