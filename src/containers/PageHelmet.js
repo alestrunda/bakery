@@ -1,6 +1,10 @@
 import React from 'react'
 import Helmet from 'react-helmet'
 
+import 'react-image-lightbox/style.css'
+import '../scss/main.scss'
+import 'slick-carousel/slick/slick.css'
+
 const PageHelmet = ({ title }) => {
   return (
     <Helmet defaultTitle="Bakery" title={title}>

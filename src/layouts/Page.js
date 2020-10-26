@@ -5,9 +5,6 @@ import Footer from '../containers/Footer'
 import Header from '../containers/Header'
 import PageHelmet from '../containers/PageHelmet'
 
-import '../scss/main.scss'
-import 'slick-carousel/slick/slick.css'
-
 const LayoutPage = ({ children, title }) => (
   <div className="page-content">
     <PageHelmet title={title} />
