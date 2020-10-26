@@ -1,5 +1,6 @@
 import React from 'react'
 import FontAwesome from 'react-fontawesome'
+import { graphql } from 'gatsby'
 
 import ArticleNavigation from '../components/ArticleNavigation'
 import Breadcrumbs from '../components/Breadcrumbs'
