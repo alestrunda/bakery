@@ -12,6 +12,7 @@ import Layout from '../layouts/Page'
 const PAGE_TITLE = 'Blog'
 
 const PageBlog = ({ data, pageContext }) => {
+  console.log(pageContext)
   return (
     <Layout title={PAGE_TITLE}>
       <HeadingMain
@@ -29,9 +30,9 @@ const PageBlog = ({ data, pageContext }) => {
               <div className="grid__item grid__item--md-span-4" key={node.id}>
                 <ArticlePreview
                   title={node.frontmatter.title}
-                  imageSrc={
+                  image={
                     node.frontmatter.imageSrc &&
-                    node.frontmatter.imageSrc.childImageSharp.fluid.src
+                    node.frontmatter.imageSrc.childImageSharp.fluid
                   }
                   link={node.fields.slug}
                 >

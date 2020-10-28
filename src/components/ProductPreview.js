@@ -2,17 +2,17 @@ import React from 'react'
 import Link from 'gatsby-link'
 import FontAwesome from 'react-fontawesome'
 import PropTypes from 'prop-types'
-import classNames from 'classnames'
+import Img from 'gatsby-image'
 
 import LabelBox from '../components/LabelBox'
 
-const ProductPreview = props => {
-  const { link, imageSrc, title, urlShop, urlLike, labelColor, label } = props
+const ProductPreview = (props) => {
+  const { link, image, title, urlShop, urlLike, labelColor, label } = props
 
   return (
     <LabelBox className="product-preview" label={label} color={labelColor}>
       <Link to={link}>
-        <img className="el-full" src={imageSrc} alt={title} />
+        <Img className="el-full" fluid={image} alt={title} />
       </Link>
       <div className="product-preview__hover">
         <div className="product-preview__hover-inner">
@@ -41,7 +41,7 @@ ProductPreview.propTypes = {
   label: PropTypes.string,
   labelColor: PropTypes.string,
   link: PropTypes.string.isRequired,
-  imageSrc: PropTypes.string.isRequired,
+  image: PropTypes.object.isRequired,
   title: PropTypes.string.isRequired,
   urlLike: PropTypes.string,
   urlShop: PropTypes.string,

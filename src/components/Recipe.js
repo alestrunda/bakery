@@ -2,8 +2,9 @@ import React from 'react'
 import FontAwesome from 'react-fontawesome'
 import PropTypes from 'prop-types'
 import Link from 'gatsby-link'
+import Img from 'gatsby-image'
 
-const Recipe = props => {
+const Recipe = (props) => {
   const { recipe, title } = props
 
   return (
@@ -22,9 +23,9 @@ const Recipe = props => {
       </div>
       <div className="recipe-simple__photo">
         <Link to={recipe.link}>
-          <img
+          <Img
             className="el-full recipe-simple__img"
-            src={recipe.imageSrc}
+            fluid={recipe.image}
             alt="image"
           />
         </Link>
@@ -52,7 +53,7 @@ const Recipe = props => {
 
 Recipe.propTypes = {
   title: PropTypes.string,
-  recipe: PropTypes.object,
+  recipe: PropTypes.object.isRequired,
 }
 
 export default Recipe

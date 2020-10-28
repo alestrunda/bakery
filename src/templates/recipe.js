@@ -60,7 +60,7 @@ const PageRecipe = ({ data }) => {
               <div className="grid__item grid__item--md-span-6 grid__item--break-sm-30">
                 <ImageLightbox
                   previewImages={[
-                    currentPost.frontmatter.imageSrc.childImageSharp.fluid.src,
+                    currentPost.frontmatter.imageSrc.childImageSharp.fluid,
                   ]}
                   fullImages={[
                     currentPost.frontmatter.imageSrc.childImageSharp.fluid
@@ -97,7 +97,7 @@ export const query = graphql`
         imageSrc {
           childImageSharp {
             fluid(maxWidth: 500) {
-              src
+              ...GatsbyImageSharpFluid
               originalImg
             }
           }

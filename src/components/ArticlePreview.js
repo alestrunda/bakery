@@ -3,13 +3,14 @@ import className from 'classnames'
 import Link from 'gatsby-link'
 import FontAwesome from 'react-fontawesome'
 import PropTypes from 'prop-types'
+import Img from 'gatsby-image'
 
 import LabelBox from '../components/LabelBox'
 
-const ArticlePreview = props => {
+const ArticlePreview = (props) => {
   const {
     children,
-    imageSrc,
+    image,
     layout,
     imageHover,
     imageShadow,
@@ -23,12 +24,12 @@ const ArticlePreview = props => {
 
   const img = (
     <LabelBox label={imageLabel}>
-      <img
+      <Img
         className={className(
           'article-preview__img',
           imageHover ? 'article-preview__img--hover' : ''
         )}
-        src={imageSrc}
+        fluid={image}
         alt={title}
       />
     </LabelBox>
@@ -47,7 +48,7 @@ const ArticlePreview = props => {
         textAlign ? `article-preview--${textAlign}` : ''
       )}
     >
-      {imageSrc && (
+      {image && (
         <div className="article-preview__img-wrapper">
           {link ? (
             <Link to={link} className={articlePreviewImgInnerClasses}>
@@ -91,7 +92,7 @@ ArticlePreview.propTypes = {
   textAlign: PropTypes.string,
   layout: PropTypes.string,
   className: PropTypes.string,
-  imageSrc: PropTypes.string,
+  image: PropTypes.object,
   imageLabel: PropTypes.string,
   title: PropTypes.string.isRequired,
   link: PropTypes.string,

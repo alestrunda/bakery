@@ -30,12 +30,11 @@ const PageProduct = ({ data }) => {
           <div className="mb30">{articleNav}</div>
           <div className="article">
             {currentPost.frontmatter.imageSrc && (
-              <div className="wrapper-centering mb60">
+              <div className="article__img">
                 <LabelBox label={label}>
                   <ImageLightbox
                     previewImages={[
-                      currentPost.frontmatter.imageSrc.childImageSharp.fluid
-                        .src,
+                      currentPost.frontmatter.imageSrc.childImageSharp.fluid,
                     ]}
                     fullImages={[
                       currentPost.frontmatter.imageSrc.childImageSharp.fluid
@@ -73,7 +72,7 @@ export const query = graphql`
         imageSrc {
           childImageSharp {
             fluid(maxWidth: 950) {
-              src
+              ...GatsbyImageSharpFluid
               originalImg
             }
           }

@@ -13,7 +13,7 @@ const PagePost = ({ data }) => {
   const articleNav = (
     <ArticleNavigation currentPost={currentPost} posts={allPosts.edges} />
   )
-
+  console.log(currentPost.frontmatter.imageSrc)
   return (
     <Layout title={title}>
       <div className="container">
@@ -29,9 +29,9 @@ const PagePost = ({ data }) => {
           <div className="article">
             {currentPost.frontmatter.imageSrc && (
               <ImageLightbox
-                classNameImg="el-center mb60"
+                classNameImg="article__img"
                 previewImages={[
-                  currentPost.frontmatter.imageSrc.childImageSharp.fluid.src,
+                  currentPost.frontmatter.imageSrc.childImageSharp.fluid,
                 ]}
                 fullImages={[
                   currentPost.frontmatter.imageSrc.childImageSharp.fluid
@@ -60,7 +60,7 @@ export const query = graphql`
         imageSrc {
           childImageSharp {
             fluid(maxWidth: 950) {
-              src
+              ...GatsbyImageSharpFluid
               originalImg
             }
           }

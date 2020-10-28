@@ -38,8 +38,10 @@ class SliderMain extends React.Component {
             srcSet={withPrefix('slider-big/' + slide.img_small)}
           />
           <img
-            className="el-full"
+            className="img-responsive"
             src={withPrefix('slider-big/' + slide.img_big)}
+            width="1920"
+            height="1000"
             alt="slide"
           />
         </picture>

@@ -86,7 +86,7 @@ const IndexPage = () => {
                 imageSrc {
                   childImageSharp {
                     fluid(maxWidth: 500) {
-                      src
+                      ...GatsbyImageSharpFluid
                     }
                   }
                 }
@@ -111,7 +111,7 @@ const IndexPage = () => {
                 imageSrc {
                   childImageSharp {
                     fluid(maxWidth: 500) {
-                      src
+                      ...GatsbyImageSharpFluid
                     }
                   }
                 }
@@ -135,7 +135,7 @@ const IndexPage = () => {
                 imageSrc {
                   childImageSharp {
                     fluid(maxWidth: 500) {
-                      src
+                      ...GatsbyImageSharpFluid
                     }
                   }
                 }
@@ -159,7 +159,7 @@ const IndexPage = () => {
                 imageSrc {
                   childImageSharp {
                     fluid(maxWidth: 500) {
-                      src
+                      ...GatsbyImageSharpFluid
                     }
                   }
                 }
@@ -182,7 +182,7 @@ const IndexPage = () => {
                 imageSrc {
                   childImageSharp {
                     fluid(maxWidth: 260) {
-                      src
+                      ...GatsbyImageSharpFluid
                     }
                   }
                 }
@@ -194,7 +194,7 @@ const IndexPage = () => {
     `
   )
 
-  const tabsRecipes = data.recipes.edges.map(({ node }, index) => {
+  const tabsRecipes = data.recipes.edges.map(({ node }) => {
     return (
       <Pane key={node.id} title={node.frontmatter.title}>
         <div className="tabs-component__tab">
@@ -204,7 +204,7 @@ const IndexPage = () => {
               text: node.frontmatter.description,
               timePrep: parseInt(node.frontmatter.timePrep),
               timeCook: parseInt(node.frontmatter.timeCook),
-              imageSrc: node.frontmatter.imageSrc.childImageSharp.fluid.src,
+              image: node.frontmatter.imageSrc.childImageSharp.fluid,
               link: node.fields.slug,
             }}
           />
@@ -213,7 +213,7 @@ const IndexPage = () => {
     )
   })
 
-  const workers = data.people.edges.map(({ node }, index) => {
+  const workers = data.people.edges.map(({ node }) => {
     return (
       <div
         key={node.id}
@@ -223,24 +223,24 @@ const IndexPage = () => {
           name={node.frontmatter.name}
           title={node.frontmatter.title}
           html={node.html}
-          imageSrc={node.frontmatter.imageSrc.childImageSharp.fluid.src}
+          image={node.frontmatter.imageSrc.childImageSharp.fluid}
         />
       </div>
     )
   })
 
-  const testimonialSlides = data.testimonials.edges.map(({ node }, index) => {
+  const testimonialSlides = data.testimonials.edges.map(({ node }) => {
     return (
       <div key={node.id} className="slide">
         <Testimonial
           html={node.html}
-          imageSrc={node.frontmatter.imageSrc.childImageSharp.fluid.src}
+          image={node.frontmatter.imageSrc.childImageSharp.fluid}
         />
       </div>
     )
   })
 
-  const productSlides = data.products.edges.map(({ node }, index) => {
+  const productSlides = data.products.edges.map(({ node }) => {
     return (
       <div key={node.id} className="slider-products__slide">
         <ProductPreview
@@ -249,13 +249,13 @@ const IndexPage = () => {
           urlShop={node.frontmatter.urlShop}
           title={node.frontmatter.title}
           link={node.fields.slug}
-          imageSrc={node.frontmatter.imageSrc.childImageSharp.fluid.src}
+          image={node.frontmatter.imageSrc.childImageSharp.fluid}
         />
       </div>
     )
   })
 
-  const servicesColumns = data.services.edges.map(({ node }, index) => {
+  const servicesColumns = data.services.edges.map(({ node }) => {
     return (
       <div
         key={node.id}
@@ -264,7 +264,7 @@ const IndexPage = () => {
         <ArticlePreview
           title={node.frontmatter.title}
           link={node.fields.slug}
-          imageSrc={node.frontmatter.imageSrc.childImageSharp.fluid.src}
+          image={node.frontmatter.imageSrc.childImageSharp.fluid}
         >
           {node.excerpt}
         </ArticlePreview>

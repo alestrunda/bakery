@@ -1,13 +1,12 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import Img from 'gatsby-image'
 
-const Testimonial = props => {
-  const { imageSrc, html } = props
-
+const Testimonial = ({ image, html }) => {
   return (
     <blockquote className="testimonial">
       <div className="testimonial__img">
-        <img className="image-round el-center" src={imageSrc} alt="image" />
+        <Img className="image-round el-center" fluid={image} alt="image" />
       </div>
       <div className="testimonial__content">
         <div dangerouslySetInnerHTML={{ __html: html }} />
@@ -17,7 +16,7 @@ const Testimonial = props => {
 }
 
 Testimonial.propTypes = {
-  imageSrc: PropTypes.string.isRequired,
+  image: PropTypes.object.isRequired,
   html: PropTypes.string.isRequired,
 }
 

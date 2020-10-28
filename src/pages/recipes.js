@@ -27,9 +27,9 @@ const Recipes = ({ data }) => (
             textAlign="left"
             layout="left"
             imageShadow
-            imageSrc={
+            image={
               node.frontmatter.imageSrc &&
-              node.frontmatter.imageSrc.childImageSharp.fluid.src
+              node.frontmatter.imageSrc.childImageSharp.fluid
             }
             link={node.fields.slug}
           >
@@ -64,7 +64,7 @@ export const query = graphql`
             imageSrc {
               childImageSharp {
                 fluid(maxWidth: 400) {
-                  src
+                  ...GatsbyImageSharpFluid
                 }
               }
             }
