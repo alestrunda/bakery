@@ -4,6 +4,8 @@ Simple web template Bakery, powered by Gatsby. Based on [gatsby-starter-default]
 
 Using Gatsby (react, GraphQL), SASS (ITCSS).
 
+Check the template **[online](https://bakery-gatsby.netlify.app/)**.
+
 Design from https://www.dealfuel.com/seller/free-bakery-template/
 
 Images from [unsplash.com](https://unsplash.com/)
