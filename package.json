@@ -15,7 +15,7 @@
     "gatsby-remark-copy-linked-files": "^2.3.19",
     "gatsby-remark-images": "^3.3.33",
     "gatsby-source-filesystem": "^2.3.34",
-    "gatsby-transformer-remark": "^2.8.38",
+    "gatsby-transformer-remark": "^5.25.1",
     "gatsby-transformer-sharp": "^2.5.17",
     "google-map-react": "^2.1.7",
     "lodash.throttle": "^4.1.1",
